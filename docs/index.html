@@ -338,14 +338,14 @@
 </section>
 <section id="agenda" class="slide level2">
 <h2>Agenda</h2>
-<ol type="1">
+<ul>
 <li>Introduction</li>
 <li>Motivation</li>
 <li>Regularized Maximum Pseudo-Likelihood Graph Estimator</li>
 <li>Algorithms for estimation</li>
-<li>Simulations</li>
+<li>Simulation Study</li>
 <li>Application to real data</li>
-</ol>
+</ul>
 <!-- 
   1. introducao
   2. teorico 
@@ -383,7 +383,7 @@
 <h2>Vector-Valued Stochastic Processes</h2>
 <ul>
 <li><p><span class="math inline">\(X_v^{(i)} \in A,\)</span> <span class="math inline">\(A\)</span> a finite alphabet.</p></li>
-<li><p><span class="math inline">\(\bf X^{(i)} = (X_1^{(i)}, X_2^{(i)}, \dots, X_d^{(i)}).\)</span></p></li>
+<li><p><span class="math inline">\(\bf X^{(i)} = \big(X_1^{(i)}, X_2^{(i)}, \dots, X_d^{(i)}\big).\)</span></p></li>
 <li><p>Process <span class="math inline">\(\bf X = \{X^{(i)}: -\infty&lt;i&lt;\infty\}.\)</span></p></li>
 <li><p>We assume the process <span class="math inline">\(\bf X\)</span> has an underlying graph <span class="math inline">\(G^*.\)</span></p></li>
 </ul>
@@ -397,45 +397,33 @@
 </div>
 </div>
 </section>
-<section id="motivation-1-leonardi-et-al.-2023" class="slide level2 smaller">
-<h2>Motivation 1: Leonardi et al.&nbsp;(2023)</h2>
-<p>Consider these estimated neighborhoods for a set of 5 discrete random variables: <span class="math display">\[
-\mathrm{ne(X_1)=\{2,3\}}, \qquad \mathrm{ne(X_2)=\{3\}}, \qquad\mathrm{ne(X_3)=\{1,2,4,5\}},
-\]</span> <span class="math display">\[
-\mathrm{ne(X_4)=\{3\}}, \qquad \mathrm{ne(X_5)=\{3,4\}}.
-\]</span></p>
-<div class="fragment">
-<p><br></p>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="images/sim/conserv_non_conserv_frondana.png"></p>
-</figure>
-</div>
-</div>
+<section id="previous-works" class="slide level2 smaller">
+<h2>Previous works</h2>
+<ul>
+<li><p>Extensive research has been conducted on discrete graphical models or Markov random fields, especially for binary graphical models with pairwise interactions (Lauritzen, 1996, and Galves et al., 2015).</p></li>
+<li><p>Methods for estimating graph structures have been proposed for continuous random variables and various types of interactions (Meinshausen and Bühlmann, 2006).</p></li>
+<li><p>The assumption of independence of the observations in the non-homogeneous Markov random fields setting is often too restrictive.</p></li>
+<li><p>The assumption of independence in observations is often too restrictive in real world scenarios (Cerqueira et al., 2017).</p></li>
+<li><p>The independence assumption does not hold and these methods serve only as approximations to the true underlying distribution.</p></li>
+<li><p>Traditional model selection techniques involve estimating neighborhoods of individual nodes and constructing the graph based on these neighborhoods (Ravikumar et al., 2010).</p></li>
+</ul>
 </section>
-<section id="motivation-2-leonardi-et-al.-2021" class="slide level2 smaller">
-<h2>Motivation 2: Leonardi et al.&nbsp;(2021)</h2>
+<section id="motivation" class="slide level2 smaller">
+<h2>Motivation</h2>
 <ul>
-<li><p>A model selection criterion for independence within random vectors.</p></li>
-<li><p><span class="math inline">\(Y^{(i)}=\big(Y^{(i)}_{1}, \ldots, Y^{(i)}_{7}\big),\)</span> with joint probability distribution <span class="math inline">\(p(y_1,\ldots,y_7).\)</span></p></li>
-<li><p><span class="math inline">\(\mathbf{Y}=\big\{Y^{(i)}\big\}\)</span> is multivariate stochastic process (discrete or continuous).</p></li>
-<li><p>The method decomposes the vector’s distribution function into independent blocks.</p></li>
-<li><p>The process can be iid or dependent data.</p></li>
-</ul>
-<div class="fragment">
-<div class="columns">
-<div class="column" style="width:60%;">
+<li>Leonardi et al.&nbsp;(2021):
 <ul>
-<li><p>If the set of independence of <span class="math inline">\(\mathbf{Y}\)</span> is <span class="math inline">\(U = \{3\}\)</span>, then <span class="math display">\[p(y_1,\ldots,y_7) = p(y_1,y_2,y_3)p(y_4,y_5,y_6,y_7).\]</span></p></li>
-<li><p>Therefore, <span class="math inline">\((Y_1,Y_2,Y_3) \perp (Y_4,Y_5,Y_6,Y_7).\)</span></p></li>
+<li>estimate blocks of independence within multivariate stochastic process,</li>
+<li>applied to both iid and processes under mixing conditions</li>
+<li>discrete or continuous data.</li>
+</ul></li>
+<li>Leonardi et al.&nbsp;(2023):
+<ul>
+<li>estimate the neighborhood of each vertex and then constructs the graph,</li>
+<li>assume the process is iid</li>
+<li>discrete data.</li>
+</ul></li>
 </ul>
-</div><div class="column" style="width:40%;">
-<!-- TODO: inserir uma figura -->
-<!-- TODO: inserir uma figura -->
-<!-- TODO: inserir uma figura -->
-</div>
-</div>
-</div>
 </section>
 <section id="objectives-of-the-research" class="slide level2 smaller">
 <h2>Objectives of the research</h2>
@@ -533,7 +521,12 @@
 <p><br></p>
 <p>We prove that eventually almost surely as <span class="math inline">\(n\to\infty,\)</span> neither of the cases above can happen, which implies that <span class="math inline">\(\widehat G = G^*.\)</span></p>
 </section>
-<section id="algorithms-for-estimation" class="slide level2 smaller">
+<section>
+<section id="algorithms-for-estimation" class="title-slide slide level1 center">
+<h1>Algorithms for estimation</h1>
+
+</section>
+<section id="algorithms-for-estimation-1" class="slide level2 smaller">
 <h2>Algorithms for Estimation</h2>
 <p><br><br> Define</p>
 <span class="math display">\[\begin{equation*}\label{eq:defH}
@@ -637,8 +630,13 @@
 <li><p>Implements the four algorithms considered for estimation: exact, simulated annealing, forward, and stepwise.</p></li>
 <li><p>Offers examples on how to use the package.</p></li>
 </ul>
+</section></section>
+<section>
+<section id="simulation-study" class="title-slide slide level1 center">
+<h1>Simulation Study</h1>
+
 </section>
-<section id="simulation-study" class="slide level2 smaller">
+<section id="simulation-study-1" class="slide level2 smaller">
 <h2>Simulation Study</h2>
 <ul>
 <li><strong>Objective</strong>: Assess the performance of the proposed via simulation studies.</li>
@@ -688,35 +686,34 @@
 </div><div class="column" style="width:60%;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="images/sim/ex1_graph.jpg"></p>
+<p><img data-src="images/sim/ex1_graph.jpg" width="250"></p>
 </figure>
 </div>
 </div>
 </div>
 <ul>
-<li><strong>Aim</strong>: assess the performance of the algorithms for estimation.</li>
+<li><p><strong>Aim</strong>: assess the performance of the algorithms for estimation.</p></li>
+<li><p><strong>Data generation</strong>: Gibbs Sampler algorithm (Geman and Geman, 1984 and Gelfand and Smith, 1990).</p></li>
 </ul>
-</section>
-<section id="example-11---data-generation" class="slide level2 smaller">
-<h2>Example 11 - Data Generation</h2>
-<ol start="0" type="1">
-<li><p>Establish theoretical values for the marginal and conditional distributions.</p></li>
-<li><p>Initialize the variables</p></li>
-</ol>
-<span class="math display">\[\begin{align*}
-    X_{3}^{0} &amp;\sim p(X_3), &amp;\qquad X_{1}^{0} &amp;\sim p(X_1| X_{3}^{0}), \\
-    X_{2}^{0} &amp;\sim p(X_2| X_{1}^{0}, X_{3}^{0}), &amp;\qquad X_{4}^{0} &amp;\sim p(X_4| X_{3}^{0}), \\
-    X_{5}^{0} &amp;\sim p(X_5| X_{3}^{0}).
-\end{align*}\]</span>
-<ol start="2" type="1">
-<li>For <span class="math inline">\(j = 1, 2 \dots,\)</span> generate</li>
-</ol>
-<span class="math display">\[\begin{align*}
-    X_{1}^{j} &amp;\sim p(X_1| X_{2}^{j-1}, X_{3}^{j-1}), &amp;\qquad X_{2}^{j} &amp;\sim p(X_2| X_{1}^{j}, X_{3}^{j-1}), \\
-    X_{4}^{j} &amp;\sim p(X_4| X_{3}^{j-1}), &amp;\qquad X_{5}^{j} &amp;\sim p(X_5| X_{3}^{j-1}), \\
-    X_{3}^{j} &amp;\sim p(X_3| X_{1}^{j}, X_{2}^{j}, X_{4}^{j}, X_{5}^{j}).
-\end{align*}\]</span>
-<p>Step 2 above should be repeated accordingly to generate a sample with the size needed.</p>
+<!-- ## Example 11 - Data Generation {.smaller} -->
+<!-- 0. Establish theoretical values for the marginal and conditional distributions. -->
+<!-- 1. Initialize the variables -->
+<!-- ``` {=tex} -->
+<!-- \begin{align*}  -->
+<!--     X_{3}^{0} &\sim p(X_3), &\qquad X_{1}^{0} &\sim p(X_1| X_{3}^{0}), \\ -->
+<!--     X_{2}^{0} &\sim p(X_2| X_{1}^{0}, X_{3}^{0}), &\qquad X_{4}^{0} &\sim p(X_4| X_{3}^{0}), \\ -->
+<!--     X_{5}^{0} &\sim p(X_5| X_{3}^{0}).  -->
+<!-- \end{align*} -->
+<!-- ``` -->
+<!-- 2. For $j = 1, 2 \dots,$ generate -->
+<!-- ``` {=tex}    -->
+<!-- \begin{align*} -->
+<!--     X_{1}^{j} &\sim p(X_1| X_{2}^{j-1}, X_{3}^{j-1}), &\qquad X_{2}^{j} &\sim p(X_2| X_{1}^{j}, X_{3}^{j-1}), \\ -->
+<!--     X_{4}^{j} &\sim p(X_4| X_{3}^{j-1}), &\qquad X_{5}^{j} &\sim p(X_5| X_{3}^{j-1}), \\ -->
+<!--     X_{3}^{j} &\sim p(X_3| X_{1}^{j}, X_{2}^{j}, X_{4}^{j}, X_{5}^{j}). -->
+<!-- \end{align*} -->
+<!-- ``` -->
+<!-- Step 2 above should be repeated accordingly to generate a sample with the size needed. -->
 <!-- ## Example 11 {.smaller} -->
 <!-- TODO: pensar de incluo esse grafico -->
 <!-- Effect of the penalizing constant value. -->
@@ -791,7 +788,7 @@
 
 <!-- - Stepwise algorithms offer appealing alternatives to Exact algorithm. -->
 <!-- - Simulated Annealing results are unsatisfactory, favoring Forward or Backward Stepwise algorithms for practical applications. -->
-<img data-src="images/sim/ex1_10x_tile.jpg" style="width:80.0%" class="r-stretch quarto-figure-center"></section>
+<img data-src="images/sim/ex1_10x_tile.jpg" style="width:90.0%" class="r-stretch quarto-figure-center"></section>
 <section id="example-12-random-graphs" class="slide level2 smaller">
 <h2>Example 12: Random Graphs</h2>
 
@@ -810,13 +807,11 @@
 
 <!-- Effect of varying the penalizing constant $c$ on the average error metrics outcomes from the forward stepwise algorithm.  -->
 <!-- Each subfigure is the result given by graphs with a fixed number of edges, from 1 to 10. -->
-<img data-src="images/sim/ex3_error_lines_over_lambda_fwd.jpg" class="r-stretch quarto-figure-center"></section>
-<section id="application-to-real-data" class="slide level2">
-<h2>Application to real data</h2>
-<p><br><br><br></p>
-<blockquote>
-<p>Our intention is not to introduce novel modeling strategies but to demonstrate the practical utilization of the proposed method across different contexts.</p>
-</blockquote>
+<img data-src="images/sim/ex3_error_lines_over_lambda_fwd.jpg" class="r-stretch quarto-figure-center"></section></section>
+<section>
+<section id="application-to-real-data" class="title-slide slide level1 center">
+<h1>Application to real data</h1>
+
 </section>
 <section id="são-francisco-river-data" class="slide level2 smaller">
 <h2>São Francisco River Data</h2>
@@ -909,13 +904,11 @@
 <li><p>Utilized proposed graph estimator with a <span class="math inline">\(5\)</span>-fold cross-validation approach (hyperparameter <span class="math inline">\(\gamma=0.0001\)</span>).</p></li>
 <li><p>Explored a range of penalizing constant values (<span class="math inline">\(c\)</span>) for optimal performance.</p></li>
 </ul>
+<!-- ## Stock Exchange Data {.smaller} -->
+<!-- ![](images/sim/app_stock_cv_error_with_labels.jpg){fig-align="center"} -->
+<!-- $5$-fold cross-validation error. -->
 </section>
 <section id="stock-exchange-data-2" class="slide level2 smaller">
-<h2>Stock Exchange Data</h2>
-
-<img data-src="images/sim/app_stock_cv_error_with_labels.jpg" class="r-stretch quarto-figure-center"><p><span class="math inline">\(5\)</span>-fold cross-validation error.</p>
-</section>
-<section id="stock-exchange-data-3" class="slide level2 smaller">
 <h2>Stock Exchange Data</h2>
 
 <img data-src="images/sim/app_stock_cv_graph_page.jpg" class="r-stretch quarto-figure-center"><p>Estimated graph, considering the penalizing constant value chosen by cross-validation.</p>
@@ -940,10 +933,17 @@
 </section>
 <section id="references" class="slide level2 smaller">
 <h2>References</h2>
+<div style="font-size: 80%;">
 <ul>
-<li><p>Leonardi, F., Carvalho, R., and Frondana, I. (2023). Structure recovery for partially observed discrete markov random fields on graphs under not necessarily positive distributions. <em>Scandinavian Journal of Statistics</em>.</p></li>
-<li><p>Leonardi, F., Lopez-Rosenfeld, M., Rodriguez, D., Severino, M. T. F., and Sued, M. (2021). Independent block identification in multivariate time series. <em>Journal of Time Series Analysis</em>, 42(1):19–33.</p></li>
+<li><p>Cerqueira et al.(2017) Andressa Cerqueira, Daniel Fraiman, Claudia D. Vargas and Florencia Leonardi. <strong>A test of hypotheses for random graph distributions built from eeg data</strong>. <em>IEEE Transactions on Network Science and Engineering</em>, 4(2):75-82.</p></li>
+<li><p>Galves et al.(2015) Antonio Galves, Enza Orlandi and Daniel Y. Takahashi. <strong>Identifying interacting pairs of sites in Ising models on a countable set</strong>. <em>Braz. J. Probab. Stat.</em>, 29(2):443-459.</p></li>
+<li><p>Lauritzen(1996) Steffen L Lauritzen. <strong>Graphical models</strong>, volume 17. <em>Clarendon Press</em>.</p></li>
+<li><p>Leonardi et al.(2021) Florencia Leonardi, Matías Lopez-Rosenfeld, Daniela Rodriguez, Magno TF Severino and Mariela Sued. <strong>Independent block identification in multivariate time series</strong>. <em>Journal of Time Series Analysis</em>, 42(1):19-33.</p></li>
+<li><p>Leonardi et al.(2023) Florencia Leonardi, Rodrigo Carvalho and Iara Frondana. <strong>Structure recovery for partially observed discrete markov random fields on graphs under not necessarily positive distributions</strong>. <em>Scandinavian Journal of Statistics</em>.</p></li>
+<li><p>Meinshausen and Bühlmann(2006) N. Meinshausen and P. Bühlmann. <strong>Highdimensional graphs and variable selection with the lasso</strong>. <em>Ann. Statist.</em>, 34(3):1436-1462.</p></li>
+<li><p>Ravikumar et al.(2010) Pradeep Ravikumar, Martin J. Wainwright and John D. Lafferty. <strong>High-dimensional Ising model selection using l1-regularized logistic regression</strong>. <em>Ann. Statist.</em>, 38(3):3022-1319.</p></li>
 </ul>
+</div>
 </section>
 <section id="section" class="slide level2">
 <h2></h2>
@@ -962,7 +962,7 @@ Obrigado!
 <img src="images/IME_horizontal.png" class="slide-logo r-stretch"><div class="footer footer-default">
 
 </div>
-</section>
+</section></section>
     </div>
   </div>
 

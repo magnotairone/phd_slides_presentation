@@ -20,12 +20,12 @@ editor_options:
 
 ## Agenda
 
-  1. Introduction
-  2. Motivation
-  3. Regularized Maximum Pseudo-Likelihood Graph Estimator
-  4. Algorithms for estimation
-  5. Simulations
-  6. Application to real data
+  - Introduction
+  - Motivation
+  - Regularized Maximum Pseudo-Likelihood Graph Estimator
+  - Algorithms for estimation
+  - Simulation Study
+  - Application to real data
 
 <!-- 
   1. introducao
@@ -203,7 +203,7 @@ editor_options:
 
 - $X_v^{(i)} \in A,$ $A$ a finite alphabet.
 
-- $\bf X^{(i)} = (X_1^{(i)}, X_2^{(i)}, \dots, X_d^{(i)}).$
+- $\bf X^{(i)} = \big(X_1^{(i)}, X_2^{(i)}, \dots, X_d^{(i)}\big).$
 
 - Process $\bf X = \{X^{(i)}: -\infty<i<\infty\}.$
 
@@ -360,58 +360,33 @@ editor_options:
 
 ```
 
-## Motivation 1: Leonardi et al. (2023) {.smaller}
+## Previous works {.smaller}
 
-Consider these estimated neighborhoods for a set of 5 discrete random variables: 
-$$
-\mathrm{ne(X_1)=\{2,3\}}, \qquad \mathrm{ne(X_2)=\{3\}}, \qquad\mathrm{ne(X_3)=\{1,2,4,5\}},
-$$ 
-$$
-\mathrm{ne(X_4)=\{3\}}, \qquad \mathrm{ne(X_5)=\{3,4\}}.
-$$
+- Extensive research has been conducted on discrete graphical models or Markov random fields, especially for binary graphical models with pairwise interactions (Lauritzen, 1996, and Galves et al., 2015).
 
-. . .
+- Methods for estimating graph structures have been proposed for continuous random variables and various types of interactions (Meinshausen and Bühlmann, 2006).
 
-<br/>
+- The assumption of independence of the observations in
+the non-homogeneous Markov random fields setting is often too restrictive.
 
-![](images/sim/conserv_non_conserv_frondana.png){fig-align="center"}
+- The assumption of independence in observations is often too restrictive in real world scenarios (Cerqueira et al., 2017).
 
-## Motivation 2: Leonardi et al. (2021) {.smaller}
+- The independence assumption does not hold and these methods serve only as approximations to
+the true underlying distribution.
 
-- A model selection criterion for independence within random vectors.
+- Traditional model selection techniques involve estimating neighborhoods of individual nodes and constructing the graph based on these neighborhoods (Ravikumar et al., 2010).
 
-- $Y^{(i)}=\big(Y^{(i)}_{1}, \ldots, Y^{(i)}_{7}\big),$ with joint probability distribution $p(y_1,\ldots,y_7).$
+## Motivation {.smaller}
+  
+- Leonardi et al. (2021):
+  - estimate blocks of independence within multivariate stochastic process,
+  - applied to both iid and processes under mixing conditions 
+  - discrete or continuous data.
 
-- $\mathbf{Y}=\big\{Y^{(i)}\big\}$ is multivariate stochastic process (discrete or continuous).
-
--   The method decomposes the vector's distribution function into independent blocks.
-
-- The process can be iid or dependent data.
-
-. . .
-
-
-:::: {.columns}
-
-::: {.column width="60%"}
-
--   If the set of independence of $\mathbf{Y}$ is $U = \{3\}$, then $$p(y_1,\ldots,y_7) = p(y_1,y_2,y_3)p(y_4,y_5,y_6,y_7).$$
-
--   Therefore, $(Y_1,Y_2,Y_3) \perp (Y_4,Y_5,Y_6,Y_7).$
-
-:::
-
-::: {.column width="40%"}
-
-<!-- TODO: inserir uma figura -->
-
-<!-- TODO: inserir uma figura -->
-
-<!-- TODO: inserir uma figura -->
-
-:::
-
-::::
+- Leonardi et al. (2023): 
+  - estimate the neighborhood of each vertex and then constructs the graph,
+  - assume the process is iid 
+  - discrete data.
 
 ## Objectives of the research {.smaller}
 
@@ -546,6 +521,8 @@ Consider $\{\widehat G\neq G^*\} = \big\{G^* \subsetneq \widehat G \big\} \cup  
 
 We prove that eventually almost surely as $n\to\infty,$ neither of the cases above can happen, which implies that $\widehat G = G^*.$
 
+# Algorithms for estimation
+
 ## Algorithms for Estimation {.smaller}
 
 <br/><br/>
@@ -636,6 +613,8 @@ $$\widehat G = \arg\max_{G \:\in\: \mathcal{G}} H(G).$$
 
 - Offers examples on how to use the package.
 
+# Simulation Study
+
 ## Simulation Study {.smaller} 
 
 - **Objective**: Assess the performance of the proposed via simulation studies.
@@ -682,37 +661,38 @@ $$    p(x_1,x_2,x_3,x_4,x_5) = p(x_3) p(x_1|x_3) p(x_2|x_1,x_3) p(x_4|x_3) p(x_5
 :::
 
 ::: {.column width="60%"}
-![](images/sim/ex1_graph.jpg){fig-align="center"}
+![](images/sim/ex1_graph.jpg){fig-align="center" width=250px}
 :::
 ::::
 
 - **Aim**: assess the performance of the algorithms for estimation.
 
+- **Data generation**: Gibbs Sampler algorithm (Geman and Geman, 1984 and Gelfand and Smith, 1990).
 
-## Example 11 - Data Generation {.smaller}
+<!-- ## Example 11 - Data Generation {.smaller} -->
 
-0. Establish theoretical values for the marginal and conditional distributions.
+<!-- 0. Establish theoretical values for the marginal and conditional distributions. -->
 
-1. Initialize the variables
-``` {=tex}
-\begin{align*} 
-    X_{3}^{0} &\sim p(X_3), &\qquad X_{1}^{0} &\sim p(X_1| X_{3}^{0}), \\
-    X_{2}^{0} &\sim p(X_2| X_{1}^{0}, X_{3}^{0}), &\qquad X_{4}^{0} &\sim p(X_4| X_{3}^{0}), \\
-    X_{5}^{0} &\sim p(X_5| X_{3}^{0}). 
-\end{align*}
-```
+<!-- 1. Initialize the variables -->
+<!-- ``` {=tex} -->
+<!-- \begin{align*}  -->
+<!--     X_{3}^{0} &\sim p(X_3), &\qquad X_{1}^{0} &\sim p(X_1| X_{3}^{0}), \\ -->
+<!--     X_{2}^{0} &\sim p(X_2| X_{1}^{0}, X_{3}^{0}), &\qquad X_{4}^{0} &\sim p(X_4| X_{3}^{0}), \\ -->
+<!--     X_{5}^{0} &\sim p(X_5| X_{3}^{0}).  -->
+<!-- \end{align*} -->
+<!-- ``` -->
 
 
-2. For $j = 1, 2 \dots,$ generate
-``` {=tex}   
-\begin{align*}
-    X_{1}^{j} &\sim p(X_1| X_{2}^{j-1}, X_{3}^{j-1}), &\qquad X_{2}^{j} &\sim p(X_2| X_{1}^{j}, X_{3}^{j-1}), \\
-    X_{4}^{j} &\sim p(X_4| X_{3}^{j-1}), &\qquad X_{5}^{j} &\sim p(X_5| X_{3}^{j-1}), \\
-    X_{3}^{j} &\sim p(X_3| X_{1}^{j}, X_{2}^{j}, X_{4}^{j}, X_{5}^{j}).
-\end{align*}
-```
+<!-- 2. For $j = 1, 2 \dots,$ generate -->
+<!-- ``` {=tex}    -->
+<!-- \begin{align*} -->
+<!--     X_{1}^{j} &\sim p(X_1| X_{2}^{j-1}, X_{3}^{j-1}), &\qquad X_{2}^{j} &\sim p(X_2| X_{1}^{j}, X_{3}^{j-1}), \\ -->
+<!--     X_{4}^{j} &\sim p(X_4| X_{3}^{j-1}), &\qquad X_{5}^{j} &\sim p(X_5| X_{3}^{j-1}), \\ -->
+<!--     X_{3}^{j} &\sim p(X_3| X_{1}^{j}, X_{2}^{j}, X_{4}^{j}, X_{5}^{j}). -->
+<!-- \end{align*} -->
+<!-- ``` -->
 
-Step 2 above should be repeated accordingly to generate a sample with the size needed.
+<!-- Step 2 above should be repeated accordingly to generate a sample with the size needed. -->
 
 <!-- ## Example 11 {.smaller} -->
 
@@ -796,7 +776,7 @@ $\qquad \qquad te(G, \hat G) = \frac{ue \sum_{(v, w)}\mathbf{1}\{(v, w) \not\in 
 
 ## Example 11 - Scenario 2 {.smaller}
 
-![](images/sim/ex1_10x_tile.jpg){width=80% fig-align="center"}
+![](images/sim/ex1_10x_tile.jpg){fig-align="center" width=90%}
 
 <!-- - Stepwise algorithms offer appealing alternatives to Exact algorithm. -->
 <!-- - Simulated Annealing results are unsatisfactory, favoring Forward or Backward Stepwise algorithms for practical applications. -->
@@ -828,11 +808,8 @@ Average error metrics outcomes of the forward stepwise algorithm as function of 
 <!-- Each subfigure is the result given by graphs with a fixed number of edges, from 1 to 10. -->
 
 
-## Application to real data
+# Application to real data
 
-<br/><br/><br/>
-
-> Our intention is not to introduce novel modeling strategies but to demonstrate the practical utilization of the proposed method across different contexts.
 
 ## São Francisco River Data {.smaller}
 
@@ -929,11 +906,11 @@ Results similar to Leonardi et al (2021).
 
 - Explored a range of penalizing constant values ($c$) for optimal performance.
 
-## Stock Exchange Data {.smaller}
+<!-- ## Stock Exchange Data {.smaller} -->
 
-![](images/sim/app_stock_cv_error_with_labels.jpg){fig-align="center"}
+<!-- ![](images/sim/app_stock_cv_error_with_labels.jpg){fig-align="center"} -->
 
-$5$-fold cross-validation error.
+<!-- $5$-fold cross-validation error. -->
 
 ## Stock Exchange Data {.smaller}
 
@@ -959,10 +936,25 @@ Estimated graph, considering the penalizing constant value chosen by cross-valid
 
 ## References {.smaller}
 
--   Leonardi, F., Carvalho, R., and Frondana, I. (2023). Structure recovery for partially observed discrete markov random fields on graphs under not necessarily positive distributions. *Scandinavian Journal of Statistics*.
 
--   Leonardi, F., Lopez-Rosenfeld, M., Rodriguez, D., Severino, M. T. F., and Sued, M. (2021). Independent block identification in multivariate time series. *Journal of Time Series Analysis*, 42(1):19--33.
 
+::: {style="font-size: 80%;"}
+
+- Cerqueira et al.(2017) Andressa Cerqueira, Daniel Fraiman, Claudia D. Vargas and Florencia Leonardi. **A test of hypotheses for random graph distributions built from eeg data**. *IEEE Transactions on Network Science and Engineering*, 4(2):75-82.
+
+- Galves et al.(2015) Antonio Galves, Enza Orlandi and Daniel Y. Takahashi. **Identifying interacting pairs of sites in Ising models on a countable set**. *Braz. J. Probab. Stat.*, 29(2):443-459.
+
+- Lauritzen(1996) Steffen L Lauritzen. **Graphical models**, volume 17. *Clarendon Press*.
+
+- Leonardi et al.(2021) Florencia Leonardi, Matías Lopez-Rosenfeld, Daniela Rodriguez, Magno TF Severino and Mariela Sued. **Independent block identification in multivariate time series**. *Journal of Time Series Analysis*, 42(1):19-33.
+
+- Leonardi et al.(2023) Florencia Leonardi, Rodrigo Carvalho and Iara Frondana. **Structure recovery for partially observed discrete markov random fields on graphs under not necessarily positive distributions**. *Scandinavian Journal of Statistics*.
+
+- Meinshausen and Bühlmann(2006) N. Meinshausen and P. Bühlmann. **Highdimensional graphs and variable selection with the lasso**. *Ann. Statist.*, 34(3):1436-1462.
+
+- Ravikumar et al.(2010) Pradeep Ravikumar, Martin J. Wainwright and John D. Lafferty. **High-dimensional Ising model selection using l1-regularized logistic regression**. *Ann. Statist.*, 38(3):3022-1319.
+
+:::
 
 ## 
 <br/><br/><br/>

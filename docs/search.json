@@ -4,7 +4,7 @@
     "href": "index.html#agenda",
     "title": "Estimation and model selection for graphical models under mixing conditions",
     "section": "Agenda",
-    "text": "Agenda\n\nIntroduction\nMotivation\nRegularized Maximum Pseudo-Likelihood Graph Estimator\nAlgorithms for estimation\nSimulations\nApplication to real data"
+    "text": "Agenda\n\nIntroduction\nMotivation\nRegularized Maximum Pseudo-Likelihood Graph Estimator\nAlgorithms for estimation\nSimulation Study\nApplication to real data"
   },
   {
     "objectID": "index.html#vector-valued-stochastic-processes",
@@ -18,21 +18,21 @@
     "href": "index.html#vector-valued-stochastic-processes-1",
     "title": "Estimation and model selection for graphical models under mixing conditions",
     "section": "Vector-Valued Stochastic Processes",
-    "text": "Vector-Valued Stochastic Processes\n\n\\(X_v^{(i)} \\in A,\\) \\(A\\) a finite alphabet.\n\\(\\bf X^{(i)} = (X_1^{(i)}, X_2^{(i)}, \\dots, X_d^{(i)}).\\)\nProcess \\(\\bf X = \\{X^{(i)}: -\\infty&lt;i&lt;\\infty\\}.\\)\nWe assume the process \\(\\bf X\\) has an underlying graph \\(G^*.\\)"
+    "text": "Vector-Valued Stochastic Processes\n\n\\(X_v^{(i)} \\in A,\\) \\(A\\) a finite alphabet.\n\\(\\bf X^{(i)} = \\big(X_1^{(i)}, X_2^{(i)}, \\dots, X_d^{(i)}\\big).\\)\nProcess \\(\\bf X = \\{X^{(i)}: -\\infty&lt;i&lt;\\infty\\}.\\)\nWe assume the process \\(\\bf X\\) has an underlying graph \\(G^*.\\)"
   },
   {
-    "objectID": "index.html#motivation-1-leonardi-et-al.-2023",
-    "href": "index.html#motivation-1-leonardi-et-al.-2023",
+    "objectID": "index.html#previous-works",
+    "href": "index.html#previous-works",
     "title": "Estimation and model selection for graphical models under mixing conditions",
-    "section": "Motivation 1: Leonardi et al. (2023)",
-    "text": "Motivation 1: Leonardi et al. (2023)\nConsider these estimated neighborhoods for a set of 5 discrete random variables: \\[\n\\mathrm{ne(X_1)=\\{2,3\\}}, \\qquad \\mathrm{ne(X_2)=\\{3\\}}, \\qquad\\mathrm{ne(X_3)=\\{1,2,4,5\\}},\n\\] \\[\n\\mathrm{ne(X_4)=\\{3\\}}, \\qquad \\mathrm{ne(X_5)=\\{3,4\\}}.\n\\]"
+    "section": "Previous works",
+    "text": "Previous works\n\nExtensive research has been conducted on discrete graphical models or Markov random fields, especially for binary graphical models with pairwise interactions (Lauritzen, 1996, and Galves et al., 2015).\nMethods for estimating graph structures have been proposed for continuous random variables and various types of interactions (Meinshausen and Bühlmann, 2006).\nThe assumption of independence of the observations in the non-homogeneous Markov random fields setting is often too restrictive.\nThe assumption of independence in observations is often too restrictive in real world scenarios (Cerqueira et al., 2017).\nThe independence assumption does not hold and these methods serve only as approximations to the true underlying distribution.\nTraditional model selection techniques involve estimating neighborhoods of individual nodes and constructing the graph based on these neighborhoods (Ravikumar et al., 2010)."
   },
   {
-    "objectID": "index.html#motivation-2-leonardi-et-al.-2021",
-    "href": "index.html#motivation-2-leonardi-et-al.-2021",
+    "objectID": "index.html#motivation",
+    "href": "index.html#motivation",
     "title": "Estimation and model selection for graphical models under mixing conditions",
-    "section": "Motivation 2: Leonardi et al. (2021)",
-    "text": "Motivation 2: Leonardi et al. (2021)\n\nA model selection criterion for independence within random vectors.\n\\(Y^{(i)}=\\big(Y^{(i)}_{1}, \\ldots, Y^{(i)}_{7}\\big),\\) with joint probability distribution \\(p(y_1,\\ldots,y_7).\\)\n\\(\\mathbf{Y}=\\big\\{Y^{(i)}\\big\\}\\) is multivariate stochastic process (discrete or continuous).\nThe method decomposes the vector’s distribution function into independent blocks.\nThe process can be iid or dependent data.\n\n\n\n\n\nIf the set of independence of \\(\\mathbf{Y}\\) is \\(U = \\{3\\}\\), then \\[p(y_1,\\ldots,y_7) = p(y_1,y_2,y_3)p(y_4,y_5,y_6,y_7).\\]\nTherefore, \\((Y_1,Y_2,Y_3) \\perp (Y_4,Y_5,Y_6,Y_7).\\)"
+    "section": "Motivation",
+    "text": "Motivation\n\nLeonardi et al. (2021):\n\nestimate blocks of independence within multivariate stochastic process,\napplied to both iid and processes under mixing conditions\ndiscrete or continuous data.\n\nLeonardi et al. (2023):\n\nestimate the neighborhood of each vertex and then constructs the graph,\nassume the process is iid\ndiscrete data."
   },
   {
     "objectID": "index.html#objectives-of-the-research",
@@ -77,8 +77,8 @@
     "text": "Theorem Proof Intuition\nConsider \\(\\{\\widehat G\\neq G^*\\} = \\big\\{G^* \\subsetneq \\widehat G \\big\\} \\cup \\big\\{G^* \\not\\subset \\widehat G \\big\\}.\\)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWe prove that eventually almost surely as \\(n\\to\\infty,\\) neither of the cases above can happen, which implies that \\(\\widehat G = G^*.\\)"
   },
   {
-    "objectID": "index.html#algorithms-for-estimation",
-    "href": "index.html#algorithms-for-estimation",
+    "objectID": "index.html#algorithms-for-estimation-1",
+    "href": "index.html#algorithms-for-estimation-1",
     "title": "Estimation and model selection for graphical models under mixing conditions",
     "section": "Algorithms for Estimation",
     "text": "Algorithms for Estimation\n Define\n\\[\\begin{equation*}\\label{eq:defH}\n    H(G) = \\log \\widehat L(G) - \\lambda_n \\sum_{v \\in V} |A|^{|G(v)|}.\n\\end{equation*}\\]\nFocus: determine the maximal value of \\(H(\\cdot)\\) and identify the argument at which this maximum occurs."
@@ -126,8 +126,8 @@
     "text": "R package\n\nINCLUIR NOME DO PACOTE - ainda não escolhi\nIncludes functions to compute the penalized log pseudo-likelihood function.\nImplements the four algorithms considered for estimation: exact, simulated annealing, forward, and stepwise.\nOffers examples on how to use the package."
   },
   {
-    "objectID": "index.html#simulation-study",
-    "href": "index.html#simulation-study",
+    "objectID": "index.html#simulation-study-1",
+    "href": "index.html#simulation-study-1",
     "title": "Estimation and model selection for graphical models under mixing conditions",
     "section": "Simulation Study",
     "text": "Simulation Study\n\nObjective: Assess the performance of the proposed via simulation studies.\nMethodology:\n\nUtilize R language for statistical computing.\nEvaluate proposed graph estimator individually with each algorithm.\n\nScenario 1: Fixed True Graph\n\nGenerate synthetic data based on fixed true graph.\nAssess estimator’s performance under stability conditions.\n\nScenario 2: Random Graphs with Varying Edge Number\n\nGenerate random graphs with varying edge numbers.\nEvaluate estimator’s performance across graphs with different edge configuration."
@@ -144,14 +144,7 @@
     "href": "index.html#example-11---scenario-1",
     "title": "Estimation and model selection for graphical models under mixing conditions",
     "section": "Example 11 - Scenario 1",
-    "text": "Example 11 - Scenario 1\n\nAssume a fixed true graph exists with vertices \\(X_1, \\dots, X_5.\\)\nJoint probability function of these variables: \\[    p(x_1,x_2,x_3,x_4,x_5) = p(x_3) p(x_1|x_3) p(x_2|x_1,x_3) p(x_4|x_3) p(x_5|x_3). \\]\n\n\n\n\nConditional probabilities:\n\n\\[\\begin{align*}\n    p(x_1|x_2,x_3,x_4,x_5) &= p(x_1|x_2,x_3), \\\\  \n    p(x_2|x_1,x_3,x_4,x_5) &= p(x_2|x_1,x_3), \\\\\n    %p(x_3|x_1,x_2,x_4,x_5) &= p(x_1,x_2,x_3,x_4,x_5)/ \\sum {_{x_3}}p(x_1,x_2,x_3,x_4,x_5), \\\\\n    p(x_4|x_1,x_2,x_3,x_5) &= p(x_4|x_3), \\\\\n    p(x_5|x_1,x_2,x_3,x_4)&= p(x_5|x_3).\n\\end{align*}\\]\n\n\n\n\n\n\n\n\n\nAim: assess the performance of the algorithms for estimation."
-  },
-  {
-    "objectID": "index.html#example-11---data-generation",
-    "href": "index.html#example-11---data-generation",
-    "title": "Estimation and model selection for graphical models under mixing conditions",
-    "section": "Example 11 - Data Generation",
-    "text": "Example 11 - Data Generation\n\nEstablish theoretical values for the marginal and conditional distributions.\nInitialize the variables\n\n\\[\\begin{align*}\n    X_{3}^{0} &\\sim p(X_3), &\\qquad X_{1}^{0} &\\sim p(X_1| X_{3}^{0}), \\\\\n    X_{2}^{0} &\\sim p(X_2| X_{1}^{0}, X_{3}^{0}), &\\qquad X_{4}^{0} &\\sim p(X_4| X_{3}^{0}), \\\\\n    X_{5}^{0} &\\sim p(X_5| X_{3}^{0}).\n\\end{align*}\\]\n\nFor \\(j = 1, 2 \\dots,\\) generate\n\n\\[\\begin{align*}\n    X_{1}^{j} &\\sim p(X_1| X_{2}^{j-1}, X_{3}^{j-1}), &\\qquad X_{2}^{j} &\\sim p(X_2| X_{1}^{j}, X_{3}^{j-1}), \\\\\n    X_{4}^{j} &\\sim p(X_4| X_{3}^{j-1}), &\\qquad X_{5}^{j} &\\sim p(X_5| X_{3}^{j-1}), \\\\\n    X_{3}^{j} &\\sim p(X_3| X_{1}^{j}, X_{2}^{j}, X_{4}^{j}, X_{5}^{j}).\n\\end{align*}\\]\nStep 2 above should be repeated accordingly to generate a sample with the size needed."
+    "text": "Example 11 - Scenario 1\n\nAssume a fixed true graph exists with vertices \\(X_1, \\dots, X_5.\\)\nJoint probability function of these variables: \\[    p(x_1,x_2,x_3,x_4,x_5) = p(x_3) p(x_1|x_3) p(x_2|x_1,x_3) p(x_4|x_3) p(x_5|x_3). \\]\n\n\n\n\nConditional probabilities:\n\n\\[\\begin{align*}\n    p(x_1|x_2,x_3,x_4,x_5) &= p(x_1|x_2,x_3), \\\\  \n    p(x_2|x_1,x_3,x_4,x_5) &= p(x_2|x_1,x_3), \\\\\n    %p(x_3|x_1,x_2,x_4,x_5) &= p(x_1,x_2,x_3,x_4,x_5)/ \\sum {_{x_3}}p(x_1,x_2,x_3,x_4,x_5), \\\\\n    p(x_4|x_1,x_2,x_3,x_5) &= p(x_4|x_3), \\\\\n    p(x_5|x_1,x_2,x_3,x_4)&= p(x_5|x_3).\n\\end{align*}\\]\n\n\n\n\n\n\n\n\n\nAim: assess the performance of the algorithms for estimation.\nData generation: Gibbs Sampler algorithm (Geman and Geman, 1984 and Gelfand and Smith, 1990)."
   },
   {
     "objectID": "index.html#example-11---exact-algorithm",
@@ -238,13 +231,6 @@
     "text": "Example 12: Random Graphs\nAverage error metrics outcomes of the forward stepwise algorithm as function of the number of nodes in the graph."
   },
   {
-    "objectID": "index.html#application-to-real-data",
-    "href": "index.html#application-to-real-data",
-    "title": "Estimation and model selection for graphical models under mixing conditions",
-    "section": "Application to real data",
-    "text": "Application to real data\n\n\nOur intention is not to introduce novel modeling strategies but to demonstrate the practical utilization of the proposed method across different contexts."
-  },
-  {
     "objectID": "index.html#são-francisco-river-data",
     "href": "index.html#são-francisco-river-data",
     "title": "Estimation and model selection for graphical models under mixing conditions",
@@ -291,13 +277,6 @@
     "href": "index.html#stock-exchange-data-2",
     "title": "Estimation and model selection for graphical models under mixing conditions",
     "section": "Stock Exchange Data",
-    "text": "Stock Exchange Data\n\n\\(5\\)-fold cross-validation error."
-  },
-  {
-    "objectID": "index.html#stock-exchange-data-3",
-    "href": "index.html#stock-exchange-data-3",
-    "title": "Estimation and model selection for graphical models under mixing conditions",
-    "section": "Stock Exchange Data",
     "text": "Stock Exchange Data\n\nEstimated graph, considering the penalizing constant value chosen by cross-validation."
   },
   {
@@ -312,7 +291,7 @@
     "href": "index.html#references",
     "title": "Estimation and model selection for graphical models under mixing conditions",
     "section": "References",
-    "text": "References\n\nLeonardi, F., Carvalho, R., and Frondana, I. (2023). Structure recovery for partially observed discrete markov random fields on graphs under not necessarily positive distributions. Scandinavian Journal of Statistics.\nLeonardi, F., Lopez-Rosenfeld, M., Rodriguez, D., Severino, M. T. F., and Sued, M. (2021). Independent block identification in multivariate time series. Journal of Time Series Analysis, 42(1):19–33."
+    "text": "References\n\n\nCerqueira et al.(2017) Andressa Cerqueira, Daniel Fraiman, Claudia D. Vargas and Florencia Leonardi. A test of hypotheses for random graph distributions built from eeg data. IEEE Transactions on Network Science and Engineering, 4(2):75-82.\nGalves et al.(2015) Antonio Galves, Enza Orlandi and Daniel Y. Takahashi. Identifying interacting pairs of sites in Ising models on a countable set. Braz. J. Probab. Stat., 29(2):443-459.\nLauritzen(1996) Steffen L Lauritzen. Graphical models, volume 17. Clarendon Press.\nLeonardi et al.(2021) Florencia Leonardi, Matías Lopez-Rosenfeld, Daniela Rodriguez, Magno TF Severino and Mariela Sued. Independent block identification in multivariate time series. Journal of Time Series Analysis, 42(1):19-33.\nLeonardi et al.(2023) Florencia Leonardi, Rodrigo Carvalho and Iara Frondana. Structure recovery for partially observed discrete markov random fields on graphs under not necessarily positive distributions. Scandinavian Journal of Statistics.\nMeinshausen and Bühlmann(2006) N. Meinshausen and P. Bühlmann. Highdimensional graphs and variable selection with the lasso. Ann. Statist., 34(3):1436-1462.\nRavikumar et al.(2010) Pradeep Ravikumar, Martin J. Wainwright and John D. Lafferty. High-dimensional Ising model selection using l1-regularized logistic regression. Ann. Statist., 38(3):3022-1319."
   },
   {
     "objectID": "index.html#section",
