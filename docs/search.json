@@ -74,7 +74,7 @@
     "href": "index.html#theorem-proof-intuition",
     "title": "Estimation and model selection for graphical models under mixing conditions",
     "section": "Theorem Proof Intuition",
-    "text": "Theorem Proof Intuition\nConsider \\(\\{\\widehat G\\neq G^*\\} = \\big\\{G^* \\subsetneq \\widehat G \\big\\} \\cup \\big\\{G^* \\not\\subset \\widehat G \\big\\}.\\)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWe prove that eventually almost surely as \\(n\\to\\infty,\\) neither of the cases above can happen, which implies that \\(\\widehat G = G^*.\\)"
+    "text": "Theorem Proof Intuition\nConsider \\(\\{\\widehat G\\neq G^*\\} = \\big\\{G^* \\subsetneq \\widehat G \\big\\} \\cup \\big\\{G^* \\not\\subset \\widehat G \\big\\}.\\)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWe prove that, eventually almost surely as \\(n\\to\\infty,\\) neither of the cases above can happen, which implies that \\(\\widehat G = G^*.\\)"
   },
   {
     "objectID": "index.html#algorithms-for-estimation-1",
