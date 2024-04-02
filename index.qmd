@@ -419,7 +419,131 @@ the true underlying distribution.
 \end{equation*}
 for $n\geq m+\ell$ and for each $k, m \in \mathbb N$ and each $x^{(1:k)} \in (A^d)^k$, $x^{(1:m)}\in (A^d)^m$ with $\mathbb P(X^{(1:m)}=x^{(1:m)})>0.$
 
-![](images/sim/tmp-proceesso.jpg){fig-align="center"}
+<!-- ![](images/sim/tmp-proceesso.jpg){fig-align="center"} -->
+
+```{r, engine = 'tikz', fig.align='center'}
+% Created by tikzDevice version 0.12.4 on 2024-04-01 21:32:51
+% !TEX encoding = UTF-8 Unicode
+\begin{tikzpicture}[x=1pt,y=1pt]
+\definecolor{fillColor}{RGB}{255,255,255}
+\path[use as bounding box,fill=fillColor,fill opacity=0.00] (0,0) rectangle (361.35,144.54);
+\begin{scope}
+\path[clip] (  0.00,  0.00) rectangle (361.35,144.54);
+\definecolor{drawColor}{RGB}{255,255,255}
+\definecolor{fillColor}{RGB}{255,255,255}
+
+\path[draw=drawColor,line width= 0.6pt,line join=round,line cap=round,fill=fillColor] (  0.00,  0.00) rectangle (361.35,144.54);
+\end{scope}
+\begin{scope}
+\path[clip] ( 40.82, 37.04) rectangle (355.85,139.04);
+\definecolor{fillColor}{RGB}{255,255,255}
+
+\path[fill=fillColor] ( 40.82, 37.04) rectangle (355.85,139.04);
+\definecolor{drawColor}{RGB}{217,95,2}
+\definecolor{fillColor}{RGB}{217,95,2}
+
+\path[draw=drawColor,line width= 0.6pt,fill=fillColor,fill opacity=0.30] ( 82.82, 41.68) rectangle (145.83,134.40);
+\definecolor{drawColor}{RGB}{27,158,119}
+\definecolor{fillColor}{RGB}{27,158,119}
+
+\path[draw=drawColor,line width= 0.6pt,fill=fillColor,fill opacity=0.30] (271.84, 41.68) rectangle (313.85,134.40);
+
+\node[text=drawColor,anchor=base,inner sep=0pt, outer sep=0pt, scale=  1.10] at (292.84, 84.24) {A};
+\definecolor{drawColor}{RGB}{217,95,2}
+
+\node[text=drawColor,anchor=base,inner sep=0pt, outer sep=0pt, scale=  1.10] at (114.33, 84.24) {B};
+\end{scope}
+\begin{scope}
+\path[clip] (  0.00,  0.00) rectangle (361.35,144.54);
+\definecolor{drawColor}{RGB}{0,0,0}
+
+\path[draw=drawColor,line width= 0.6pt,line join=round] ( 40.82, 37.04) --
+	( 40.82,139.04);
+\end{scope}
+\begin{scope}
+\path[clip] (  0.00,  0.00) rectangle (361.35,144.54);
+\definecolor{drawColor}{gray}{0.30}
+
+\node[text=drawColor,anchor=base east,inner sep=0pt, outer sep=0pt, scale=  1.20] at ( 35.87, 37.55) {$X_1$};
+
+\node[text=drawColor,anchor=base east,inner sep=0pt, outer sep=0pt, scale=  1.20] at ( 35.87, 56.09) {$X_2$};
+
+\node[text=drawColor,anchor=base east,inner sep=0pt, outer sep=0pt, scale=  1.20] at ( 35.87, 74.64) {$X_3$};
+
+\node[text=drawColor,anchor=base east,inner sep=0pt, outer sep=0pt, scale=  1.20] at ( 35.87,130.27) {$X_d$};
+\end{scope}
+\begin{scope}
+\path[clip] (  0.00,  0.00) rectangle (361.35,144.54);
+\definecolor{drawColor}{gray}{0.20}
+
+\path[draw=drawColor,line width= 0.6pt,line join=round] ( 38.07, 41.68) --
+	( 40.82, 41.68);
+
+\path[draw=drawColor,line width= 0.6pt,line join=round] ( 38.07, 60.23) --
+	( 40.82, 60.23);
+
+\path[draw=drawColor,line width= 0.6pt,line join=round] ( 38.07, 78.77) --
+	( 40.82, 78.77);
+
+\path[draw=drawColor,line width= 0.6pt,line join=round] ( 38.07,134.40) --
+	( 40.82,134.40);
+\end{scope}
+\begin{scope}
+\path[clip] (  0.00,  0.00) rectangle (361.35,144.54);
+\definecolor{drawColor}{RGB}{0,0,0}
+
+\path[draw=drawColor,line width= 0.6pt,line join=round] ( 40.82, 37.04) --
+	(355.85, 37.04);
+\definecolor{fillColor}{RGB}{0,0,0}
+
+\path[draw=drawColor,line width= 0.6pt,line join=round,fill=fillColor] (347.19, 32.04) --
+	(355.85, 37.04) --
+	(347.19, 42.04) --
+	cycle;
+\end{scope}
+\begin{scope}
+\path[clip] (  0.00,  0.00) rectangle (361.35,144.54);
+\definecolor{drawColor}{gray}{0.20}
+
+\path[draw=drawColor,line width= 0.6pt,line join=round] ( 82.82, 34.29) --
+	( 82.82, 37.04);
+
+\path[draw=drawColor,line width= 0.6pt,line join=round] (145.83, 34.29) --
+	(145.83, 37.04);
+
+\path[draw=drawColor,line width= 0.6pt,line join=round] (271.84, 34.29) --
+	(271.84, 37.04);
+
+\path[draw=drawColor,line width= 0.6pt,line join=round] (313.85, 34.29) --
+	(313.85, 37.04);
+\end{scope}
+\begin{scope}
+\path[clip] (  0.00,  0.00) rectangle (361.35,144.54);
+\definecolor{drawColor}{gray}{0.30}
+
+\node[text=drawColor,anchor=base,inner sep=0pt, outer sep=0pt, scale=  1.20] at ( 82.82, 23.83) {$1$};
+
+\node[text=drawColor,anchor=base,inner sep=0pt, outer sep=0pt, scale=  1.20] at (145.83, 23.83) {$m$};
+
+\node[text=drawColor,anchor=base,inner sep=0pt, outer sep=0pt, scale=  1.20] at (271.84, 23.83) {$n$};
+
+\node[text=drawColor,anchor=base,inner sep=0pt, outer sep=0pt, scale=  1.20] at (313.85, 23.83) {$n+k-1$};
+\end{scope}
+\begin{scope}
+\path[clip] (  0.00,  0.00) rectangle (361.35,144.54);
+\definecolor{drawColor}{RGB}{0,0,0}
+
+\node[text=drawColor,anchor=base east,inner sep=0pt, outer sep=0pt, scale=  1.50] at (355.85,  8.42) {$t$};
+\end{scope}
+\begin{scope}
+\path[clip] (  0.00,  0.00) rectangle (361.35,144.54);
+\definecolor{drawColor}{RGB}{0,0,0}
+
+\node[text=drawColor,anchor=base east,inner sep=0pt, outer sep=0pt, scale=  1.50] at ( 17.58,128.71) {$V$};
+\end{scope}
+\end{tikzpicture}
+
+```
 
 ## Empirical Probabilities {.smaller}
 
@@ -603,15 +727,27 @@ $$\widehat G = \arg\max_{G \:\in\: \mathcal{G}} H(G).$$
 
 ![](images/sim/ex1_1x_fwd_stepwise.jpg){fig-align="center"}
 
-## R package
+## The MixingGraph R package
 
-- _INCLUIR NOME DO PACOTE - ainda não escolhi_
+:::: {.columns}
+
+::: {.column width="25%"}
+![](https://raw.githubusercontent.com/magnotairone/MixingGraph/master/man/figures/logo.png){fig-align="center" width=200px}
+
+:::
+
+::: {.column width="75%"}
 
 - Includes functions to compute the penalized log pseudo-likelihood function.
 
-- Implements the four algorithms considered for estimation: exact, simulated annealing, forward, and stepwise.
+- Implements the four algorithms considered for estimation: exact, simulated annealing, and forward and backward stepwise.
+
+:::
+::::
 
 - Offers examples on how to use the package.
+
+- Available at [github.com/magnotairone/MixingGraph](https://github.com/magnotairone/MixingGraph/).
 
 # Simulation Study
 

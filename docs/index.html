@@ -457,8 +457,9 @@
 \end{split}
 \end{equation*}\]</span> for <span class="math inline">\(n\geq m+\ell\)</span> and for each <span class="math inline">\(k, m \in \mathbb N\)</span> and each <span class="math inline">\(x^{(1:k)} \in (A^d)^k\)</span>, <span class="math inline">\(x^{(1:m)}\in (A^d)^m\)</span> with <span class="math inline">\(\mathbb P(X^{(1:m)}=x^{(1:m)})&gt;0.\)</span></p></li>
 </ul>
+<!-- ![](images/sim/tmp-proceesso.jpg){fig-align="center"} -->
 
-<img data-src="images/sim/tmp-proceesso.jpg" class="r-stretch quarto-figure-center"></section>
+<img data-src="index_files/figure-revealjs/unnamed-chunk-3-1.png" width="960" class="r-stretch quarto-figure-center"></section>
 <section id="empirical-probabilities" class="slide level2 smaller">
 <h2>Empirical Probabilities</h2>
 <p>Assume we observe a sample of size <span class="math inline">\(n\)</span> of the process, denoted by <span class="math inline">\(\{x^{(i)}\colon i=1,\dots,n\}\)</span>. Then, for any <span class="math inline">\(W\subset V\)</span> and any <span class="math inline">\(a_W\in A^{W}\)</span>, <span class="math display">\[\begin{equation*}
@@ -501,7 +502,7 @@
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="index_files/figure-revealjs/unnamed-chunk-3-1.png" width="300" height="300"></p>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-4-1.png" width="300" height="300"></p>
 </figure>
 </div>
 </div>
@@ -511,7 +512,7 @@
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="index_files/figure-revealjs/unnamed-chunk-4-1.png" width="960"></p>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-5-1.png" width="960"></p>
 </figure>
 </div>
 </div>
@@ -622,13 +623,25 @@
 </ul>
 
 <img data-src="images/sim/ex1_1x_fwd_stepwise.jpg" class="r-stretch quarto-figure-center"></section>
-<section id="r-package" class="slide level2">
-<h2>R package</h2>
+<section id="the-mixinggraph-r-package" class="slide level2">
+<h2>The MixingGraph R package</h2>
+<div class="columns">
+<div class="column" style="width:25%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="https://raw.githubusercontent.com/magnotairone/MixingGraph/master/man/figures/logo.png" width="200"></p>
+</figure>
+</div>
+</div><div class="column" style="width:75%;">
 <ul>
-<li><p><em>INCLUIR NOME DO PACOTE - ainda não escolhi</em></p></li>
 <li><p>Includes functions to compute the penalized log pseudo-likelihood function.</p></li>
-<li><p>Implements the four algorithms considered for estimation: exact, simulated annealing, forward, and stepwise.</p></li>
+<li><p>Implements the four algorithms considered for estimation: exact, simulated annealing, and forward and backward stepwise.</p></li>
+</ul>
+</div>
+</div>
+<ul>
 <li><p>Offers examples on how to use the package.</p></li>
+<li><p>Available at <a href="https://github.com/magnotairone/MixingGraph/">github.com/magnotairone/MixingGraph</a>.</p></li>
 </ul>
 </section></section>
 <section>

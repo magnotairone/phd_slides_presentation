@@ -119,11 +119,11 @@
     "text": "Forward Stepwise Algorithm\n\nStarts with an empty graph.\nAdds edges one at a time, selecting the edge that maximizes improvement in fit.\nStops when no further enhancement in fit is achieved."
   },
   {
-    "objectID": "index.html#r-package",
-    "href": "index.html#r-package",
+    "objectID": "index.html#the-mixinggraph-r-package",
+    "href": "index.html#the-mixinggraph-r-package",
     "title": "Estimation and model selection for graphical models under mixing conditions",
-    "section": "R package",
-    "text": "R package\n\nINCLUIR NOME DO PACOTE - ainda não escolhi\nIncludes functions to compute the penalized log pseudo-likelihood function.\nImplements the four algorithms considered for estimation: exact, simulated annealing, forward, and stepwise.\nOffers examples on how to use the package."
+    "section": "The MixingGraph R package",
+    "text": "The MixingGraph R package\n\n\n\n\n\n\n\n\n\nIncludes functions to compute the penalized log pseudo-likelihood function.\nImplements the four algorithms considered for estimation: exact, simulated annealing, and forward and backward stepwise.\n\n\n\n\nOffers examples on how to use the package.\nAvailable at github.com/magnotairone/MixingGraph."
   },
   {
     "objectID": "index.html#simulation-study-1",
