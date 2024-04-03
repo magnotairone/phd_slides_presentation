@@ -4,63 +4,70 @@
     "href": "index.html#agenda",
     "title": "Estimation and model selection for graphical models under mixing conditions",
     "section": "Agenda",
-    "text": "Agenda\n\nIntroduction\nMotivation\nRegularized Maximum Pseudo-Likelihood Graph Estimator\nAlgorithms for estimation\nSimulation Study\nApplication to real data"
+    "text": "Agenda\n\nIntroduction\nMotivation\nRegularized Maximum Pseudo-Likelihood Graph Estimator\nAlgorithms for Estimation\nSimulation Study\nApplication to Real Data\nConclusion and Future Work"
   },
   {
     "objectID": "index.html#vector-valued-stochastic-processes",
     "href": "index.html#vector-valued-stochastic-processes",
     "title": "Estimation and model selection for graphical models under mixing conditions",
     "section": "Vector-Valued Stochastic Processes",
-    "text": "Vector-Valued Stochastic Processes\n\n\\(X_v^{(i)} \\in A,\\) \\(A\\) a finite alphabet.\n\\(\\bf X^{(i)} = \\big(X_1^{(i)}, X_2^{(i)}, \\dots, X_d^{(i)}\\big).\\)\nProcess \\(\\bf X = \\{X^{(i)}: -\\infty&lt;i&lt;\\infty\\}.\\)\nWe assume the process \\(\\bf X\\) has an underlying graph \\(G^*.\\)"
+    "text": "Vector-Valued Stochastic Processes\n\n\\(\\bf X^{(i)} = \\big(X_1^{(i)}, X_2^{(i)}, \\dots, X_d^{(i)}\\big).\\)\n\\(X_v^{(i)} \\in A,\\) \\(A\\) a finite alphabet.\nProcess \\(\\bf X = \\{X^{(i)}: -\\infty&lt;i&lt;\\infty\\}.\\)\nWe assume the process \\(\\bf X\\) has an underlying graph \\(G^* = (V, E^*)\\)"
   },
   {
     "objectID": "index.html#vector-valued-stochastic-processes-1",
     "href": "index.html#vector-valued-stochastic-processes-1",
     "title": "Estimation and model selection for graphical models under mixing conditions",
     "section": "Vector-Valued Stochastic Processes",
-    "text": "Vector-Valued Stochastic Processes\n\n\\(X_v^{(i)} \\in A,\\) \\(A\\) a finite alphabet.\n\\(\\bf X^{(i)} = \\big(X_1^{(i)}, X_2^{(i)}, \\dots, X_d^{(i)}\\big).\\)\nProcess \\(\\bf X = \\{X^{(i)}: -\\infty&lt;i&lt;\\infty\\}.\\)\nWe assume the process \\(\\bf X\\) has an underlying graph \\(G^*.\\)"
+    "text": "Vector-Valued Stochastic Processes\n\n\\(\\bf X^{(i)} = \\big(X_1^{(i)}, X_2^{(i)}, \\dots, X_d^{(i)}\\big).\\)\n\\(X_v^{(i)} \\in A,\\) \\(A\\) a finite alphabet.\nProcess \\(\\bf X = \\{X^{(i)}: -\\infty&lt;i&lt;\\infty\\}.\\)\nWe assume the process \\(\\bf X\\) has an underlying graph \\(G^* = (V, E^*)\\)"
   },
   {
     "objectID": "index.html#previous-works",
     "href": "index.html#previous-works",
     "title": "Estimation and model selection for graphical models under mixing conditions",
     "section": "Previous works",
-    "text": "Previous works\n\nExtensive research has been conducted on discrete graphical models or Markov random fields, especially for binary graphical models with pairwise interactions (Lauritzen, 1996, and Galves et al., 2015).\nMethods for estimating graph structures have been proposed for continuous random variables and various types of interactions (Meinshausen and Bühlmann, 2006).\nThe assumption of independence of the observations in the non-homogeneous Markov random fields setting is often too restrictive.\nThe assumption of independence in observations is often too restrictive in real world scenarios (Cerqueira et al., 2017).\nThe independence assumption does not hold and these methods serve only as approximations to the true underlying distribution.\nTraditional model selection techniques involve estimating neighborhoods of individual nodes and constructing the graph based on these neighborhoods (Ravikumar et al., 2010)."
+    "text": "Previous works\n\nExtensive research has been conducted on discrete graphical models or Markov random fields, especially for binary graphical models with pairwise interactions (Lauritzen, 1996, and Galves et al., 2015).\n\n\n\nMethods for estimating graph structures have been proposed for continuous random variables and various types of interactions (Meinshausen and Bühlmann, 2006).  \n\n\n\n\nTraditional model selection techniques involve estimating neighborhoods of individual nodes and constructing the graph based on these neighborhoods (Ravikumar et al., 2010).\n\n\n\n\nThe assumption of independence in observations is often too restrictive in real world scenarios (Cerqueira et al., 2017).\n\n\n\n\nThe independence assumption does not hold and these methods serve only as approximations to the true underlying distribution."
   },
   {
     "objectID": "index.html#motivation",
     "href": "index.html#motivation",
     "title": "Estimation and model selection for graphical models under mixing conditions",
     "section": "Motivation",
-    "text": "Motivation\n\nLeonardi et al. (2021):\n\nestimate blocks of independence within multivariate stochastic process,\napplied to both iid and processes under mixing conditions\ndiscrete or continuous data.\n\nLeonardi et al. (2023):\n\nestimate the neighborhood of each vertex and then constructs the graph,\nassume the process is iid\ndiscrete data."
+    "text": "Motivation\n\nLeonardi et al. (2021):\n\nestimate blocks of independence within multivariate stochastic process,\napplied to both iid and processes under mixing conditions,\ndiscrete or continuous data.\n\nLeonardi et al. (2023):\n\nestimate the neighborhood of each vertex and then constructs the graph,\nassume the process is iid,\ndiscrete data."
   },
   {
     "objectID": "index.html#objectives-of-the-research",
     "href": "index.html#objectives-of-the-research",
     "title": "Estimation and model selection for graphical models under mixing conditions",
     "section": "Objectives of the research",
-    "text": "Objectives of the research\n\nProposal: Method to estimate the graph of conditional dependencies for multivariate stochastic processes with mixing conditions.\nAim: combine and generalize previous works:\n\nLeonardi et al. (2023): estimator of neighborhood of each vertext for iid data.,\nLeonardi et al. (2021): method assumes decomposition into subvectors with immediate neighbor dependencies.\n\n\n\n\nProposed solution: penalized pseudo-likelihood criterion for entire graph estimation for multivariate processes with mixing conditions.\nKey advantages:\n\nHandles non-iid data (mixing condition),\nProvides a global estimation approach."
+    "text": "Objectives of the research\n\nProposal: Method to estimate the graph of conditional dependencies for multivariate stochastic processes with mixing conditions.\nAim: combine and generalize previous works:\n\nLeonardi et al. (2023): estimator of neighborhood of each vertext for iid data,\nLeonardi et al. (2021): method assumes decomposition into subvectors with immediate neighbor dependencies.\n\n\n\n\nProposed solution: penalized pseudo-likelihood criterion for entire graph estimation for multivariate processes with mixing conditions.\nKey advantages:\n\nHandles non-iid data (mixing condition),\nProvides a global estimation approach."
   },
   {
     "objectID": "index.html#mixing-condition",
     "href": "index.html#mixing-condition",
     "title": "Estimation and model selection for graphical models under mixing conditions",
     "section": "Mixing Condition",
-    "text": "Mixing Condition\n\n\\(X^{(i:j)}\\) denote the sequence of vectors \\(X^{(i)}, X^{(i+1)}, \\ldots, X^{(j)}.\\)\n\\(\\bf X = \\{X^{(i)}\\colon -\\infty &lt; i &lt; \\infty\\}\\) satisfies a with rate \\(\\{\\psi(\\ell)\\}_{\\ell \\in \\mathbb R}\\) if \\[\\begin{equation*}\n\\begin{split}\n  \\Bigl| \\mathbb P \\bigl(X^{(n:(n+k-1))}=x^{(1:k)}\\, |\\, X^{(1:m)}=x^{(1:m)}&\\bigr) - \\mathbb P \\bigl( X^{(n:(n+k-1))} =x^{(1:k)}\\bigr)\\Bigr| \\\\\n  &\\leq \\psi(n-m) \\mathbb P\\bigl(X^{(n:(n+k-1))}=x^{(1:k)}\\bigr),\n\\end{split}\n\\end{equation*}\\] for \\(n\\geq m+\\ell\\) and for each \\(k, m \\in \\mathbb N\\) and each \\(x^{(1:k)} \\in (A^d)^k\\), \\(x^{(1:m)}\\in (A^d)^m\\) with \\(\\mathbb P(X^{(1:m)}=x^{(1:m)})&gt;0.\\)"
+    "text": "Mixing Condition\n\n\\(X^{(i:j)}\\) denote the sequence of vectors \\(X^{(i)}, X^{(i+1)}, \\ldots, X^{(j)}.\\)\n\\(\\bf X = \\{X^{(i)}\\colon -\\infty &lt; i &lt; \\infty\\}\\) satisfies a mixing condition with rate \\(\\{\\psi(\\ell)\\}_{\\ell \\in \\mathbb R}\\) if \\[\\begin{equation*}\n\\begin{split}\n  \\Bigl| \\mathbb P \\bigl(X^{(n:(n+k-1))}=x^{(1:k)}\\, |\\, X^{(1:m)}=x^{(1:m)}&\\bigr) - \\mathbb P \\bigl( X^{(n:(n+k-1))} =x^{(1:k)}\\bigr)\\Bigr| \\\\\n  &\\leq \\psi(n-m) \\mathbb P\\bigl(X^{(n:(n+k-1))}=x^{(1:k)}\\bigr),\n\\end{split}\n\\end{equation*}\\] for \\(n\\geq m+\\ell\\) and for each \\(k, m \\in \\mathbb N\\) and each \\(x^{(1:k)} \\in (A^d)^k\\), \\(x^{(1:m)}\\in (A^d)^m\\) with \\(\\mathbb P(X^{(1:m)}=x^{(1:m)})&gt;0.\\)"
   },
   {
     "objectID": "index.html#empirical-probabilities",
     "href": "index.html#empirical-probabilities",
     "title": "Estimation and model selection for graphical models under mixing conditions",
     "section": "Empirical Probabilities",
-    "text": "Empirical Probabilities\nAssume we observe a sample of size \\(n\\) of the process, denoted by \\(\\{x^{(i)}\\colon i=1,\\dots,n\\}\\). Then, for any \\(W\\subset V\\) and any \\(a_W\\in A^{W}\\), \\[\\begin{equation*}\n    \\widehat{\\pi}(a_W)  = \\frac{N(a_W)}{n}.\n\\end{equation*}\\]\nIf \\(\\:\\widehat\\pi(a_W)&gt;0\\), \\[\\begin{equation*}\n    \\widehat\\pi(a_W|a_{W'})  = \\frac{\\widehat\\pi(a_{W\\cup W'})}{\\widehat\\pi(a_{W'})}\\,,\n\\end{equation*}\\] for two disjoint subsets \\(W,W'\\subset V\\) and configurations \\(a_W\\in A^W, a_{W'}\\in A^{W'}\\).\n\nGiven a graph \\(G\\) and a vertex \\(v \\in V,\\) we can compute \\[\\begin{equation*}\n    \\widehat\\pi(a_v|a_{G(v)})  = \\frac{\\widehat\\pi(a_{\\{v\\}\\cup G(v)})}{\\widehat\\pi(a_{G(v)})},\n\\end{equation*}\\] here we are taking \\(W = \\{v\\}\\) and \\(W' = \\{G(v)\\}.\\)"
+    "text": "Empirical Probabilities\nThe stationary distribution of the process \\(\\pi\\) is unknown, we must estimate it from the data.\nAssume we observe a sample of size \\(n\\) of the process, denoted by \\(\\{x^{(i)}\\colon i=1,\\dots,n\\}\\). Then, for any \\(W\\subset V\\) and any \\(a_W\\in A^{W}\\), \\[\\begin{equation*}\n    \\widehat{\\pi}(a_W)  = \\frac{N(a_W)}{n}.\n\\end{equation*}\\]\nIf \\(\\:\\widehat\\pi(a_W)&gt;0\\), \\[\\begin{equation*}\n    \\widehat\\pi(a_{W'}|a_{W})  = \\frac{\\widehat\\pi(a_{W'\\cup W})}{\\widehat\\pi(a_{W})}\\,,\n\\end{equation*}\\] for two disjoint subsets \\(W,W'\\subset V\\) and configurations \\(a_W\\in A^W, a_{W'}\\in A^{W'}\\)."
+  },
+  {
+    "objectID": "index.html#empirical-probabilities-1",
+    "href": "index.html#empirical-probabilities-1",
+    "title": "Estimation and model selection for graphical models under mixing conditions",
+    "section": "Empirical Probabilities",
+    "text": "Empirical Probabilities\nLet \\[G(v) = \\big\\{u \\in V: (u,v) \\in E \\big\\}.\\]\nGiven a graph \\(G\\) and a vertex \\(v \\in V,\\) we can compute \\[\\begin{equation*}\n    \\widehat\\pi(a_v|a_{G(v)})  = \\frac{\\widehat\\pi(a_{\\{v\\}\\cup G(v)})}{\\widehat\\pi(a_{G(v)})}.\n\\end{equation*}\\]"
   },
   {
     "objectID": "index.html#graph-estimator",
     "href": "index.html#graph-estimator",
     "title": "Estimation and model selection for graphical models under mixing conditions",
     "section": "Graph Estimator",
-    "text": "Graph Estimator\nGiven any graph \\(G\\) and a sample of the process, we define the pseudo-likelihood function by \\[\\begin{equation} \\label{eq:def_Lhat}\n    \\widehat L(G) \\;=\\;  \\prod_{i=1}^n \\:\\prod_{v \\in V}  \\widehat\\pi(x^{(i)}_v | x^{(i)}_{G(v)}).\n\\end{equation}\\]\nApplying the logarithm we can write expression above as \\[\\begin{equation}\\label{eq:log-pseudo}\n    \\log \\widehat L(G) \\;=\\;\n        % \\sum N(a_v,a_{G(v)})\\log \\widehat\\pi(a_v|a_{G(v)})\\,,\n        \\sum_{v \\in V} \\:\\sum_{(a_v\\in A)} \\:\\sum_{a_{G(v)}\\in A^{|G(v)|}}\n        N(a_v,a_{G(v)})\\log \\widehat\\pi(a_v|a_{G(v)})\\,,\n\\end{equation}\\] where the sum is taken over all \\(v\\in V\\) and all configurations \\(a_v\\in A\\), \\(a_{G(v)}\\in A^{|G(v)|}\\) such that \\(N(a_v,a_{G(v)})&gt;0\\). Here \\(|G(v)|\\) denotes the cardinal of the set \\(G(v).\\)"
+    "text": "Graph Estimator\nGiven any graph \\(G\\) and a sample of the process, we define the pseudo-likelihood function by \\[\\begin{equation} \\label{eq:def_Lhat}\n    \\widehat L(G) \\;=\\;  \\prod_{i=1}^n \\:\\prod_{v \\in V}  \\widehat\\pi(x^{(i)}_v | x^{(i)}_{G(v)}).\n\\end{equation}\\]\nApplying the logarithm we can write expression above as \\[\\begin{equation}\\label{eq:log-pseudo}\n    \\log \\widehat L(G) \\;=\\;\n        % \\sum N(a_v,a_{G(v)})\\log \\widehat\\pi(a_v|a_{G(v)})\\,,\n        \\sum_{v \\in V} \\:\\sum_{(a_v\\in A)} \\:\\sum_{a_{G(v)}\\in A^{|G(v)|}}\n        N(a_v,a_{G(v)})\\log \\widehat\\pi(a_v|a_{G(v)})\\,.\n\\end{equation}\\]\nRegularized Graph Estimator:\n\\[\\begin{equation}\n  \\widehat G = \\underset{G}{\\arg\\max}\\Big\\{\\log \\widehat L(G) - \\lambda_n\\Big\\}.\n\\end{equation}\\]"
   },
   {
     "objectID": "index.html#regularized-graph-estimator",
@@ -98,13 +105,6 @@
     "text": "Simulated Annealing Algorithm\n\n\\(H(G) = \\log \\widehat L(G) - \\lambda_n \\sum_{v \\in V} |A|^{|G(v)|}.\\)\n\\(H^* = \\max_{G \\in \\mathcal{G}} \\{H(G)\\}.\\)\n\\(\\mathcal{H} = \\{G \\in \\mathcal{G} : H(G) = H^*\\}.\\)\nDefinition of a neighbor of a graph.\n\n\n\n\n\n\n\n\\(\\qquad\\qquad\\qquad\\qquad G_1\\)\n\n\n\n\n\n\n\n\\(\\qquad\\qquad\\qquad\\qquad G_2\\)\n\n\n\n\n\n\n\n\\(\\qquad\\qquad\\qquad\\qquad G_3\\)"
   },
   {
-    "objectID": "index.html#simulated-annealing-algorithm-1",
-    "href": "index.html#simulated-annealing-algorithm-1",
-    "title": "Estimation and model selection for graphical models under mixing conditions",
-    "section": "Simulated Annealing Algorithm",
-    "text": "Simulated Annealing Algorithm\n\nAlgorithm Overview:\n\nInitialize with \\(G_1 \\in \\mathcal{G}\\).\nRandomly choose neighbors \\(G_n^\\prime\\).\nTransition based on a probability formula.\nRepeat for \\(m\\) iterations.\n\nParameter Choices:\n\n\\(m\\): Number of iterations.\n\\(C\\): Constant in \\(\\eta_n = C\\log(1+n).\\)\nInitial state \\(G_1\\).\n\nFurther details in Ross (2006)."
-  },
-  {
     "objectID": "index.html#backward-stepwise-algorithm",
     "href": "index.html#backward-stepwise-algorithm",
     "title": "Estimation and model selection for graphical models under mixing conditions",
@@ -130,21 +130,21 @@
     "href": "index.html#simulation-study-1",
     "title": "Estimation and model selection for graphical models under mixing conditions",
     "section": "Simulation Study",
-    "text": "Simulation Study\n\nObjective: Assess the performance of the proposed via simulation studies.\nMethodology:\n\nUtilize R language for statistical computing.\nEvaluate proposed graph estimator individually with each algorithm.\n\nScenario 1: Fixed True Graph\n\nGenerate synthetic data based on fixed true graph.\nAssess estimator’s performance under stability conditions.\n\nScenario 2: Random Graphs with Varying Edge Number\n\nGenerate random graphs with varying edge numbers.\nEvaluate estimator’s performance across graphs with different edge configuration."
-  },
-  {
-    "objectID": "index.html#simulation-study---sampling-scheme",
-    "href": "index.html#simulation-study---sampling-scheme",
-    "title": "Estimation and model selection for graphical models under mixing conditions",
-    "section": "Simulation Study - Sampling Scheme",
-    "text": "Simulation Study - Sampling Scheme\n\nThe Gibbs sampler was set to perform \\(15{,}000\\) iterations, with a burn-in period of \\(5{,}000\\) iterations and thus \\(10{,}000\\) observations forming the final sample \\(s_1, \\dots, s_{10{,}000}\\).\nSmaller samples were extracted from the initial sample, with sizes \\(N \\in \\{100, 500, 1{,}000, 5{,}000, 10{,}000\\}\\)."
+    "text": "Simulation Study\n\nObjective: Assess the performance of the proposed algorithm via simulation studies.\nMethodology:\n\nUtilize R language for statistical computing.\nEvaluate proposed graph estimator individually with each algorithm.\n\nScenario 1: Fixed True Graph\n\nGenerate synthetic data based on fixed true graph.\nAssess estimator’s performance under stability conditions.\n\nScenario 2: Random Graphs with Varying Edge Number\n\nGenerate random graphs with varying edge numbers.\nEvaluate estimator’s performance across graphs with different edge configuration."
   },
   {
     "objectID": "index.html#example-11---scenario-1",
     "href": "index.html#example-11---scenario-1",
     "title": "Estimation and model selection for graphical models under mixing conditions",
     "section": "Example 11 - Scenario 1",
-    "text": "Example 11 - Scenario 1\n\nAssume a fixed true graph exists with vertices \\(X_1, \\dots, X_5.\\)\nJoint probability function of these variables: \\[    p(x_1,x_2,x_3,x_4,x_5) = p(x_3) p(x_1|x_3) p(x_2|x_1,x_3) p(x_4|x_3) p(x_5|x_3). \\]\n\n\n\n\nConditional probabilities:\n\n\\[\\begin{align*}\n    p(x_1|x_2,x_3,x_4,x_5) &= p(x_1|x_2,x_3), \\\\  \n    p(x_2|x_1,x_3,x_4,x_5) &= p(x_2|x_1,x_3), \\\\\n    %p(x_3|x_1,x_2,x_4,x_5) &= p(x_1,x_2,x_3,x_4,x_5)/ \\sum {_{x_3}}p(x_1,x_2,x_3,x_4,x_5), \\\\\n    p(x_4|x_1,x_2,x_3,x_5) &= p(x_4|x_3), \\\\\n    p(x_5|x_1,x_2,x_3,x_4)&= p(x_5|x_3).\n\\end{align*}\\]\n\n\n\n\n\n\n\n\n\nAim: assess the performance of the algorithms for estimation.\nData generation: Gibbs Sampler algorithm (Geman and Geman, 1984 and Gelfand and Smith, 1990)."
+    "text": "Example 11 - Scenario 1\n\nAssume a fixed true graph exists with vertices \\(X_1, \\dots, X_5.\\)\nJoint probability function of these variables: \\[ p(x_1,x_2,x_3,x_4,x_5) = p(x_3) p(x_1|x_3) p(x_2|x_1,x_3) p(x_4|x_3) p(x_5|x_3). \\]\n\n\n\n\nConditional probabilities:\n\n\\[\\begin{align*}\n    p(x_1|x_2,x_3,x_4,x_5) &= p(x_1|x_2,x_3), \\\\  \n    p(x_2|x_1,x_3,x_4,x_5) &= p(x_2|x_1,x_3), \\\\\n    %p(x_3|x_1,x_2,x_4,x_5) &= p(x_1,x_2,x_3,x_4,x_5)/ \\sum {_{x_3}}p(x_1,x_2,x_3,x_4,x_5), \\\\\n    p(x_4|x_1,x_2,x_3,x_5) &= p(x_4|x_3), \\\\\n    p(x_5|x_1,x_2,x_3,x_4)&= p(x_5|x_3).\n\\end{align*}\\]\n\n\n\n\n\n\n\n\n\nAim: assess the performance of the algorithms for estimation.\nData generation: Gibbs Sampler algorithm."
+  },
+  {
+    "objectID": "index.html#example-11---sampling-scheme",
+    "href": "index.html#example-11---sampling-scheme",
+    "title": "Estimation and model selection for graphical models under mixing conditions",
+    "section": "Example 11 - Sampling Scheme",
+    "text": "Example 11 - Sampling Scheme\n\nThe Gibbs sampler (Geman and Geman, 1984 and Gelfand and Smith, 1990):\n\niterations: \\(15{,}000\\),\nburn-in period: \\(5{,}000\\),\nfinal sample: \\(10{,}000\\).\n\nSmaller samples were extracted from the initial sample \\(s_1, \\dots, s_{10{,}000}\\), with sizes \\(N \\in \\{100, 500, 1{,}000, 5{,}000, 10{,}000\\}\\)."
   },
   {
     "objectID": "index.html#example-11---exact-algorithm",
@@ -175,22 +175,29 @@
     "text": "Example 11 - Forward Stepwise\nEffects of sample size and penalizing constant value."
   },
   {
+    "objectID": "index.html#example-11---several-replications",
+    "href": "index.html#example-11---several-replications",
+    "title": "Estimation and model selection for graphical models under mixing conditions",
+    "section": "Example 11 - Several Replications",
+    "text": "Example 11 - Several Replications\n\nObjective: generate several samples and assess the performance of the algorithms.\nMetrics: underestimation error (\\(ue\\)), overestimation error (\\(oe\\)), and total error (\\(te\\)).\n\n\n\\(ue(G, \\hat G) = \\frac{\\sum_{(v, w)}\\mathbf{1}\\{(v, w)\\in E \\text{ and } (v,w) \\not\\in \\hat E\\}}{\\sum_{(v, w)}\\mathbf{1}\\{(v, w) \\in E\\}},\\)\n\\(oe(G, \\hat G) = \\frac{\\sum_{(v, w)}\\mathbf{1}\\{(v, w)\\not\\in E \\text{ and } (v,w) \\in \\hat E\\}}{\\sum_{(v, w)}\\mathbf{1}\\{(v, w) \\not\\in E\\}},\\)\n\\(\\qquad \\qquad te(G, \\hat G) = \\frac{ue \\sum_{(v, w)}\\mathbf{1}\\{(v, w) \\not\\in E\\} + oe \\sum_{(v, w)}\\mathbf{1}\\{(v, w) \\in E\\}}{|V|(|V|-1)/2}.\\)"
+  },
+  {
+    "objectID": "index.html#example-11---several-replications-1",
+    "href": "index.html#example-11---several-replications-1",
+    "title": "Estimation and model selection for graphical models under mixing conditions",
+    "section": "Example 11 - Several Replications",
+    "text": "Example 11 - Several Replications"
+  },
+  {
     "objectID": "index.html#the-choice-of-penalizing-constant-c",
     "href": "index.html#the-choice-of-penalizing-constant-c",
     "title": "Estimation and model selection for graphical models under mixing conditions",
     "section": "The Choice of Penalizing Constant \\(c\\)",
-    "text": "The Choice of Penalizing Constant \\(c\\)\n\nObjective: Evaluate methods for selecting penalizing constants in real-world scenarios.\nApproach:\n\nUtilize \\(k\\)-fold cross-validation to assess model performance and select optimal penalizing constant values.\nDivide the dataset into \\(k\\) subsets (folds) for training and validation.\nEstimate the graph using each fold as validation data and the remaining folds for training.\nCompute pseudo-log-likelihood over validation sets for different constant values.\nAverage pseudo log-likelihood over all folds to select the optimal constant."
+    "text": "The Choice of Penalizing Constant \\(c\\)\n\nUtilize \\(k\\)-fold cross-validation to assess model performance and select optimal penalizing constant values.\nDivide the dataset into \\(k\\) subsets (folds) for training and validation.\nEstimate the graph using each fold as validation data and the remaining folds for training.\nCompute pseudo-log-likelihood over validation sets for different constant values.\nAverage pseudo log-likelihood over all folds to select the optimal constant.\nOnce this value is chosen, the final graph is estimated using the entire sample data with this penalizing constant."
   },
   {
     "objectID": "index.html#the-choice-of-penalizing-constant-c-1",
     "href": "index.html#the-choice-of-penalizing-constant-c-1",
-    "title": "Estimation and model selection for graphical models under mixing conditions",
-    "section": "The Choice of Penalizing Constant \\(c\\)",
-    "text": "The Choice of Penalizing Constant \\(c\\)\n\nIssue: Configuration mismatch between training and validation sets can cause problems in cross-validation. \\[\\hat\\pi(a_v|a_{\\hat G(v)}) = 0, \\text{ resulting in } \\mathrm{CV}_k^{(i)}(c) = -\\infty.\\]\nSolution: Introduce the hyperparameter \\(\\gamma\\) to handle cases where observed configuration is absent in training set, \\[\\hat\\pi(a_v|a_{\\hat G(v)}) = \\gamma.\\]\nRedefinition: Rescale distribution \\(\\hat\\pi(\\cdot|a_{\\hat G(v)})\\) for configurations not seen in training data.\nRecommendation: Set \\(\\gamma\\) to a small value for numerical stability.\nThis change ensures stability and reliability of cross-validation method for real-world datasets."
-  },
-  {
-    "objectID": "index.html#the-choice-of-penalizing-constant-c-2",
-    "href": "index.html#the-choice-of-penalizing-constant-c-2",
     "title": "Estimation and model selection for graphical models under mixing conditions",
     "section": "The Choice of Penalizing Constant \\(c\\)",
     "text": "The Choice of Penalizing Constant \\(c\\)\n\n\\(5\\)-fold cross-validation error for Example 11, considering a sample of size \\(5{,}000\\) and set of values for penalizing constant."
@@ -200,14 +207,7 @@
     "href": "index.html#example-11---scenario-2",
     "title": "Estimation and model selection for graphical models under mixing conditions",
     "section": "Example 11 - Scenario 2",
-    "text": "Example 11 - Scenario 2\n\nObjective: Assess algorithms across diverse scenarios to understand their performance.\nMethodology:\n\nGenerate samples of different sizes (\\(N\\)) ranging from \\(100\\) to \\(10{,}000\\).\nEvaluate Exact, Simulated Annealing, Forward Stepwise, and Backward Stepwise algorithms.\nVary penalizing constant values \\(c = \\{0.1, 0.5,\\) \\(1.0, 1.5, 2.0, 2.5, 3.0\\}.\\)\n\nMetrics: underestimation error (\\(ue\\)), overestimation error (\\(oe\\)), and total error (\\(te\\)).\n\n\n\\(ue(G, \\hat G) = \\frac{\\sum_{(v, w)}\\mathbf{1}\\{(v, w)\\in E \\text{ and } (v,w) \\not\\in \\hat E\\}}{\\sum_{(v, w)}\\mathbf{1}\\{(v, w) \\in E\\}},\\)\n\\(oe(G, \\hat G) = \\frac{\\sum_{(v, w)}\\mathbf{1}\\{(v, w)\\not\\in E \\text{ and } (v,w) \\in \\hat E\\}}{\\sum_{(v, w)}\\mathbf{1}\\{(v, w) \\not\\in E\\}},\\)\n\\(\\qquad \\qquad te(G, \\hat G) = \\frac{ue \\sum_{(v, w)}\\mathbf{1}\\{(v, w) \\not\\in E\\} + oe \\sum_{(v, w)}\\mathbf{1}\\{(v, w) \\in E\\}}{|V|(|V|-1)/2}.\\)"
-  },
-  {
-    "objectID": "index.html#example-11---scenario-2-1",
-    "href": "index.html#example-11---scenario-2-1",
-    "title": "Estimation and model selection for graphical models under mixing conditions",
-    "section": "Example 11 - Scenario 2",
-    "text": "Example 11 - Scenario 2"
+    "text": "Example 11 - Scenario 2\n\nObjective: Assess algorithms across diverse random scenarios to understand their performance.\nMethodology:\n\nGerante random graphs with fixed number of nodes and different number of edges.\nGenerate samples of different sizes (\\(N\\)) ranging from \\(100\\) to \\(10{,}000\\).\nEvaluate Exact, Simulated Annealing, Forward Stepwise, and Backward Stepwise algorithms.\nVary penalizing constant values \\(c = \\{0.1, 0.5,\\) \\(1.0, 1.5, 2.0, 2.5, 3.0\\}.\\)"
   },
   {
     "objectID": "index.html#example-12-random-graphs",
@@ -284,7 +284,7 @@
     "href": "index.html#conclusion-and-future-work",
     "title": "Estimation and model selection for graphical models under mixing conditions",
     "section": "Conclusion and Future Work",
-    "text": "Conclusion and Future Work\n\nMotivated by Leonardi et al., 2023 and Leonardi, 2021.\nIntroduced penalized pseudo-likelihood criterion and model selection criterion.\nDeveloped method for estimating entire graph \\(G\\).\nProved consistency and convergence rate.\nExplored implementation approaches: exact, simulated annealing, stepwise.\nConducted simulation study to evaluate effectiveness.\nShowed analysis and application to real-world data.\nFuture Work:\n\nGeneralize approach for continuous multivariate stochastic processes.\nExtend methodology to infinite vertex sets and unbounded estimators.\nAdapt model to estimate direction of edges for directed graphs."
+    "text": "Conclusion and Future Work\n\nMotivated by Leonardi et al. (2023) and Leonardi (2021).\nIntroduced a penalized pseudo-likelihood criterion to perform graph estimation for process under mixing conditions.\nDeveloped method for estimating entire graph \\(G\\).\nProved consistency and convergence rate of the estimator.\nExplored implementation approaches: exact, simulated annealing, stepwise.\nConducted simulation study to evaluate effectiveness.\nShowed analysis and application to real-world data.\nFuture Work:\n\nGeneralize approach for continuous multivariate stochastic processes.\nExtend methodology to infinite vertex sets and unbounded estimators.\nAdapt model to estimate direction of edges for directed graphs."
   },
   {
     "objectID": "index.html#references",

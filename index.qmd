@@ -23,9 +23,10 @@ editor_options:
   - Introduction
   - Motivation
   - Regularized Maximum Pseudo-Likelihood Graph Estimator
-  - Algorithms for estimation
+  - Algorithms for Estimation
   - Simulation Study
-  - Application to real data
+  - Application to Real Data
+  - Conclusion and Future Work
 
 <!-- 
   1. introducao
@@ -44,13 +45,13 @@ editor_options:
 
 ## Vector-Valued Stochastic Processes {.smaller}
 
-- $X_v^{(i)} \in A,$ $A$ a finite alphabet.
-
 - $\bf X^{(i)} = \big(X_1^{(i)}, X_2^{(i)}, \dots, X_d^{(i)}\big).$
+
+- $X_v^{(i)} \in A,$ $A$ a finite alphabet.
 
 - Process $\bf X = \{X^{(i)}: -\infty<i<\infty\}.$
 
-- We assume the process $\bf X$ has an underlying graph $G^*.$
+- We assume the process $\bf X$ has an underlying graph $G^* = (V, E^*)$
 
 ```{r, engine = 'tikz', fig.align='center', out.height='400px', out.width='667px'}
 % Created by tikzDevice version 0.12.4 on 2024-03-25 21:10:44
@@ -201,13 +202,13 @@ editor_options:
 
 ## Vector-Valued Stochastic Processes {.smaller}
 
-- $X_v^{(i)} \in A,$ $A$ a finite alphabet.
-
 - $\bf X^{(i)} = \big(X_1^{(i)}, X_2^{(i)}, \dots, X_d^{(i)}\big).$
+
+- $X_v^{(i)} \in A,$ $A$ a finite alphabet.
 
 - Process $\bf X = \{X^{(i)}: -\infty<i<\infty\}.$
 
-- We assume the process $\bf X$ has an underlying graph $G^*.$
+- We assume the process $\bf X$ has an underlying graph $G^* = (V, E^*)$
 
 ```{r, engine = 'tikz', fig.align='center', out.height='400px', out.width='667px'}
 % Created by tikzDevice version 0.12.4 on 2024-03-25 21:11:34
@@ -364,28 +365,34 @@ editor_options:
 
 - Extensive research has been conducted on discrete graphical models or Markov random fields, especially for binary graphical models with pairwise interactions (Lauritzen, 1996, and Galves et al., 2015).
 
-- Methods for estimating graph structures have been proposed for continuous random variables and various types of interactions (Meinshausen and Bühlmann, 2006).
+. . . 
 
-- The assumption of independence of the observations in
-the non-homogeneous Markov random fields setting is often too restrictive.
+- Methods for estimating graph structures have been proposed for continuous random variables and various types of interactions (Meinshausen and Bühlmann, 2006).
+<!-- - The assumption of independence of the observations in -->
+<!-- the non-homogeneous Markov random fields setting is often too restrictive. -->
+
+. . . 
+
+- Traditional model selection techniques involve estimating neighborhoods of individual nodes and constructing the graph based on these neighborhoods (Ravikumar et al., 2010).
+
+. . . 
 
 - The assumption of independence in observations is often too restrictive in real world scenarios (Cerqueira et al., 2017).
 
-- The independence assumption does not hold and these methods serve only as approximations to
-the true underlying distribution.
+. . . 
 
-- Traditional model selection techniques involve estimating neighborhoods of individual nodes and constructing the graph based on these neighborhoods (Ravikumar et al., 2010).
+- The independence assumption does not hold and these methods serve only as approximations to the true underlying distribution.
 
 ## Motivation {.smaller}
   
 - Leonardi et al. (2021):
   - estimate blocks of independence within multivariate stochastic process,
-  - applied to both iid and processes under mixing conditions 
+  - applied to both iid and processes under mixing conditions,
   - discrete or continuous data.
 
 - Leonardi et al. (2023): 
   - estimate the neighborhood of each vertex and then constructs the graph,
-  - assume the process is iid 
+  - assume the process is iid,
   - discrete data.
 
 ## Objectives of the research {.smaller}
@@ -394,7 +401,7 @@ the true underlying distribution.
 
 - **Aim**: combine and generalize previous works:
 
-    - Leonardi et al. (2023): estimator of neighborhood of each vertext for iid data.,
+    - Leonardi et al. (2023): estimator of neighborhood of each vertext for iid data,
     - Leonardi et al. (2021): method assumes decomposition into subvectors with immediate neighbor dependencies.
 
 . . . 
@@ -410,7 +417,7 @@ the true underlying distribution.
 
 - $X^{(i:j)}$ denote the sequence of vectors $X^{(i)}, X^{(i+1)}, \ldots, X^{(j)}.$
 
-- $\bf X = \{X^{(i)}\colon -\infty < i < \infty\}$ satisfies a \emph{mixing condition} with rate $\{\psi(\ell)\}_{\ell \in \mathbb R}$ if 
+- $\bf X = \{X^{(i)}\colon -\infty < i < \infty\}$ satisfies a _mixing condition_ with rate $\{\psi(\ell)\}_{\ell \in \mathbb R}$ if 
 \begin{equation*}
 \begin{split}
     \Bigl| \mathbb P \bigl(X^{(n:(n+k-1))}=x^{(1:k)}\, |\, X^{(1:m)}=x^{(1:m)}&\bigr) - \mathbb P \bigl( X^{(n:(n+k-1))} =x^{(1:k)}\bigr)\Bigr| \\ 
@@ -547,6 +554,8 @@ for $n\geq m+\ell$ and for each $k, m \in \mathbb N$ and each $x^{(1:k)} \in (A^
 
 ## Empirical Probabilities {.smaller}
 
+The stationary distribution of the process $\pi$ is unknown, we must estimate it from the data.
+
 Assume we observe a sample of size $n$ of the process, denoted by $\{x^{(i)}\colon i=1,\dots,n\}$.
 Then, for any $W\subset V$ and any $a_W\in A^{W}$,
 \begin{equation*}
@@ -555,17 +564,18 @@ Then, for any $W\subset V$ and any $a_W\in A^{W}$,
 
 If $\:\widehat\pi(a_W)>0$, 
 \begin{equation*}
-    \widehat\pi(a_W|a_{W'})  = \frac{\widehat\pi(a_{W\cup W'})}{\widehat\pi(a_{W'})}\,,
+    \widehat\pi(a_{W'}|a_{W})  = \frac{\widehat\pi(a_{W'\cup W})}{\widehat\pi(a_{W})}\,,
 \end{equation*}
 for two disjoint subsets  $W,W'\subset V$ and configurations  $a_W\in A^W, a_{W'}\in A^{W'}$.
 
-. . .
+## Empirical Probabilities {.smaller}
+
+Let $$G(v) = \big\{u \in V: (u,v) \in E \big\}.$$
 
 Given a graph $G$ and a vertex $v \in V,$ we can compute
 \begin{equation*}
-    \widehat\pi(a_v|a_{G(v)})  = \frac{\widehat\pi(a_{\{v\}\cup G(v)})}{\widehat\pi(a_{G(v)})},
+    \widehat\pi(a_v|a_{G(v)})  = \frac{\widehat\pi(a_{\{v\}\cup G(v)})}{\widehat\pi(a_{G(v)})}.
 \end{equation*}
-here we are taking $W = \{v\}$ and $W' = \{G(v)\}.$
 
 
 ## Graph Estimator {.smaller}
@@ -580,10 +590,14 @@ Applying the logarithm we can write expression above as
     \log \widehat L(G) \;=\; 
         % \sum N(a_v,a_{G(v)})\log \widehat\pi(a_v|a_{G(v)})\,,
         \sum_{v \in V} \:\sum_{(a_v\in A)} \:\sum_{a_{G(v)}\in A^{|G(v)|}}
-        N(a_v,a_{G(v)})\log \widehat\pi(a_v|a_{G(v)})\,,
+        N(a_v,a_{G(v)})\log \widehat\pi(a_v|a_{G(v)})\,.
 \end{equation}
-where the sum is taken over all $v\in V$ and all configurations $a_v\in A$, $a_{G(v)}\in A^{|G(v)|}$ such that $N(a_v,a_{G(v)})>0$. 
-Here $|G(v)|$ denotes the cardinal of the set $G(v).$
+
+Regularized Graph Estimator:
+
+\begin{equation}
+  \widehat G = \underset{G}{\arg\max}\Big\{\log \widehat L(G) - \lambda_n\Big\}.
+\end{equation}
 
 ## Regularized Graph Estimator {.smaller}
 
@@ -695,17 +709,17 @@ $$\widehat G = \arg\max_{G \:\in\: \mathcal{G}} H(G).$$
 ![$\qquad\qquad\qquad\qquad G_3$](images/sim/ch3-grafo_aleatorio_viz2.jpg) 
 :::
 
-## Simulated Annealing Algorithm {.smaller} 
-- **Algorithm Overview**:
-  - Initialize with $G_1 \in \mathcal{G}$.
-  - Randomly choose neighbors $G_n^\prime$.
-  - Transition based on a probability formula.
-  - Repeat for $m$ iterations.
-- **Parameter Choices**:
-  - $m$: Number of iterations.
-  - $C$: Constant in $\eta_n = C\log(1+n).$
-  - Initial state $G_1$.
-- Further details in Ross (2006).
+<!-- ## Simulated Annealing Algorithm {.smaller}  -->
+<!-- - **Algorithm Overview**: -->
+<!--   - Initialize with $G_1 \in \mathcal{G}$. -->
+<!--   - Randomly choose neighbors $G_n^\prime$. -->
+<!--   - Transition based on a probability formula. -->
+<!--   - Repeat for $m$ iterations. -->
+<!-- - **Parameter Choices**: -->
+<!--   - $m$: Number of iterations. -->
+<!--   - $C$: Constant in $\eta_n = C\log(1+n).$ -->
+<!--   - Initial state $G_1$. -->
+<!-- - Further details in Ross (2006). -->
 
 ## Backward Stepwise Algorithm
 
@@ -753,7 +767,7 @@ $$\widehat G = \arg\max_{G \:\in\: \mathcal{G}} H(G).$$
 
 ## Simulation Study {.smaller} 
 
-- **Objective**: Assess the performance of the proposed via simulation studies.
+- **Objective**: Assess the performance of the proposed algorithm via simulation studies.
 - **Methodology**:
   - Utilize R language for statistical computing.
   - Evaluate proposed graph estimator individually with each algorithm.
@@ -766,20 +780,13 @@ $$\widehat G = \arg\max_{G \:\in\: \mathcal{G}} H(G).$$
   - Generate random graphs with varying edge numbers.
   - Evaluate estimator's performance across graphs with different edge configuration.
 
-## Simulation Study - Sampling Scheme {.smaller} 
 
-- The Gibbs sampler was set to perform $15{,}000$ iterations, with a burn-in period of $5{,}000$ iterations and thus $10{,}000$ observations forming the final sample $s_1, \dots, s_{10{,}000}$.
-
-- Smaller samples were extracted from the initial sample, with sizes $N \in \{100, 500, 1{,}000, 5{,}000, 10{,}000\}$.
-
-![](images/sim/ex1_sample_scheme_page.jpg){fig-align="center"}
-
-## Example 11 - Scenario 1{.smaller} 
+## Example 11 - Scenario 1 {.smaller} 
 
 - Assume a fixed true graph exists with vertices $X_1, \dots, X_5.$
 
 - Joint probability function of these variables:
-$$    p(x_1,x_2,x_3,x_4,x_5) = p(x_3) p(x_1|x_3) p(x_2|x_1,x_3) p(x_4|x_3) p(x_5|x_3). $$
+$$ p(x_1,x_2,x_3,x_4,x_5) = p(x_3) p(x_1|x_3) p(x_2|x_1,x_3) p(x_4|x_3) p(x_5|x_3). $$
 
 :::: {.columns}
 
@@ -803,7 +810,7 @@ $$    p(x_1,x_2,x_3,x_4,x_5) = p(x_3) p(x_1|x_3) p(x_2|x_1,x_3) p(x_4|x_3) p(x_5
 
 - **Aim**: assess the performance of the algorithms for estimation.
 
-- **Data generation**: Gibbs Sampler algorithm (Geman and Geman, 1984 and Gelfand and Smith, 1990).
+- **Data generation**: Gibbs Sampler algorithm.
 
 <!-- ## Example 11 - Data Generation {.smaller} -->
 
@@ -838,6 +845,18 @@ $$    p(x_1,x_2,x_3,x_4,x_5) = p(x_3) p(x_1|x_3) p(x_2|x_1,x_3) p(x_4|x_3) p(x_5
 
 <!-- ![](images/sim/ex1_1x_exact_N5000.jpg){fig-align="center"} -->
 
+## Example 11 - Sampling Scheme {.smaller} 
+
+- The Gibbs sampler (Geman and Geman, 1984 and Gelfand and Smith, 1990):
+  - iterations: $15{,}000$, 
+  - burn-in period: $5{,}000$,
+  - final sample: $10{,}000$.
+
+- Smaller samples were extracted from the initial sample $s_1, \dots, s_{10{,}000}$, with sizes $N \in \{100, 500, 1{,}000, 5{,}000, 10{,}000\}$.
+
+![](images/sim/ex1_sample_scheme_page.jpg){fig-align="center"}
+
+
 ## Example 11 - Exact Algorithm {.smaller}
 
 Effects of sample size and penalizing constant value.
@@ -862,42 +881,9 @@ Effects of sample size and penalizing constant value.
 Effects of sample size and penalizing constant value.
 ![](images/sim/ex1_1x_grid_fwd.jpg){fig-align="center"}
 
-## The Choice of Penalizing Constant $c$  {.smaller}
+## Example 11 - Several Replications{.smaller}
 
-- **Objective**: Evaluate methods for selecting penalizing constants in real-world scenarios.
-
-- **Approach**:
-  - Utilize $k$-fold cross-validation to assess model performance and select optimal penalizing constant values.
-  - Divide the dataset into $k$ subsets (folds) for training and validation.
-  - Estimate the graph using each fold as validation data and the remaining folds for training.
-  - Compute pseudo-log-likelihood over validation sets for different constant values.
-  - Average pseudo log-likelihood over all folds to select the optimal constant.
- 
-## The Choice of Penalizing Constant $c$  {.smaller}
-
-- **Issue:** Configuration mismatch between training and validation sets can cause problems in cross-validation.
-   $$\hat\pi(a_v|a_{\hat G(v)}) = 0, \text{ resulting in } \mathrm{CV}_k^{(i)}(c) = -\infty.$$ 
-- **Solution:** Introduce the hyperparameter $\gamma$ to handle cases where observed configuration is absent in training set,
-   $$\hat\pi(a_v|a_{\hat G(v)}) = \gamma.$$
-- **Redefinition:** Rescale distribution $\hat\pi(\cdot|a_{\hat G(v)})$ for configurations not seen in training data.
-- **Recommendation:** Set $\gamma$ to a small value for numerical stability.
-- This change ensures stability and reliability of cross-validation method for real-world datasets.
-
-## The Choice of Penalizing Constant $c$  {.smaller}
-
-![](images/sim/ex1_cv_error_with_labels.jpg){fig-align="center"}
-
-$5$-fold cross-validation error for Example 11, considering a sample of size $5{,}000$ and set of values for penalizing constant.
-
-
-## Example 11 - Scenario 2 {.smaller}
-
-- **Objective**: Assess algorithms across diverse scenarios to understand their performance.
-
-- **Methodology**:
-  - Generate samples of different sizes ($N$) ranging from $100$ to $10{,}000$.
-  - Evaluate Exact, Simulated Annealing, Forward Stepwise, and Backward Stepwise algorithms.
-  - Vary penalizing constant values $c = \{0.1, 0.5,$ $1.0, 1.5, 2.0, 2.5, 3.0\}.$
+- **Objective**: generate several samples and assess the performance of the algorithms.
 
 - **Metrics**: underestimation error ($ue$), overestimation error ($oe$), and total error ($te$).
 
@@ -910,13 +896,54 @@ $\qquad \qquad te(G, \hat G) = \frac{ue \sum_{(v, w)}\mathbf{1}\{(v, w) \not\in 
 :::
 
 
-## Example 11 - Scenario 2 {.smaller}
+## Example 11 - Several Replications {.smaller}
 
 ![](images/sim/ex1_10x_tile.jpg){fig-align="center" width=90%}
 
 <!-- - Stepwise algorithms offer appealing alternatives to Exact algorithm. -->
 <!-- - Simulated Annealing results are unsatisfactory, favoring Forward or Backward Stepwise algorithms for practical applications. -->
 
+
+## The Choice of Penalizing Constant $c$  {.smaller}
+
+- Utilize $k$-fold cross-validation to assess model performance and select optimal penalizing constant values.
+
+- Divide the dataset into $k$ subsets (folds) for training and validation.
+
+- Estimate the graph using each fold as validation data and the remaining folds for training.
+
+- Compute pseudo-log-likelihood over validation sets for different constant values.
+
+- Average pseudo log-likelihood over all folds to select the optimal constant.
+
+- Once this value is chosen, the final graph is estimated using the entire sample data with this penalizing constant.
+ 
+<!-- ## The Choice of Penalizing Constant $c$  {.smaller} -->
+
+<!-- - **Issue:** Configuration mismatch between training and validation sets can cause problems in cross-validation. -->
+<!--    $$\hat\pi(a_v|a_{\hat G(v)}) = 0, \text{ resulting in } \mathrm{CV}_k^{(i)}(c) = -\infty.$$  -->
+<!-- - **Solution:** Introduce the hyperparameter $\gamma$ to handle cases where observed configuration is absent in training set, -->
+<!--    $$\hat\pi(a_v|a_{\hat G(v)}) = \gamma.$$ -->
+<!-- - **Redefinition:** Rescale distribution $\hat\pi(\cdot|a_{\hat G(v)})$ for configurations not seen in training data. -->
+<!-- - **Recommendation:** Set $\gamma$ to a small value for numerical stability. -->
+<!-- - This change ensures stability and reliability of cross-validation method for real-world datasets. -->
+
+## The Choice of Penalizing Constant $c$  {.smaller}
+
+![](images/sim/ex1_cv_error_with_labels.jpg){fig-align="center"}
+
+$5$-fold cross-validation error for Example 11, considering a sample of size $5{,}000$ and set of values for penalizing constant.
+
+
+## Example 11 - Scenario 2 {.smaller}
+
+- **Objective**: Assess algorithms across diverse random scenarios to understand their performance.
+
+- **Methodology**:
+  - Gerante random graphs with fixed number of nodes and different number of edges.
+  - Generate samples of different sizes ($N$) ranging from $100$ to $10{,}000$.
+  - Evaluate Exact, Simulated Annealing, Forward Stepwise, and Backward Stepwise algorithms.
+  - Vary penalizing constant values $c = \{0.1, 0.5,$ $1.0, 1.5, 2.0, 2.5, 3.0\}.$
 
 ## Example 12: Random Graphs {.smaller}
 
@@ -1056,10 +1083,10 @@ Estimated graph, considering the penalizing constant value chosen by cross-valid
 
 ## Conclusion and Future Work {.smaller}
 
-- Motivated by Leonardi et al., 2023 and Leonardi, 2021.
-- Introduced penalized pseudo-likelihood criterion and model selection criterion.
+- Motivated by Leonardi et al. (2023) and Leonardi (2021).
+- Introduced a penalized pseudo-likelihood criterion to perform graph estimation for process under mixing conditions.
 - Developed method for estimating entire graph $G$.
-- Proved consistency and convergence rate.
+- Proved consistency and convergence rate of the estimator.
 - Explored implementation approaches: exact, simulated annealing, stepwise.
 - Conducted simulation study to evaluate effectiveness.
 - Showed analysis and application to real-world data.
@@ -1071,8 +1098,6 @@ Estimated graph, considering the penalizing constant value chosen by cross-valid
   - Adapt model to estimate direction of edges for directed graphs.
 
 ## References {.smaller}
-
-
 
 ::: {style="font-size: 80%;"}
 

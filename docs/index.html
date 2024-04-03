@@ -342,9 +342,10 @@
 <li>Introduction</li>
 <li>Motivation</li>
 <li>Regularized Maximum Pseudo-Likelihood Graph Estimator</li>
-<li>Algorithms for estimation</li>
+<li>Algorithms for Estimation</li>
 <li>Simulation Study</li>
-<li>Application to real data</li>
+<li>Application to Real Data</li>
+<li>Conclusion and Future Work</li>
 </ul>
 <!-- 
   1. introducao
@@ -364,10 +365,10 @@
 <section id="vector-valued-stochastic-processes" class="slide level2 smaller">
 <h2>Vector-Valued Stochastic Processes</h2>
 <ul>
-<li><p><span class="math inline">\(X_v^{(i)} \in A,\)</span> <span class="math inline">\(A\)</span> a finite alphabet.</p></li>
 <li><p><span class="math inline">\(\bf X^{(i)} = \big(X_1^{(i)}, X_2^{(i)}, \dots, X_d^{(i)}\big).\)</span></p></li>
+<li><p><span class="math inline">\(X_v^{(i)} \in A,\)</span> <span class="math inline">\(A\)</span> a finite alphabet.</p></li>
 <li><p>Process <span class="math inline">\(\bf X = \{X^{(i)}: -\infty&lt;i&lt;\infty\}.\)</span></p></li>
-<li><p>We assume the process <span class="math inline">\(\bf X\)</span> has an underlying graph <span class="math inline">\(G^*.\)</span></p></li>
+<li><p>We assume the process <span class="math inline">\(\bf X\)</span> has an underlying graph <span class="math inline">\(G^* = (V, E^*)\)</span></p></li>
 </ul>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
@@ -382,10 +383,10 @@
 <section id="vector-valued-stochastic-processes-1" class="slide level2 smaller">
 <h2>Vector-Valued Stochastic Processes</h2>
 <ul>
-<li><p><span class="math inline">\(X_v^{(i)} \in A,\)</span> <span class="math inline">\(A\)</span> a finite alphabet.</p></li>
 <li><p><span class="math inline">\(\bf X^{(i)} = \big(X_1^{(i)}, X_2^{(i)}, \dots, X_d^{(i)}\big).\)</span></p></li>
+<li><p><span class="math inline">\(X_v^{(i)} \in A,\)</span> <span class="math inline">\(A\)</span> a finite alphabet.</p></li>
 <li><p>Process <span class="math inline">\(\bf X = \{X^{(i)}: -\infty&lt;i&lt;\infty\}.\)</span></p></li>
-<li><p>We assume the process <span class="math inline">\(\bf X\)</span> has an underlying graph <span class="math inline">\(G^*.\)</span></p></li>
+<li><p>We assume the process <span class="math inline">\(\bf X\)</span> has an underlying graph <span class="math inline">\(G^* = (V, E^*)\)</span></p></li>
 </ul>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
@@ -400,13 +401,28 @@
 <section id="previous-works" class="slide level2 smaller">
 <h2>Previous works</h2>
 <ul>
-<li><p>Extensive research has been conducted on discrete graphical models or Markov random fields, especially for binary graphical models with pairwise interactions (Lauritzen, 1996, and Galves et al., 2015).</p></li>
-<li><p>Methods for estimating graph structures have been proposed for continuous random variables and various types of interactions (Meinshausen and Bühlmann, 2006).</p></li>
-<li><p>The assumption of independence of the observations in the non-homogeneous Markov random fields setting is often too restrictive.</p></li>
-<li><p>The assumption of independence in observations is often too restrictive in real world scenarios (Cerqueira et al., 2017).</p></li>
-<li><p>The independence assumption does not hold and these methods serve only as approximations to the true underlying distribution.</p></li>
-<li><p>Traditional model selection techniques involve estimating neighborhoods of individual nodes and constructing the graph based on these neighborhoods (Ravikumar et al., 2010).</p></li>
+<li>Extensive research has been conducted on discrete graphical models or Markov random fields, especially for binary graphical models with pairwise interactions (Lauritzen, 1996, and Galves et al., 2015).</li>
 </ul>
+<div class="fragment">
+<ul>
+<li>Methods for estimating graph structures have been proposed for continuous random variables and various types of interactions (Meinshausen and Bühlmann, 2006). <!-- - The assumption of independence of the observations in --> <!-- the non-homogeneous Markov random fields setting is often too restrictive. --></li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li>Traditional model selection techniques involve estimating neighborhoods of individual nodes and constructing the graph based on these neighborhoods (Ravikumar et al., 2010).</li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li>The assumption of independence in observations is often too restrictive in real world scenarios (Cerqueira et al., 2017).</li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li>The independence assumption does not hold and these methods serve only as approximations to the true underlying distribution.</li>
+</ul>
+</div>
 </section>
 <section id="motivation" class="slide level2 smaller">
 <h2>Motivation</h2>
@@ -414,13 +430,13 @@
 <li>Leonardi et al.&nbsp;(2021):
 <ul>
 <li>estimate blocks of independence within multivariate stochastic process,</li>
-<li>applied to both iid and processes under mixing conditions</li>
+<li>applied to both iid and processes under mixing conditions,</li>
 <li>discrete or continuous data.</li>
 </ul></li>
 <li>Leonardi et al.&nbsp;(2023):
 <ul>
 <li>estimate the neighborhood of each vertex and then constructs the graph,</li>
-<li>assume the process is iid</li>
+<li>assume the process is iid,</li>
 <li>discrete data.</li>
 </ul></li>
 </ul>
@@ -431,7 +447,7 @@
 <li><p><strong>Proposal</strong>: Method to estimate the graph of conditional dependencies for multivariate stochastic processes with mixing conditions.</p></li>
 <li><p><strong>Aim</strong>: combine and generalize previous works:</p>
 <ul>
-<li>Leonardi et al.&nbsp;(2023): estimator of neighborhood of each vertext for iid data.,</li>
+<li>Leonardi et al.&nbsp;(2023): estimator of neighborhood of each vertext for iid data,</li>
 <li>Leonardi et al.&nbsp;(2021): method assumes decomposition into subvectors with immediate neighbor dependencies.</li>
 </ul></li>
 </ul>
@@ -450,7 +466,7 @@
 <h2>Mixing Condition</h2>
 <ul>
 <li><p><span class="math inline">\(X^{(i:j)}\)</span> denote the sequence of vectors <span class="math inline">\(X^{(i)}, X^{(i+1)}, \ldots, X^{(j)}.\)</span></p></li>
-<li><p><span class="math inline">\(\bf X = \{X^{(i)}\colon -\infty &lt; i &lt; \infty\}\)</span> satisfies a with rate <span class="math inline">\(\{\psi(\ell)\}_{\ell \in \mathbb R}\)</span> if <span class="math display">\[\begin{equation*}
+<li><p><span class="math inline">\(\bf X = \{X^{(i)}\colon -\infty &lt; i &lt; \infty\}\)</span> satisfies a <em>mixing condition</em> with rate <span class="math inline">\(\{\psi(\ell)\}_{\ell \in \mathbb R}\)</span> if <span class="math display">\[\begin{equation*}
 \begin{split}
   \Bigl| \mathbb P \bigl(X^{(n:(n+k-1))}=x^{(1:k)}\, |\, X^{(1:m)}=x^{(1:m)}&amp;\bigr) - \mathbb P \bigl( X^{(n:(n+k-1))} =x^{(1:k)}\bigr)\Bigr| \\
   &amp;\leq \psi(n-m) \mathbb P\bigl(X^{(n:(n+k-1))}=x^{(1:k)}\bigr),
@@ -462,17 +478,20 @@
 <img data-src="index_files/figure-revealjs/unnamed-chunk-3-1.png" width="960" class="r-stretch quarto-figure-center"></section>
 <section id="empirical-probabilities" class="slide level2 smaller">
 <h2>Empirical Probabilities</h2>
+<p>The stationary distribution of the process <span class="math inline">\(\pi\)</span> is unknown, we must estimate it from the data.</p>
 <p>Assume we observe a sample of size <span class="math inline">\(n\)</span> of the process, denoted by <span class="math inline">\(\{x^{(i)}\colon i=1,\dots,n\}\)</span>. Then, for any <span class="math inline">\(W\subset V\)</span> and any <span class="math inline">\(a_W\in A^{W}\)</span>, <span class="math display">\[\begin{equation*}
     \widehat{\pi}(a_W)  = \frac{N(a_W)}{n}.
 \end{equation*}\]</span></p>
 <p>If <span class="math inline">\(\:\widehat\pi(a_W)&gt;0\)</span>, <span class="math display">\[\begin{equation*}
-    \widehat\pi(a_W|a_{W'})  = \frac{\widehat\pi(a_{W\cup W'})}{\widehat\pi(a_{W'})}\,,
+    \widehat\pi(a_{W'}|a_{W})  = \frac{\widehat\pi(a_{W'\cup W})}{\widehat\pi(a_{W})}\,,
 \end{equation*}\]</span> for two disjoint subsets <span class="math inline">\(W,W'\subset V\)</span> and configurations <span class="math inline">\(a_W\in A^W, a_{W'}\in A^{W'}\)</span>.</p>
-<div class="fragment">
+</section>
+<section id="empirical-probabilities-1" class="slide level2 smaller">
+<h2>Empirical Probabilities</h2>
+<p>Let <span class="math display">\[G(v) = \big\{u \in V: (u,v) \in E \big\}.\]</span></p>
 <p>Given a graph <span class="math inline">\(G\)</span> and a vertex <span class="math inline">\(v \in V,\)</span> we can compute <span class="math display">\[\begin{equation*}
-    \widehat\pi(a_v|a_{G(v)})  = \frac{\widehat\pi(a_{\{v\}\cup G(v)})}{\widehat\pi(a_{G(v)})},
-\end{equation*}\]</span> here we are taking <span class="math inline">\(W = \{v\}\)</span> and <span class="math inline">\(W' = \{G(v)\}.\)</span></p>
-</div>
+    \widehat\pi(a_v|a_{G(v)})  = \frac{\widehat\pi(a_{\{v\}\cup G(v)})}{\widehat\pi(a_{G(v)})}.
+\end{equation*}\]</span></p>
 </section>
 <section id="graph-estimator" class="slide level2 smaller">
 <h2>Graph Estimator</h2>
@@ -483,8 +502,12 @@
     \log \widehat L(G) \;=\;
         % \sum N(a_v,a_{G(v)})\log \widehat\pi(a_v|a_{G(v)})\,,
         \sum_{v \in V} \:\sum_{(a_v\in A)} \:\sum_{a_{G(v)}\in A^{|G(v)|}}
-        N(a_v,a_{G(v)})\log \widehat\pi(a_v|a_{G(v)})\,,
-\end{equation}\]</span> where the sum is taken over all <span class="math inline">\(v\in V\)</span> and all configurations <span class="math inline">\(a_v\in A\)</span>, <span class="math inline">\(a_{G(v)}\in A^{|G(v)|}\)</span> such that <span class="math inline">\(N(a_v,a_{G(v)})&gt;0\)</span>. Here <span class="math inline">\(|G(v)|\)</span> denotes the cardinal of the set <span class="math inline">\(G(v).\)</span></p>
+        N(a_v,a_{G(v)})\log \widehat\pi(a_v|a_{G(v)})\,.
+\end{equation}\]</span></p>
+<p>Regularized Graph Estimator:</p>
+<p><span class="math display">\[\begin{equation}
+  \widehat G = \underset{G}{\arg\max}\Big\{\log \widehat L(G) - \lambda_n\Big\}.
+\end{equation}\]</span></p>
 </section>
 <section id="regularized-graph-estimator" class="slide level2 smaller">
 <h2>Regularized Graph Estimator</h2>
@@ -585,25 +608,17 @@
 </div>
 </div>
 </div>
-</section>
-<section id="simulated-annealing-algorithm-1" class="slide level2 smaller">
-<h2>Simulated Annealing Algorithm</h2>
-<ul>
-<li><strong>Algorithm Overview</strong>:
-<ul>
-<li>Initialize with <span class="math inline">\(G_1 \in \mathcal{G}\)</span>.</li>
-<li>Randomly choose neighbors <span class="math inline">\(G_n^\prime\)</span>.</li>
-<li>Transition based on a probability formula.</li>
-<li>Repeat for <span class="math inline">\(m\)</span> iterations.</li>
-</ul></li>
-<li><strong>Parameter Choices</strong>:
-<ul>
-<li><span class="math inline">\(m\)</span>: Number of iterations.</li>
-<li><span class="math inline">\(C\)</span>: Constant in <span class="math inline">\(\eta_n = C\log(1+n).\)</span></li>
-<li>Initial state <span class="math inline">\(G_1\)</span>.</li>
-</ul></li>
-<li>Further details in Ross (2006).</li>
-</ul>
+<!-- ## Simulated Annealing Algorithm {.smaller}  -->
+<!-- - **Algorithm Overview**: -->
+<!--   - Initialize with $G_1 \in \mathcal{G}$. -->
+<!--   - Randomly choose neighbors $G_n^\prime$. -->
+<!--   - Transition based on a probability formula. -->
+<!--   - Repeat for $m$ iterations. -->
+<!-- - **Parameter Choices**: -->
+<!--   - $m$: Number of iterations. -->
+<!--   - $C$: Constant in $\eta_n = C\log(1+n).$ -->
+<!--   - Initial state $G_1$. -->
+<!-- - Further details in Ross (2006). -->
 </section>
 <section id="backward-stepwise-algorithm" class="slide level2">
 <h2>Backward Stepwise Algorithm</h2>
@@ -652,7 +667,7 @@
 <section id="simulation-study-1" class="slide level2 smaller">
 <h2>Simulation Study</h2>
 <ul>
-<li><strong>Objective</strong>: Assess the performance of the proposed via simulation studies.</li>
+<li><strong>Objective</strong>: Assess the performance of the proposed algorithm via simulation studies.</li>
 <li><strong>Methodology</strong>:
 <ul>
 <li>Utilize R language for statistical computing.</li>
@@ -670,19 +685,11 @@
 </ul></li>
 </ul>
 </section>
-<section id="simulation-study---sampling-scheme" class="slide level2 smaller">
-<h2>Simulation Study - Sampling Scheme</h2>
-<ul>
-<li><p>The Gibbs sampler was set to perform <span class="math inline">\(15{,}000\)</span> iterations, with a burn-in period of <span class="math inline">\(5{,}000\)</span> iterations and thus <span class="math inline">\(10{,}000\)</span> observations forming the final sample <span class="math inline">\(s_1, \dots, s_{10{,}000}\)</span>.</p></li>
-<li><p>Smaller samples were extracted from the initial sample, with sizes <span class="math inline">\(N \in \{100, 500, 1{,}000, 5{,}000, 10{,}000\}\)</span>.</p></li>
-</ul>
-
-<img data-src="images/sim/ex1_sample_scheme_page.jpg" class="r-stretch quarto-figure-center"></section>
 <section id="example-11---scenario-1" class="slide level2 smaller">
 <h2>Example 11 - Scenario 1</h2>
 <ul>
 <li><p>Assume a fixed true graph exists with vertices <span class="math inline">\(X_1, \dots, X_5.\)</span></p></li>
-<li><p>Joint probability function of these variables: <span class="math display">\[    p(x_1,x_2,x_3,x_4,x_5) = p(x_3) p(x_1|x_3) p(x_2|x_1,x_3) p(x_4|x_3) p(x_5|x_3). \]</span></p></li>
+<li><p>Joint probability function of these variables: <span class="math display">\[ p(x_1,x_2,x_3,x_4,x_5) = p(x_3) p(x_1|x_3) p(x_2|x_1,x_3) p(x_4|x_3) p(x_5|x_3). \]</span></p></li>
 </ul>
 <div class="columns">
 <div class="column" style="width:40%;">
@@ -706,7 +713,7 @@
 </div>
 <ul>
 <li><p><strong>Aim</strong>: assess the performance of the algorithms for estimation.</p></li>
-<li><p><strong>Data generation</strong>: Gibbs Sampler algorithm (Geman and Geman, 1984 and Gelfand and Smith, 1990).</p></li>
+<li><p><strong>Data generation</strong>: Gibbs Sampler algorithm.</p></li>
 </ul>
 <!-- ## Example 11 - Data Generation {.smaller} -->
 <!-- 0. Establish theoretical values for the marginal and conditional distributions. -->
@@ -732,6 +739,19 @@
 <!-- Effect of the penalizing constant value. -->
 <!-- ![](images/sim/ex1_1x_exact_N5000.jpg){fig-align="center"} -->
 </section>
+<section id="example-11---sampling-scheme" class="slide level2 smaller">
+<h2>Example 11 - Sampling Scheme</h2>
+<ul>
+<li>The Gibbs sampler (Geman and Geman, 1984 and Gelfand and Smith, 1990):
+<ul>
+<li>iterations: <span class="math inline">\(15{,}000\)</span>,</li>
+<li>burn-in period: <span class="math inline">\(5{,}000\)</span>,</li>
+<li>final sample: <span class="math inline">\(10{,}000\)</span>.</li>
+</ul></li>
+<li>Smaller samples were extracted from the initial sample <span class="math inline">\(s_1, \dots, s_{10{,}000}\)</span>, with sizes <span class="math inline">\(N \in \{100, 500, 1{,}000, 5{,}000, 10{,}000\}\)</span>.</li>
+</ul>
+
+<img data-src="images/sim/ex1_sample_scheme_page.jpg" class="r-stretch quarto-figure-center"></section>
 <section id="example-11---exact-algorithm" class="slide level2 smaller">
 <h2>Example 11 - Exact Algorithm</h2>
 <p>Effects of sample size and penalizing constant value. <img data-src="images/sim/ex1_1x_grid_exact.jpg" data-fig-align="center"></p>
@@ -749,45 +769,10 @@
 <h2>Example 11 - Forward Stepwise</h2>
 <p>Effects of sample size and penalizing constant value. <img data-src="images/sim/ex1_1x_grid_fwd.jpg" data-fig-align="center"></p>
 </section>
-<section id="the-choice-of-penalizing-constant-c" class="slide level2 smaller">
-<h2>The Choice of Penalizing Constant <span class="math inline">\(c\)</span></h2>
+<section id="example-11---several-replications" class="slide level2 smaller">
+<h2>Example 11 - Several Replications</h2>
 <ul>
-<li><p><strong>Objective</strong>: Evaluate methods for selecting penalizing constants in real-world scenarios.</p></li>
-<li><p><strong>Approach</strong>:</p>
-<ul>
-<li>Utilize <span class="math inline">\(k\)</span>-fold cross-validation to assess model performance and select optimal penalizing constant values.</li>
-<li>Divide the dataset into <span class="math inline">\(k\)</span> subsets (folds) for training and validation.</li>
-<li>Estimate the graph using each fold as validation data and the remaining folds for training.</li>
-<li>Compute pseudo-log-likelihood over validation sets for different constant values.</li>
-<li>Average pseudo log-likelihood over all folds to select the optimal constant.</li>
-</ul></li>
-</ul>
-</section>
-<section id="the-choice-of-penalizing-constant-c-1" class="slide level2 smaller">
-<h2>The Choice of Penalizing Constant <span class="math inline">\(c\)</span></h2>
-<ul>
-<li><strong>Issue:</strong> Configuration mismatch between training and validation sets can cause problems in cross-validation. <span class="math display">\[\hat\pi(a_v|a_{\hat G(v)}) = 0, \text{ resulting in } \mathrm{CV}_k^{(i)}(c) = -\infty.\]</span></li>
-<li><strong>Solution:</strong> Introduce the hyperparameter <span class="math inline">\(\gamma\)</span> to handle cases where observed configuration is absent in training set, <span class="math display">\[\hat\pi(a_v|a_{\hat G(v)}) = \gamma.\]</span></li>
-<li><strong>Redefinition:</strong> Rescale distribution <span class="math inline">\(\hat\pi(\cdot|a_{\hat G(v)})\)</span> for configurations not seen in training data.</li>
-<li><strong>Recommendation:</strong> Set <span class="math inline">\(\gamma\)</span> to a small value for numerical stability.</li>
-<li>This change ensures stability and reliability of cross-validation method for real-world datasets.</li>
-</ul>
-</section>
-<section id="the-choice-of-penalizing-constant-c-2" class="slide level2 smaller">
-<h2>The Choice of Penalizing Constant <span class="math inline">\(c\)</span></h2>
-
-<img data-src="images/sim/ex1_cv_error_with_labels.jpg" class="r-stretch quarto-figure-center"><p><span class="math inline">\(5\)</span>-fold cross-validation error for Example 11, considering a sample of size <span class="math inline">\(5{,}000\)</span> and set of values for penalizing constant.</p>
-</section>
-<section id="example-11---scenario-2" class="slide level2 smaller">
-<h2>Example 11 - Scenario 2</h2>
-<ul>
-<li><p><strong>Objective</strong>: Assess algorithms across diverse scenarios to understand their performance.</p></li>
-<li><p><strong>Methodology</strong>:</p>
-<ul>
-<li>Generate samples of different sizes (<span class="math inline">\(N\)</span>) ranging from <span class="math inline">\(100\)</span> to <span class="math inline">\(10{,}000\)</span>.</li>
-<li>Evaluate Exact, Simulated Annealing, Forward Stepwise, and Backward Stepwise algorithms.</li>
-<li>Vary penalizing constant values <span class="math inline">\(c = \{0.1, 0.5,\)</span> <span class="math inline">\(1.0, 1.5, 2.0, 2.5, 3.0\}.\)</span></li>
-</ul></li>
+<li><p><strong>Objective</strong>: generate several samples and assess the performance of the algorithms.</p></li>
 <li><p><strong>Metrics</strong>: underestimation error (<span class="math inline">\(ue\)</span>), overestimation error (<span class="math inline">\(oe\)</span>), and total error (<span class="math inline">\(te\)</span>).</p></li>
 </ul>
 <div id="title-slide" class="center">
@@ -796,12 +781,49 @@
 <p><span class="math inline">\(\qquad \qquad te(G, \hat G) = \frac{ue \sum_{(v, w)}\mathbf{1}\{(v, w) \not\in E\} + oe \sum_{(v, w)}\mathbf{1}\{(v, w) \in E\}}{|V|(|V|-1)/2}.\)</span></p>
 </div>
 </section>
-<section id="example-11---scenario-2-1" class="slide level2 smaller">
-<h2>Example 11 - Scenario 2</h2>
+<section id="example-11---several-replications-1" class="slide level2 smaller">
+<h2>Example 11 - Several Replications</h2>
 
 <!-- - Stepwise algorithms offer appealing alternatives to Exact algorithm. -->
 <!-- - Simulated Annealing results are unsatisfactory, favoring Forward or Backward Stepwise algorithms for practical applications. -->
 <img data-src="images/sim/ex1_10x_tile.jpg" style="width:90.0%" class="r-stretch quarto-figure-center"></section>
+<section id="the-choice-of-penalizing-constant-c" class="slide level2 smaller">
+<h2>The Choice of Penalizing Constant <span class="math inline">\(c\)</span></h2>
+<ul>
+<li><p>Utilize <span class="math inline">\(k\)</span>-fold cross-validation to assess model performance and select optimal penalizing constant values.</p></li>
+<li><p>Divide the dataset into <span class="math inline">\(k\)</span> subsets (folds) for training and validation.</p></li>
+<li><p>Estimate the graph using each fold as validation data and the remaining folds for training.</p></li>
+<li><p>Compute pseudo-log-likelihood over validation sets for different constant values.</p></li>
+<li><p>Average pseudo log-likelihood over all folds to select the optimal constant.</p></li>
+<li><p>Once this value is chosen, the final graph is estimated using the entire sample data with this penalizing constant.</p></li>
+</ul>
+<!-- ## The Choice of Penalizing Constant $c$  {.smaller} -->
+<!-- - **Issue:** Configuration mismatch between training and validation sets can cause problems in cross-validation. -->
+<!--    $$\hat\pi(a_v|a_{\hat G(v)}) = 0, \text{ resulting in } \mathrm{CV}_k^{(i)}(c) = -\infty.$$  -->
+<!-- - **Solution:** Introduce the hyperparameter $\gamma$ to handle cases where observed configuration is absent in training set, -->
+<!--    $$\hat\pi(a_v|a_{\hat G(v)}) = \gamma.$$ -->
+<!-- - **Redefinition:** Rescale distribution $\hat\pi(\cdot|a_{\hat G(v)})$ for configurations not seen in training data. -->
+<!-- - **Recommendation:** Set $\gamma$ to a small value for numerical stability. -->
+<!-- - This change ensures stability and reliability of cross-validation method for real-world datasets. -->
+</section>
+<section id="the-choice-of-penalizing-constant-c-1" class="slide level2 smaller">
+<h2>The Choice of Penalizing Constant <span class="math inline">\(c\)</span></h2>
+
+<img data-src="images/sim/ex1_cv_error_with_labels.jpg" class="r-stretch quarto-figure-center"><p><span class="math inline">\(5\)</span>-fold cross-validation error for Example 11, considering a sample of size <span class="math inline">\(5{,}000\)</span> and set of values for penalizing constant.</p>
+</section>
+<section id="example-11---scenario-2" class="slide level2 smaller">
+<h2>Example 11 - Scenario 2</h2>
+<ul>
+<li><p><strong>Objective</strong>: Assess algorithms across diverse random scenarios to understand their performance.</p></li>
+<li><p><strong>Methodology</strong>:</p>
+<ul>
+<li>Gerante random graphs with fixed number of nodes and different number of edges.</li>
+<li>Generate samples of different sizes (<span class="math inline">\(N\)</span>) ranging from <span class="math inline">\(100\)</span> to <span class="math inline">\(10{,}000\)</span>.</li>
+<li>Evaluate Exact, Simulated Annealing, Forward Stepwise, and Backward Stepwise algorithms.</li>
+<li>Vary penalizing constant values <span class="math inline">\(c = \{0.1, 0.5,\)</span> <span class="math inline">\(1.0, 1.5, 2.0, 2.5, 3.0\}.\)</span></li>
+</ul></li>
+</ul>
+</section>
 <section id="example-12-random-graphs" class="slide level2 smaller">
 <h2>Example 12: Random Graphs</h2>
 
@@ -929,10 +951,10 @@
 <section id="conclusion-and-future-work" class="slide level2 smaller">
 <h2>Conclusion and Future Work</h2>
 <ul>
-<li><p>Motivated by Leonardi et al., 2023 and Leonardi, 2021.</p></li>
-<li><p>Introduced penalized pseudo-likelihood criterion and model selection criterion.</p></li>
+<li><p>Motivated by Leonardi et al.&nbsp;(2023) and Leonardi (2021).</p></li>
+<li><p>Introduced a penalized pseudo-likelihood criterion to perform graph estimation for process under mixing conditions.</p></li>
 <li><p>Developed method for estimating entire graph <span class="math inline">\(G\)</span>.</p></li>
-<li><p>Proved consistency and convergence rate.</p></li>
+<li><p>Proved consistency and convergence rate of the estimator.</p></li>
 <li><p>Explored implementation approaches: exact, simulated annealing, stepwise.</p></li>
 <li><p>Conducted simulation study to evaluate effectiveness.</p></li>
 <li><p>Showed analysis and application to real-world data.</p></li>
