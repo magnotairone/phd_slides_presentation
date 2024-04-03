@@ -368,7 +368,7 @@
 <li><p><span class="math inline">\(\bf X^{(i)} = \big(X_1^{(i)}, X_2^{(i)}, \dots, X_d^{(i)}\big).\)</span></p></li>
 <li><p><span class="math inline">\(X_v^{(i)} \in A,\)</span> <span class="math inline">\(A\)</span> a finite alphabet.</p></li>
 <li><p>Process <span class="math inline">\(\bf X = \{X^{(i)}: -\infty&lt;i&lt;\infty\}.\)</span></p></li>
-<li><p>We assume the process <span class="math inline">\(\bf X\)</span> has an underlying graph <span class="math inline">\(G^* = (V, E^*)\)</span></p></li>
+<li><p>We assume the process <span class="math inline">\(\bf X\)</span> has an underlying graph <span class="math inline">\(G^* = (V, E^*).\)</span></p></li>
 </ul>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
@@ -386,7 +386,7 @@
 <li><p><span class="math inline">\(\bf X^{(i)} = \big(X_1^{(i)}, X_2^{(i)}, \dots, X_d^{(i)}\big).\)</span></p></li>
 <li><p><span class="math inline">\(X_v^{(i)} \in A,\)</span> <span class="math inline">\(A\)</span> a finite alphabet.</p></li>
 <li><p>Process <span class="math inline">\(\bf X = \{X^{(i)}: -\infty&lt;i&lt;\infty\}.\)</span></p></li>
-<li><p>We assume the process <span class="math inline">\(\bf X\)</span> has an underlying graph <span class="math inline">\(G^* = (V, E^*)\)</span></p></li>
+<li><p>We assume the process <span class="math inline">\(\bf X\)</span> has an underlying graph <span class="math inline">\(G^* = (V, E^*).\)</span></p></li>
 </ul>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
@@ -496,7 +496,7 @@
 <section id="graph-estimator" class="slide level2 smaller">
 <h2>Graph Estimator</h2>
 <p>Given any graph <span class="math inline">\(G\)</span> and a sample of the process, we define the pseudo-likelihood function by <span class="math display">\[\begin{equation} \label{eq:def_Lhat}
-    \widehat L(G) \;=\;  \prod_{i=1}^n \:\prod_{v \in V}  \widehat\pi(x^{(i)}_v | x^{(i)}_{G(v)}).
+    \widehat L(G) \;=\;  \prod_{i=1}^n \:\prod_{v \in V}  \widehat\pi(x^{(i)}_v | x^{(i)}_{G(v)})\,.
 \end{equation}\]</span></p>
 <p>Applying the logarithm we can write expression above as <span class="math display">\[\begin{equation}\label{eq:log-pseudo}
     \log \widehat L(G) \;=\;
@@ -504,10 +504,12 @@
         \sum_{v \in V} \:\sum_{(a_v\in A)} \:\sum_{a_{G(v)}\in A^{|G(v)|}}
         N(a_v,a_{G(v)})\log \widehat\pi(a_v|a_{G(v)})\,.
 \end{equation}\]</span></p>
+<div class="fragment">
 <p>Regularized Graph Estimator:</p>
 <p><span class="math display">\[\begin{equation}
-  \widehat G = \underset{G}{\arg\max}\Big\{\log \widehat L(G) - \lambda_n\Big\}.
+  \widehat G = \underset{G}{\arg\max}\Big\{\log \widehat L(G) - \lambda_n \sum_{v \in V} |A|^{|G(v)|}\Big\} \,.
 \end{equation}\]</span></p>
+</div>
 </section>
 <section id="regularized-graph-estimator" class="slide level2 smaller">
 <h2>Regularized Graph Estimator</h2>
@@ -934,10 +936,10 @@
 <ul>
 <li><p>Objective: analyse the Relation between stock exchanges’ performance.</p></li>
 <li><p>Discretization: daily indicator of an increase in the index rate.</p></li>
+<li><p>Data from May 18th, 2010 to September 20th, 2023.</p></li>
 <li><p>Adjustments made to address missing data and holiday schedules.</p></li>
 <li><p>Final dataset comprises <span class="math inline">\(2{,}654\)</span> rows for analysis.</p></li>
-<li><p>Utilized proposed graph estimator with a <span class="math inline">\(5\)</span>-fold cross-validation approach (hyperparameter <span class="math inline">\(\gamma=0.0001\)</span>).</p></li>
-<li><p>Explored a range of penalizing constant values (<span class="math inline">\(c\)</span>) for optimal performance.</p></li>
+<li><p>Utilized proposed graph estimator with a <span class="math inline">\(5\)</span>-fold cross-validation approach to select the penalizing term.</p></li>
 </ul>
 <!-- ## Stock Exchange Data {.smaller} -->
 <!-- ![](images/sim/app_stock_cv_error_with_labels.jpg){fig-align="center"} -->

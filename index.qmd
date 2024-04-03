@@ -51,7 +51,7 @@ editor_options:
 
 - Process $\bf X = \{X^{(i)}: -\infty<i<\infty\}.$
 
-- We assume the process $\bf X$ has an underlying graph $G^* = (V, E^*)$
+- We assume the process $\bf X$ has an underlying graph $G^* = (V, E^*).$
 
 ```{r, engine = 'tikz', fig.align='center', out.height='400px', out.width='667px'}
 % Created by tikzDevice version 0.12.4 on 2024-03-25 21:10:44
@@ -208,7 +208,7 @@ editor_options:
 
 - Process $\bf X = \{X^{(i)}: -\infty<i<\infty\}.$
 
-- We assume the process $\bf X$ has an underlying graph $G^* = (V, E^*)$
+- We assume the process $\bf X$ has an underlying graph $G^* = (V, E^*).$
 
 ```{r, engine = 'tikz', fig.align='center', out.height='400px', out.width='667px'}
 % Created by tikzDevice version 0.12.4 on 2024-03-25 21:11:34
@@ -582,7 +582,7 @@ Given a graph $G$ and a vertex $v \in V,$ we can compute
 
 Given any graph $G$ and a sample of the process,  we define the pseudo-likelihood function by
 \begin{equation} \label{eq:def_Lhat}
-    \widehat L(G) \;=\;  \prod_{i=1}^n \:\prod_{v \in V}  \widehat\pi(x^{(i)}_v | x^{(i)}_{G(v)}).
+    \widehat L(G) \;=\;  \prod_{i=1}^n \:\prod_{v \in V}  \widehat\pi(x^{(i)}_v | x^{(i)}_{G(v)})\,.
 \end{equation}
 
 Applying the logarithm we can write expression above as
@@ -593,10 +593,12 @@ Applying the logarithm we can write expression above as
         N(a_v,a_{G(v)})\log \widehat\pi(a_v|a_{G(v)})\,.
 \end{equation}
 
+. . . 
+
 Regularized Graph Estimator:
 
 \begin{equation}
-  \widehat G = \underset{G}{\arg\max}\Big\{\log \widehat L(G) - \lambda_n\Big\}.
+  \widehat G = \underset{G}{\arg\max}\Big\{\log \widehat L(G) - \lambda_n \sum_{v \in V} |A|^{|G(v)|}\Big\} \,.
 \end{equation}
 
 ## Regularized Graph Estimator {.smaller}
@@ -1061,13 +1063,14 @@ Results similar to Leonardi et al (2021).
 
 - Discretization: daily indicator of an increase in the index rate.
 
+- Data from May 18th, 2010 to September 20th, 2023.
+
 - Adjustments made to address missing data and holiday schedules.
  
 - Final dataset comprises $2{,}654$ rows for analysis.
 
-- Utilized proposed graph estimator with a $5$-fold cross-validation approach (hyperparameter $\gamma=0.0001$).
+- Utilized proposed graph estimator with a $5$-fold cross-validation approach to select the penalizing term.
 
-- Explored a range of penalizing constant values ($c$) for optimal performance.
 
 <!-- ## Stock Exchange Data {.smaller} -->
 

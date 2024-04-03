@@ -11,14 +11,14 @@
     "href": "index.html#vector-valued-stochastic-processes",
     "title": "Estimation and model selection for graphical models under mixing conditions",
     "section": "Vector-Valued Stochastic Processes",
-    "text": "Vector-Valued Stochastic Processes\n\n\\(\\bf X^{(i)} = \\big(X_1^{(i)}, X_2^{(i)}, \\dots, X_d^{(i)}\\big).\\)\n\\(X_v^{(i)} \\in A,\\) \\(A\\) a finite alphabet.\nProcess \\(\\bf X = \\{X^{(i)}: -\\infty&lt;i&lt;\\infty\\}.\\)\nWe assume the process \\(\\bf X\\) has an underlying graph \\(G^* = (V, E^*)\\)"
+    "text": "Vector-Valued Stochastic Processes\n\n\\(\\bf X^{(i)} = \\big(X_1^{(i)}, X_2^{(i)}, \\dots, X_d^{(i)}\\big).\\)\n\\(X_v^{(i)} \\in A,\\) \\(A\\) a finite alphabet.\nProcess \\(\\bf X = \\{X^{(i)}: -\\infty&lt;i&lt;\\infty\\}.\\)\nWe assume the process \\(\\bf X\\) has an underlying graph \\(G^* = (V, E^*).\\)"
   },
   {
     "objectID": "index.html#vector-valued-stochastic-processes-1",
     "href": "index.html#vector-valued-stochastic-processes-1",
     "title": "Estimation and model selection for graphical models under mixing conditions",
     "section": "Vector-Valued Stochastic Processes",
-    "text": "Vector-Valued Stochastic Processes\n\n\\(\\bf X^{(i)} = \\big(X_1^{(i)}, X_2^{(i)}, \\dots, X_d^{(i)}\\big).\\)\n\\(X_v^{(i)} \\in A,\\) \\(A\\) a finite alphabet.\nProcess \\(\\bf X = \\{X^{(i)}: -\\infty&lt;i&lt;\\infty\\}.\\)\nWe assume the process \\(\\bf X\\) has an underlying graph \\(G^* = (V, E^*)\\)"
+    "text": "Vector-Valued Stochastic Processes\n\n\\(\\bf X^{(i)} = \\big(X_1^{(i)}, X_2^{(i)}, \\dots, X_d^{(i)}\\big).\\)\n\\(X_v^{(i)} \\in A,\\) \\(A\\) a finite alphabet.\nProcess \\(\\bf X = \\{X^{(i)}: -\\infty&lt;i&lt;\\infty\\}.\\)\nWe assume the process \\(\\bf X\\) has an underlying graph \\(G^* = (V, E^*).\\)"
   },
   {
     "objectID": "index.html#previous-works",
@@ -67,7 +67,7 @@
     "href": "index.html#graph-estimator",
     "title": "Estimation and model selection for graphical models under mixing conditions",
     "section": "Graph Estimator",
-    "text": "Graph Estimator\nGiven any graph \\(G\\) and a sample of the process, we define the pseudo-likelihood function by \\[\\begin{equation} \\label{eq:def_Lhat}\n    \\widehat L(G) \\;=\\;  \\prod_{i=1}^n \\:\\prod_{v \\in V}  \\widehat\\pi(x^{(i)}_v | x^{(i)}_{G(v)}).\n\\end{equation}\\]\nApplying the logarithm we can write expression above as \\[\\begin{equation}\\label{eq:log-pseudo}\n    \\log \\widehat L(G) \\;=\\;\n        % \\sum N(a_v,a_{G(v)})\\log \\widehat\\pi(a_v|a_{G(v)})\\,,\n        \\sum_{v \\in V} \\:\\sum_{(a_v\\in A)} \\:\\sum_{a_{G(v)}\\in A^{|G(v)|}}\n        N(a_v,a_{G(v)})\\log \\widehat\\pi(a_v|a_{G(v)})\\,.\n\\end{equation}\\]\nRegularized Graph Estimator:\n\\[\\begin{equation}\n  \\widehat G = \\underset{G}{\\arg\\max}\\Big\\{\\log \\widehat L(G) - \\lambda_n\\Big\\}.\n\\end{equation}\\]"
+    "text": "Graph Estimator\nGiven any graph \\(G\\) and a sample of the process, we define the pseudo-likelihood function by \\[\\begin{equation} \\label{eq:def_Lhat}\n    \\widehat L(G) \\;=\\;  \\prod_{i=1}^n \\:\\prod_{v \\in V}  \\widehat\\pi(x^{(i)}_v | x^{(i)}_{G(v)})\\,.\n\\end{equation}\\]\nApplying the logarithm we can write expression above as \\[\\begin{equation}\\label{eq:log-pseudo}\n    \\log \\widehat L(G) \\;=\\;\n        % \\sum N(a_v,a_{G(v)})\\log \\widehat\\pi(a_v|a_{G(v)})\\,,\n        \\sum_{v \\in V} \\:\\sum_{(a_v\\in A)} \\:\\sum_{a_{G(v)}\\in A^{|G(v)|}}\n        N(a_v,a_{G(v)})\\log \\widehat\\pi(a_v|a_{G(v)})\\,.\n\\end{equation}\\]\n\nRegularized Graph Estimator:\n\\[\\begin{equation}\n  \\widehat G = \\underset{G}{\\arg\\max}\\Big\\{\\log \\widehat L(G) - \\lambda_n \\sum_{v \\in V} |A|^{|G(v)|}\\Big\\} \\,.\n\\end{equation}\\]"
   },
   {
     "objectID": "index.html#regularized-graph-estimator",
@@ -270,7 +270,7 @@
     "href": "index.html#stock-exchange-data-1",
     "title": "Estimation and model selection for graphical models under mixing conditions",
     "section": "Stock Exchange Data",
-    "text": "Stock Exchange Data\n\nObjective: analyse the Relation between stock exchanges’ performance.\nDiscretization: daily indicator of an increase in the index rate.\nAdjustments made to address missing data and holiday schedules.\nFinal dataset comprises \\(2{,}654\\) rows for analysis.\nUtilized proposed graph estimator with a \\(5\\)-fold cross-validation approach (hyperparameter \\(\\gamma=0.0001\\)).\nExplored a range of penalizing constant values (\\(c\\)) for optimal performance."
+    "text": "Stock Exchange Data\n\nObjective: analyse the Relation between stock exchanges’ performance.\nDiscretization: daily indicator of an increase in the index rate.\nData from May 18th, 2010 to September 20th, 2023.\nAdjustments made to address missing data and holiday schedules.\nFinal dataset comprises \\(2{,}654\\) rows for analysis.\nUtilized proposed graph estimator with a \\(5\\)-fold cross-validation approach to select the penalizing term."
   },
   {
     "objectID": "index.html#stock-exchange-data-2",
