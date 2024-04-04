@@ -401,7 +401,7 @@ editor_options:
 
 - **Aim**: combine and generalize previous works:
 
-    - Leonardi et al. (2023): estimator of neighborhood of each vertext for iid data,
+    - Leonardi et al. (2023): estimator of neighborhood of each vertex for iid data,
     - Leonardi et al. (2021): method assumes decomposition into subvectors with immediate neighbor dependencies.
 
 . . . 
@@ -570,9 +570,13 @@ for two disjoint subsets  $W,W'\subset V$ and configurations  $a_W\in A^W, a_{W'
 
 ## Empirical Probabilities {.smaller}
 
-Let $$G(v) = \big\{u \in V: (u,v) \in E \big\}.$$
+Given a graph $G=(V,E),$ define
+$$G(v) = \big\{u \in V: (u,v) \in E \big\},$$
+for $v \in V,$ the set of neighbors of $v$ in graph $G.$
 
-Given a graph $G$ and a vertex $v \in V,$ we can compute
+<br/>
+
+Then we can compute
 \begin{equation*}
     \widehat\pi(a_v|a_{G(v)})  = \frac{\widehat\pi(a_{\{v\}\cup G(v)})}{\widehat\pi(a_{G(v)})}.
 \end{equation*}
@@ -595,7 +599,7 @@ Applying the logarithm we can write expression above as
 
 . . . 
 
-Regularized Graph Estimator:
+The regularized graph estimator is given by
 
 \begin{equation}
   \widehat G = \underset{G}{\arg\max}\Big\{\log \widehat L(G) - \lambda_n \sum_{v \in V} |A|^{|G(v)|}\Big\} \,.
@@ -606,14 +610,14 @@ Regularized Graph Estimator:
 <br/><br/>
 **Theorem 10:** Assume the process $\{X^{(i)}: i \in \mathbb{Z}\}$ satisfies the mixing condition presented before
 with $\psi(\ell) = O(1/\ell^{1+\epsilon})$ for some $\epsilon>0.$
-Then, by taking $\lambda_n = o(n^{-1/2}),$ we have that 
+Then, by taking $\lambda_n = O(\log n),$ we have that 
 \begin{equation*}
   \widehat G = \underset{G}{\arg\max}\Big\{\log \widehat L(G) - \lambda_n \sum_{v \in V} |A|^{|G(v)|}\Big\}
 \end{equation*}
 satisfies $\widehat G=G^*$ eventually almost surely as $n\to \infty.$
 
 
-## Theorem Proof Intuition  {.smaller}
+## Intuitive Overview of Theorem Proof  {.smaller}
 
 Consider $\{\widehat G\neq G^*\} = \big\{G^* \subsetneq \widehat G \big\} \cup  \big\{G^* \not\subset \widehat G \big\}.$
 
@@ -769,14 +773,13 @@ $$\widehat G = \arg\max_{G \:\in\: \mathcal{G}} H(G).$$
 
 ## Simulation Study {.smaller} 
 
-- **Objective**: Assess the performance of the proposed algorithm via simulation studies.
-- **Methodology**:
-  - Utilize R language for statistical computing.
-  - Evaluate proposed graph estimator individually with each algorithm.
+- **Objective**: Assess the performance of the proposed algorithms via simulation studies.
+
 
 - **Scenario 1: Fixed True Graph**
   - Generate synthetic data based on fixed true graph.
   - Assess estimator's performance under stability conditions.
+
 
 - **Scenario 2: Random Graphs with Varying Edge Number** 
   - Generate random graphs with varying edge numbers.
@@ -785,7 +788,7 @@ $$\widehat G = \arg\max_{G \:\in\: \mathcal{G}} H(G).$$
 
 ## Example 11 - Scenario 1 {.smaller} 
 
-- Assume a fixed true graph exists with vertices $X_1, \dots, X_5.$
+- Consider  $\mathbf{X} = (X_1, \dots, X_5).$
 
 - Joint probability function of these variables:
 $$ p(x_1,x_2,x_3,x_4,x_5) = p(x_3) p(x_1|x_3) p(x_2|x_1,x_3) p(x_4|x_3) p(x_5|x_3). $$
@@ -891,16 +894,16 @@ Effects of sample size and penalizing constant value.
 
 :::{#title-slide .center}
 $ue(G, \hat G) = \frac{\sum_{(v, w)}\mathbf{1}\{(v, w)\in E \text{ and } (v,w) \not\in \hat E\}}{\sum_{(v, w)}\mathbf{1}\{(v, w) \in E\}},$
-
+<br><br>
 $oe(G, \hat G) = \frac{\sum_{(v, w)}\mathbf{1}\{(v, w)\not\in E \text{ and } (v,w) \in \hat E\}}{\sum_{(v, w)}\mathbf{1}\{(v, w) \not\in E\}},$
-
+<br><br>
 $\qquad \qquad te(G, \hat G) = \frac{ue \sum_{(v, w)}\mathbf{1}\{(v, w) \not\in E\} + oe \sum_{(v, w)}\mathbf{1}\{(v, w) \in E\}}{|V|(|V|-1)/2}.$
 :::
 
 
 ## Example 11 - Several Replications {.smaller}
 
-![](images/sim/ex1_10x_tile.jpg){fig-align="center" width=90%}
+![](images/sim/ex1_10x_tile.jpg){fig-align="center" width=100%}
 
 <!-- - Stepwise algorithms offer appealing alternatives to Exact algorithm. -->
 <!-- - Simulated Annealing results are unsatisfactory, favoring Forward or Backward Stepwise algorithms for practical applications. -->
@@ -908,18 +911,155 @@ $\qquad \qquad te(G, \hat G) = \frac{ue \sum_{(v, w)}\mathbf{1}\{(v, w) \not\in 
 
 ## The Choice of Penalizing Constant $c$  {.smaller}
 
-- Utilize $k$-fold cross-validation to assess model performance and select optimal penalizing constant values.
+Utilize $k$-fold cross-validation to assess model performance and select optimal penalizing constant values.
 
-- Divide the dataset into $k$ subsets (folds) for training and validation.
+```{r, engine = 'tikz', fig.align='center', out.height='300px'}
+% Created by tikzDevice version 0.12.4 on 2024-04-04 09:23:38
+% !TEX encoding = UTF-8 Unicode
+\begin{tikzpicture}[x=1pt,y=1pt]
+\definecolor{fillColor}{RGB}{255,255,255}
+\path[use as bounding box,fill=fillColor,fill opacity=0.00] (0,0) rectangle (361.35,144.54);
+\begin{scope}
+\path[clip] ( 51.29,  8.25) rectangle (355.85,139.04);
+\definecolor{drawColor}{RGB}{0,0,0}
+\definecolor{fillColor}{RGB}{102,194,165}
 
-- Estimate the graph using each fold as validation data and the remaining folds for training.
+\path[draw=drawColor,line width= 0.6pt,fill=fillColor,fill opacity=0.80] ( 65.13, 14.20) rectangle (120.51, 37.51);
 
-- Compute pseudo-log-likelihood over validation sets for different constant values.
+\path[draw=drawColor,line width= 0.6pt,fill=fillColor,fill opacity=0.80] (120.51, 14.20) rectangle (175.88, 37.51);
 
-- Average pseudo log-likelihood over all folds to select the optimal constant.
+\path[draw=drawColor,line width= 0.6pt,fill=fillColor,fill opacity=0.80] (175.88, 14.20) rectangle (231.26, 37.51);
 
-- Once this value is chosen, the final graph is estimated using the entire sample data with this penalizing constant.
- 
+\path[draw=drawColor,line width= 0.6pt,fill=fillColor,fill opacity=0.80] (231.26, 14.20) rectangle (286.63, 37.51);
+\definecolor{fillColor}{RGB}{252,141,98}
+
+\path[draw=drawColor,line width= 0.6pt,fill=fillColor,fill opacity=0.80] (286.63, 14.20) rectangle (342.01, 37.51);
+\definecolor{fillColor}{RGB}{102,194,165}
+
+\path[draw=drawColor,line width= 0.6pt,fill=fillColor,fill opacity=0.80] ( 65.13, 39.84) rectangle (120.51, 60.82);
+
+\path[draw=drawColor,line width= 0.6pt,fill=fillColor,fill opacity=0.80] (120.51, 39.84) rectangle (175.88, 60.82);
+
+\path[draw=drawColor,line width= 0.6pt,fill=fillColor,fill opacity=0.80] (175.88, 39.84) rectangle (231.26, 60.82);
+\definecolor{fillColor}{RGB}{252,141,98}
+
+\path[draw=drawColor,line width= 0.6pt,fill=fillColor,fill opacity=0.80] (231.26, 39.84) rectangle (286.63, 60.82);
+\definecolor{fillColor}{RGB}{102,194,165}
+
+\path[draw=drawColor,line width= 0.6pt,fill=fillColor,fill opacity=0.80] (286.63, 39.84) rectangle (342.01, 60.82);
+
+\path[draw=drawColor,line width= 0.6pt,fill=fillColor,fill opacity=0.80] ( 65.13, 63.15) rectangle (120.51, 84.14);
+
+\path[draw=drawColor,line width= 0.6pt,fill=fillColor,fill opacity=0.80] (120.51, 63.15) rectangle (175.88, 84.14);
+\definecolor{fillColor}{RGB}{252,141,98}
+
+\path[draw=drawColor,line width= 0.6pt,fill=fillColor,fill opacity=0.80] (175.88, 63.15) rectangle (231.26, 84.14);
+\definecolor{fillColor}{RGB}{102,194,165}
+
+\path[draw=drawColor,line width= 0.6pt,fill=fillColor,fill opacity=0.80] (231.26, 63.15) rectangle (286.63, 84.14);
+
+\path[draw=drawColor,line width= 0.6pt,fill=fillColor,fill opacity=0.80] (286.63, 63.15) rectangle (342.01, 84.14);
+
+\path[draw=drawColor,line width= 0.6pt,fill=fillColor,fill opacity=0.80] ( 65.13, 86.47) rectangle (120.51,107.45);
+\definecolor{fillColor}{RGB}{252,141,98}
+
+\path[draw=drawColor,line width= 0.6pt,fill=fillColor,fill opacity=0.80] (120.51, 86.47) rectangle (175.88,107.45);
+\definecolor{fillColor}{RGB}{102,194,165}
+
+\path[draw=drawColor,line width= 0.6pt,fill=fillColor,fill opacity=0.80] (175.88, 86.47) rectangle (231.26,107.45);
+
+\path[draw=drawColor,line width= 0.6pt,fill=fillColor,fill opacity=0.80] (231.26, 86.47) rectangle (286.63,107.45);
+
+\path[draw=drawColor,line width= 0.6pt,fill=fillColor,fill opacity=0.80] (286.63, 86.47) rectangle (342.01,107.45);
+\definecolor{fillColor}{RGB}{252,141,98}
+
+\path[draw=drawColor,line width= 0.6pt,fill=fillColor,fill opacity=0.80] ( 65.13,109.78) rectangle (120.51,133.10);
+\definecolor{fillColor}{RGB}{102,194,165}
+
+\path[draw=drawColor,line width= 0.6pt,fill=fillColor,fill opacity=0.80] (120.51,109.78) rectangle (175.88,133.10);
+
+\path[draw=drawColor,line width= 0.6pt,fill=fillColor,fill opacity=0.80] (175.88,109.78) rectangle (231.26,133.10);
+
+\path[draw=drawColor,line width= 0.6pt,fill=fillColor,fill opacity=0.80] (231.26,109.78) rectangle (286.63,133.10);
+
+\path[draw=drawColor,line width= 0.6pt,fill=fillColor,fill opacity=0.80] (286.63,109.78) rectangle (342.01,133.10);
+
+\node[text=drawColor,anchor=base,inner sep=0pt, outer sep=0pt, scale=  1.10] at ( 92.82,116.47) {Val.};
+
+\node[text=drawColor,anchor=base,inner sep=0pt, outer sep=0pt, scale=  1.10] at (148.19, 93.16) {Val.};
+
+\node[text=drawColor,anchor=base,inner sep=0pt, outer sep=0pt, scale=  1.10] at (203.57, 69.84) {Val.};
+
+\node[text=drawColor,anchor=base,inner sep=0pt, outer sep=0pt, scale=  1.10] at (258.94, 46.53) {Val.};
+
+\node[text=drawColor,anchor=base,inner sep=0pt, outer sep=0pt, scale=  1.10] at (314.32, 23.22) {Val.};
+
+\node[text=drawColor,anchor=base,inner sep=0pt, outer sep=0pt, scale=  1.10] at ( 92.82, 23.22) {Train};
+
+\node[text=drawColor,anchor=base,inner sep=0pt, outer sep=0pt, scale=  1.10] at (148.19, 23.22) {Train};
+
+\node[text=drawColor,anchor=base,inner sep=0pt, outer sep=0pt, scale=  1.10] at (203.57, 23.22) {Train};
+
+\node[text=drawColor,anchor=base,inner sep=0pt, outer sep=0pt, scale=  1.10] at (258.94, 23.22) {Train};
+
+\node[text=drawColor,anchor=base,inner sep=0pt, outer sep=0pt, scale=  1.10] at ( 92.82, 46.53) {Train};
+
+\node[text=drawColor,anchor=base,inner sep=0pt, outer sep=0pt, scale=  1.10] at (148.19, 46.53) {Train};
+
+\node[text=drawColor,anchor=base,inner sep=0pt, outer sep=0pt, scale=  1.10] at (203.57, 46.53) {Train};
+
+\node[text=drawColor,anchor=base,inner sep=0pt, outer sep=0pt, scale=  1.10] at (314.32, 46.53) {Train};
+
+\node[text=drawColor,anchor=base,inner sep=0pt, outer sep=0pt, scale=  1.10] at ( 92.82, 69.84) {Train};
+
+\node[text=drawColor,anchor=base,inner sep=0pt, outer sep=0pt, scale=  1.10] at (148.19, 69.84) {Train};
+
+\node[text=drawColor,anchor=base,inner sep=0pt, outer sep=0pt, scale=  1.10] at (258.94, 69.84) {Train};
+
+\node[text=drawColor,anchor=base,inner sep=0pt, outer sep=0pt, scale=  1.10] at (314.32, 69.84) {Train};
+
+\node[text=drawColor,anchor=base,inner sep=0pt, outer sep=0pt, scale=  1.10] at ( 92.82, 93.16) {Train};
+
+\node[text=drawColor,anchor=base,inner sep=0pt, outer sep=0pt, scale=  1.10] at (203.57, 93.16) {Train};
+
+\node[text=drawColor,anchor=base,inner sep=0pt, outer sep=0pt, scale=  1.10] at (258.94, 93.16) {Train};
+
+\node[text=drawColor,anchor=base,inner sep=0pt, outer sep=0pt, scale=  1.10] at (314.32, 93.16) {Train};
+
+\node[text=drawColor,anchor=base,inner sep=0pt, outer sep=0pt, scale=  1.10] at (148.19,116.47) {Train};
+
+\node[text=drawColor,anchor=base,inner sep=0pt, outer sep=0pt, scale=  1.10] at (203.57,116.47) {Train};
+
+\node[text=drawColor,anchor=base,inner sep=0pt, outer sep=0pt, scale=  1.10] at (258.94,116.47) {Train};
+
+\node[text=drawColor,anchor=base,inner sep=0pt, outer sep=0pt, scale=  1.10] at (314.32,116.47) {Train};
+\end{scope}
+\begin{scope}
+\path[clip] (  0.00,  0.00) rectangle (361.35,144.54);
+\definecolor{drawColor}{gray}{0.30}
+
+\node[text=drawColor,anchor=base east,inner sep=0pt, outer sep=0pt, scale=  0.88] at ( 46.34, 23.99) {Iteration 5};
+
+\node[text=drawColor,anchor=base east,inner sep=0pt, outer sep=0pt, scale=  0.88] at ( 46.34, 47.30) {Iteration 4};
+
+\node[text=drawColor,anchor=base east,inner sep=0pt, outer sep=0pt, scale=  0.88] at ( 46.34, 70.61) {Iteration 3};
+
+\node[text=drawColor,anchor=base east,inner sep=0pt, outer sep=0pt, scale=  0.88] at ( 46.34, 93.93) {Iteration 2};
+
+\node[text=drawColor,anchor=base east,inner sep=0pt, outer sep=0pt, scale=  0.88] at ( 46.34,117.24) {Iteration 1};
+\end{scope}
+\end{tikzpicture}
+
+```
+
+. . .
+
+Compute pseudo-log-likelihood over validation sets for different constant values.
+\begin{equation}
+  \mathrm{CV}_k^{(i)}(c) = \sum_{v \in V} \:\sum_{(a_v\in A)} \:\sum_{a_{\hat G(v)}\in A^{|\hat G(v)|}}
+          N_i(a_v,a_{\widehat G(v)})\log \widehat\pi(a_v|a_{\widehat G(v)})\,,
+\end{equation}
+
 <!-- ## The Choice of Penalizing Constant $c$  {.smaller} -->
 
 <!-- - **Issue:** Configuration mismatch between training and validation sets can cause problems in cross-validation. -->
@@ -943,7 +1083,7 @@ $5$-fold cross-validation error for Example 11, considering a sample of size $5{
 
 - **Methodology**:
   - Gerante random graphs with fixed number of nodes and different number of edges.
-  - Generate samples of different sizes ($N$) ranging from $100$ to $10{,}000$.
+  - Generate samples of size $N=5{,}000$.
   - Evaluate Exact, Simulated Annealing, Forward Stepwise, and Backward Stepwise algorithms.
   - Vary penalizing constant values $c = \{0.1, 0.5,$ $1.0, 1.5, 2.0, 2.5, 3.0\}.$
 
