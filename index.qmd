@@ -721,12 +721,11 @@ $$\widehat G = \arg\max_{G \:\in\: \mathcal{G}} H(G).$$
 ![](images/sim/ex1_1x_bcw_stepwise.jpg){fig-align="center"}
 
 ## Simulated Annealing Algorithm {.smaller} 
-
-- $H(G) = \log \widehat L(G) - \lambda_n \sum_{v \in V} |A|^{|G(v)|}.$
-
 <!-- - $H^* = \max_{G \in \mathcal{G}} \{H(G)\}.$ -->
 
 <!-- - $\mathcal{H} = \{G \in \mathcal{G} : H(G) = H^*\}.$ -->
+
+- $H(G) = \log \widehat L(G) - \lambda_n \sum_{v \in V} |A|^{|G(v)|}.$
 
 - Definition of a neighbor of a graph.
 
@@ -764,7 +763,7 @@ $$\widehat G = \arg\max_{G \:\in\: \mathcal{G}} H(G).$$
 
 - Includes functions to compute the penalized log pseudo-likelihood function.
 
-- Implements the four algorithms considered for estimation: exact, simulated annealing, and forward and backward stepwise.
+- Implements the four algorithms considered for estimation: exact, forward and backward stepwise, and simulated annealing.
 
 :::
 ::::
@@ -1237,7 +1236,7 @@ Estimated graph, considering the penalizing constant value chosen by cross-valid
 - Introduced a penalized pseudo-likelihood criterion to perform graph estimation for process under mixing conditions.
 - Developed method for estimating entire graph $G$.
 - Proved consistency and convergence rate of the estimator.
-- Explored implementation approaches: exact, simulated annealing, stepwise.
+- Explored implementation approaches: exact, stepwise, and simulated annealing.
 - Conducted simulation study to evaluate effectiveness.
 - Showed analysis and application to real-world data.
 

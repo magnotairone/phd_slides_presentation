@@ -116,14 +116,14 @@
     "href": "index.html#simulated-annealing-algorithm",
     "title": "Estimation and model selection for graphical models under mixing conditions",
     "section": "Simulated Annealing Algorithm",
-    "text": "Simulated Annealing Algorithm\n\n\\(H(G) = \\log \\widehat L(G) - \\lambda_n \\sum_{v \\in V} |A|^{|G(v)|}.\\)\n\n\n\n\nDefinition of a neighbor of a graph.\n\n\n\n\n\n\n\n\\(\\qquad\\qquad\\qquad\\qquad G_1\\)\n\n\n\n\n\n\n\n\\(\\qquad\\qquad\\qquad\\qquad G_2\\)\n\n\n\n\n\n\n\n\\(\\qquad\\qquad\\qquad\\qquad G_3\\)"
+    "text": "Simulated Annealing Algorithm\n\n\n\n\\(H(G) = \\log \\widehat L(G) - \\lambda_n \\sum_{v \\in V} |A|^{|G(v)|}.\\)\nDefinition of a neighbor of a graph.\n\n\n\n\n\n\n\n\\(\\qquad\\qquad\\qquad\\qquad G_1\\)\n\n\n\n\n\n\n\n\\(\\qquad\\qquad\\qquad\\qquad G_2\\)\n\n\n\n\n\n\n\n\\(\\qquad\\qquad\\qquad\\qquad G_3\\)"
   },
   {
     "objectID": "index.html#the-mixinggraph-r-package",
     "href": "index.html#the-mixinggraph-r-package",
     "title": "Estimation and model selection for graphical models under mixing conditions",
     "section": "The MixingGraph R package",
-    "text": "The MixingGraph R package\n\n\n\n\n\n\n\n\n\nIncludes functions to compute the penalized log pseudo-likelihood function.\nImplements the four algorithms considered for estimation: exact, simulated annealing, and forward and backward stepwise.\n\n\n\n\nOffers examples on how to use the package.\nAvailable at github.com/magnotairone/MixingGraph."
+    "text": "The MixingGraph R package\n\n\n\n\n\n\n\n\n\nIncludes functions to compute the penalized log pseudo-likelihood function.\nImplements the four algorithms considered for estimation: exact, forward and backward stepwise, and simulated annealing.\n\n\n\n\nOffers examples on how to use the package.\nAvailable at github.com/magnotairone/MixingGraph."
   },
   {
     "objectID": "index.html#simulation-study-1",
@@ -284,7 +284,7 @@
     "href": "index.html#conclusion-and-future-work",
     "title": "Estimation and model selection for graphical models under mixing conditions",
     "section": "Conclusion and Future Work",
-    "text": "Conclusion and Future Work\n\nMotivated by Leonardi et al. (2021) and Leonardi et al. (2023).\nIntroduced a penalized pseudo-likelihood criterion to perform graph estimation for process under mixing conditions.\nDeveloped method for estimating entire graph \\(G\\).\nProved consistency and convergence rate of the estimator.\nExplored implementation approaches: exact, simulated annealing, stepwise.\nConducted simulation study to evaluate effectiveness.\nShowed analysis and application to real-world data.\nFuture Work:\n\nGeneralize approach for continuous multivariate stochastic processes.\nExtend methodology to infinite vertex sets and unbounded estimators.\nAdapt model to estimate direction of edges for directed graphs."
+    "text": "Conclusion and Future Work\n\nMotivated by Leonardi et al. (2021) and Leonardi et al. (2023).\nIntroduced a penalized pseudo-likelihood criterion to perform graph estimation for process under mixing conditions.\nDeveloped method for estimating entire graph \\(G\\).\nProved consistency and convergence rate of the estimator.\nExplored implementation approaches: exact, stepwise, and simulated annealing.\nConducted simulation study to evaluate effectiveness.\nShowed analysis and application to real-world data.\nFuture Work:\n\nGeneralize approach for continuous multivariate stochastic processes.\nExtend methodology to infinite vertex sets and unbounded estimators.\nAdapt model to estimate direction of edges for directed graphs."
   },
   {
     "objectID": "index.html#references",

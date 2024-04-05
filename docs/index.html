@@ -595,13 +595,11 @@
 <img data-src="images/sim/ex1_1x_bcw_stepwise.jpg" class="r-stretch quarto-figure-center"></section>
 <section id="simulated-annealing-algorithm" class="slide level2 smaller">
 <h2>Simulated Annealing Algorithm</h2>
-<ul>
-<li><span class="math inline">\(H(G) = \log \widehat L(G) - \lambda_n \sum_{v \in V} |A|^{|G(v)|}.\)</span></li>
-</ul>
 <!-- - $H^* = \max_{G \in \mathcal{G}} \{H(G)\}.$ -->
 <!-- - $\mathcal{H} = \{G \in \mathcal{G} : H(G) = H^*\}.$ -->
 <ul>
-<li>Definition of a neighbor of a graph.</li>
+<li><p><span class="math inline">\(H(G) = \log \widehat L(G) - \lambda_n \sum_{v \in V} |A|^{|G(v)|}.\)</span></p></li>
+<li><p>Definition of a neighbor of a graph.</p></li>
 </ul>
 <div class="quarto-layout-panel">
 <div class="quarto-layout-row quarto-layout-valign-top">
@@ -655,7 +653,7 @@
 </div><div class="column" style="width:75%;">
 <ul>
 <li><p>Includes functions to compute the penalized log pseudo-likelihood function.</p></li>
-<li><p>Implements the four algorithms considered for estimation: exact, simulated annealing, and forward and backward stepwise.</p></li>
+<li><p>Implements the four algorithms considered for estimation: exact, forward and backward stepwise, and simulated annealing.</p></li>
 </ul>
 </div>
 </div>
@@ -961,7 +959,7 @@
 <li><p>Introduced a penalized pseudo-likelihood criterion to perform graph estimation for process under mixing conditions.</p></li>
 <li><p>Developed method for estimating entire graph <span class="math inline">\(G\)</span>.</p></li>
 <li><p>Proved consistency and convergence rate of the estimator.</p></li>
-<li><p>Explored implementation approaches: exact, simulated annealing, stepwise.</p></li>
+<li><p>Explored implementation approaches: exact, stepwise, and simulated annealing.</p></li>
 <li><p>Conducted simulation study to evaluate effectiveness.</p></li>
 <li><p>Showed analysis and application to real-world data.</p></li>
 <li><p><strong>Future Work</strong>:</p>
