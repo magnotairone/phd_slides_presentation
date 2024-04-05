@@ -4,7 +4,7 @@
     "href": "index.html#agenda",
     "title": "Estimation and model selection for graphical models under mixing conditions",
     "section": "Agenda",
-    "text": "Agenda\n\nIntroduction\nMotivation\nRegularized Maximum Pseudo-Likelihood Graph Estimator\nAlgorithms for Estimation\nSimulation Study\nApplication to Real Data\nConclusion and Future Work"
+    "text": "Agenda\n\nIntroduction\nMotivation\nGraph Estimator\nAlgorithms for Estimation\nSimulation Study\nApplication to Real Data\nConclusion and Future Work"
   },
   {
     "objectID": "index.html#vector-valued-stochastic-processes",

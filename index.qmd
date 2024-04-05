@@ -22,7 +22,7 @@ editor_options:
 
   - Introduction
   - Motivation
-  - Regularized Maximum Pseudo-Likelihood Graph Estimator
+  - Graph Estimator
   - Algorithms for Estimation
   - Simulation Study
   - Application to Real Data
