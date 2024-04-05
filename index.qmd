@@ -724,9 +724,9 @@ $$\widehat G = \arg\max_{G \:\in\: \mathcal{G}} H(G).$$
 
 - $H(G) = \log \widehat L(G) - \lambda_n \sum_{v \in V} |A|^{|G(v)|}.$
 
-- $H^* = \max_{G \in \mathcal{G}} \{H(G)\}.$
+<!-- - $H^* = \max_{G \in \mathcal{G}} \{H(G)\}.$ -->
 
-- $\mathcal{H} = \{G \in \mathcal{G} : H(G) = H^*\}.$
+<!-- - $\mathcal{H} = \{G \in \mathcal{G} : H(G) = H^*\}.$ -->
 
 - Definition of a neighbor of a graph.
 

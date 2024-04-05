@@ -116,7 +116,7 @@
     "href": "index.html#simulated-annealing-algorithm",
     "title": "Estimation and model selection for graphical models under mixing conditions",
     "section": "Simulated Annealing Algorithm",
-    "text": "Simulated Annealing Algorithm\n\n\\(H(G) = \\log \\widehat L(G) - \\lambda_n \\sum_{v \\in V} |A|^{|G(v)|}.\\)\n\\(H^* = \\max_{G \\in \\mathcal{G}} \\{H(G)\\}.\\)\n\\(\\mathcal{H} = \\{G \\in \\mathcal{G} : H(G) = H^*\\}.\\)\nDefinition of a neighbor of a graph.\n\n\n\n\n\n\n\n\\(\\qquad\\qquad\\qquad\\qquad G_1\\)\n\n\n\n\n\n\n\n\\(\\qquad\\qquad\\qquad\\qquad G_2\\)\n\n\n\n\n\n\n\n\\(\\qquad\\qquad\\qquad\\qquad G_3\\)"
+    "text": "Simulated Annealing Algorithm\n\n\\(H(G) = \\log \\widehat L(G) - \\lambda_n \\sum_{v \\in V} |A|^{|G(v)|}.\\)\n\n\n\n\nDefinition of a neighbor of a graph.\n\n\n\n\n\n\n\n\\(\\qquad\\qquad\\qquad\\qquad G_1\\)\n\n\n\n\n\n\n\n\\(\\qquad\\qquad\\qquad\\qquad G_2\\)\n\n\n\n\n\n\n\n\\(\\qquad\\qquad\\qquad\\qquad G_3\\)"
   },
   {
     "objectID": "index.html#the-mixinggraph-r-package",
