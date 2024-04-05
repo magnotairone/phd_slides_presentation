@@ -399,10 +399,11 @@ editor_options:
 
 - **Proposal**: Method to estimate the graph of conditional dependencies for multivariate stochastic processes with mixing conditions.
 
-- **Aim**: combine and generalize previous works:
+- **Aim**: combine and generalize previous works,
+    
+    - Leonardi et al. (2021): method assumes decomposition into subvectors with immediate neighbor dependencies,
 
-    - Leonardi et al. (2023): estimator of neighborhood of each vertex for iid data,
-    - Leonardi et al. (2021): method assumes decomposition into subvectors with immediate neighbor dependencies.
+    - Leonardi et al. (2023): estimator of neighborhood of each vertex for iid data.
 
 . . . 
 
@@ -610,7 +611,7 @@ The regularized graph estimator is given by
 <br/><br/>
 **Theorem 10:** Assume the process $\{X^{(i)}: i \in \mathbb{Z}\}$ satisfies the mixing condition presented before
 with $\psi(\ell) = O(1/\ell^{1+\epsilon})$ for some $\epsilon>0.$
-Then, by taking $\lambda_n = O(\log n),$ we have that 
+Then, by taking $\lambda_n = c \log n,$ we have that 
 \begin{equation*}
   \widehat G = \underset{G}{\arg\max}\Big\{\log \widehat L(G) - \lambda_n \sum_{v \in V} |A|^{|G(v)|}\Big\}
 \end{equation*}
@@ -697,6 +698,28 @@ $$\widehat G = \arg\max_{G \:\in\: \mathcal{G}} H(G).$$
   
   $\qquad |V|=d.$
 
+
+## Forward Stepwise Algorithm
+
+- Starts with an empty graph.
+
+- Adds edges one at a time, selecting the edge that maximizes improvement in fit.
+
+- Stops when no further enhancement in fit is achieved.
+
+![](images/sim/ex1_1x_fwd_stepwise.jpg){fig-align="center"}
+
+
+## Backward Stepwise Algorithm
+
+- Begins with a complete graph.
+- Removes edges one at a time, selecting the edge that maximizes improvement in fit.
+
+- Stops when no further enhancement in fit is achieved.
+
+
+![](images/sim/ex1_1x_bcw_stepwise.jpg){fig-align="center"}
+
 ## Simulated Annealing Algorithm {.smaller} 
 
 - $H(G) = \log \widehat L(G) - \lambda_n \sum_{v \in V} |A|^{|G(v)|}.$
@@ -727,25 +750,6 @@ $$\widehat G = \arg\max_{G \:\in\: \mathcal{G}} H(G).$$
 <!--   - Initial state $G_1$. -->
 <!-- - Further details in Ross (2006). -->
 
-## Backward Stepwise Algorithm
-
-- Begins with a complete graph.
-- Removes edges one at a time, selecting the edge that maximizes improvement in fit.
-
-- Stops when no further enhancement in fit is achieved.
-
-
-![](images/sim/ex1_1x_bcw_stepwise.jpg){fig-align="center"}
-
-## Forward Stepwise Algorithm
-
-- Starts with an empty graph.
-
-- Adds edges one at a time, selecting the edge that maximizes improvement in fit.
-
-- Stops when no further enhancement in fit is achieved.
-
-![](images/sim/ex1_1x_fwd_stepwise.jpg){fig-align="center"}
 
 ## The MixingGraph R package
 
@@ -865,26 +869,29 @@ $$ p(x_1,x_2,x_3,x_4,x_5) = p(x_3) p(x_1|x_3) p(x_2|x_1,x_3) p(x_4|x_3) p(x_5|x_
 ## Example 11 - Exact Algorithm {.smaller}
 
 Effects of sample size and penalizing constant value.
+Here, $\lambda_N = c\log N.$
 ![](images/sim/ex1_1x_grid_exact.jpg){fig-align="center"}
-
-
-## Example 11 - Simulated Annealing {.smaller}
-
-Effects of sample size and penalizing constant value.
-![](images/sim/ex1_1x_grid_SA.jpg){fig-align="center"}
-
-
-<!-- adicionar comentarios -->
-
-## Example 11 - Backward Stepwise {.smaller}
-
-Effects of sample size and penalizing constant value.
-![](images/sim/ex1_1x_grid_bcw.jpg){fig-align="center"}
 
 ## Example 11 - Forward Stepwise {.smaller}
 
 Effects of sample size and penalizing constant value.
+Here, $\lambda_N = c\log N.$
 ![](images/sim/ex1_1x_grid_fwd.jpg){fig-align="center"}
+
+## Example 11 - Backward Stepwise {.smaller}
+
+Effects of sample size and penalizing constant value.
+Here, $\lambda_N = c\log N.$
+![](images/sim/ex1_1x_grid_bcw.jpg){fig-align="center"}
+
+## Example 11 - Simulated Annealing {.smaller}
+
+Effects of sample size and penalizing constant value.
+Here, $\lambda_N = c\log N.$
+![](images/sim/ex1_1x_grid_SA.jpg){fig-align="center"}
+
+
+<!-- adicionar comentarios -->
 
 ## Example 11 - Several Replications{.smaller}
 
@@ -1057,7 +1064,7 @@ Utilize $k$-fold cross-validation to assess model performance and select optimal
 Compute pseudo-log-likelihood over validation sets for different constant values.
 \begin{equation}
   \mathrm{CV}_k^{(i)}(c) = \sum_{v \in V} \:\sum_{(a_v\in A)} \:\sum_{a_{\hat G(v)}\in A^{|\hat G(v)|}}
-          N_i(a_v,a_{\widehat G(v)})\log \widehat\pi(a_v|a_{\widehat G(v)})\,,
+          N_i(a_v,a_{\widehat G(v)})\log \widehat\pi(a_v|a_{\widehat G(v)})\,.
 \end{equation}
 
 <!-- ## The Choice of Penalizing Constant $c$  {.smaller} -->
@@ -1077,7 +1084,7 @@ Compute pseudo-log-likelihood over validation sets for different constant values
 $5$-fold cross-validation error for Example 11, considering a sample of size $5{,}000$ and set of values for penalizing constant.
 
 
-## Example 11 - Scenario 2 {.smaller}
+## Example 12 - Scenario 2 {.smaller}
 
 - **Objective**: Assess algorithms across diverse random scenarios to understand their performance.
 
@@ -1142,13 +1149,13 @@ Average error metrics outcomes of the forward stepwise algorithm as function of 
 
 ## São Francisco River Data {.smaller}
 
-- Data avaiability: daily measurements from October 1st, 1924, to February 28th, 2019.
+- **Data avaiability**: daily measurements from October 1st, 1924, to February 28th, 2019.
 
-- Data considered: from January 1977 to December 2016.
+- **Data considered**: from January 1977 to December 2016.
 
 - Total of 1042 observations.
 
-- Discretizetion of the data into five levels based on quantiles.
+- **Discretizetion** of the data into five levels based on quantiles.
 
 
 ![](images/sim/SF_NAdata.jpg){width=70% fig-align="center"}
@@ -1161,7 +1168,7 @@ Average error metrics outcomes of the forward stepwise algorithm as function of 
 
 ## São Francisco River Data {.smaller}
 
-Forward stepwise algorithm and a $5$-fold cross-validation approach ($\gamma=0.0001$).
+Forward stepwise algorithm and a $5$-fold cross-validation approach.
 
 
 :::: {.columns}
@@ -1199,9 +1206,9 @@ Results similar to Leonardi et al (2021).
 
 ## Stock Exchange Data {.smaller}
 
-- Objective: analyse the Relation between stock exchanges' performance.
+- **Objective**: analyse the Relation between stock exchanges' performance.
 
-- Discretization: daily indicator of an increase in the index rate.
+- **Discretization**: daily indicator of an increase in the index rate.
 
 - Data from May 18th, 2010 to September 20th, 2023.
 
@@ -1209,7 +1216,7 @@ Results similar to Leonardi et al (2021).
  
 - Final dataset comprises $2{,}654$ rows for analysis.
 
-- Utilized proposed graph estimator with a $5$-fold cross-validation approach to select the penalizing term.
+- Forward stepwise algorithm and a $5$-fold cross-validation approach.
 
 
 <!-- ## Stock Exchange Data {.smaller} -->
@@ -1226,7 +1233,7 @@ Estimated graph, considering the penalizing constant value chosen by cross-valid
 
 ## Conclusion and Future Work {.smaller}
 
-- Motivated by Leonardi et al. (2023) and Leonardi (2021).
+- Motivated by Leonardi et al. (2021) and Leonardi et al. (2023).
 - Introduced a penalized pseudo-likelihood criterion to perform graph estimation for process under mixing conditions.
 - Developed method for estimating entire graph $G$.
 - Proved consistency and convergence rate of the estimator.

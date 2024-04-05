@@ -39,7 +39,7 @@
     "href": "index.html#objectives-of-the-research",
     "title": "Estimation and model selection for graphical models under mixing conditions",
     "section": "Objectives of the research",
-    "text": "Objectives of the research\n\nProposal: Method to estimate the graph of conditional dependencies for multivariate stochastic processes with mixing conditions.\nAim: combine and generalize previous works:\n\nLeonardi et al. (2023): estimator of neighborhood of each vertex for iid data,\nLeonardi et al. (2021): method assumes decomposition into subvectors with immediate neighbor dependencies.\n\n\n\n\nProposed solution: penalized pseudo-likelihood criterion for entire graph estimation for multivariate processes with mixing conditions.\nKey advantages:\n\nHandles non-iid data (mixing condition),\nProvides a global estimation approach."
+    "text": "Objectives of the research\n\nProposal: Method to estimate the graph of conditional dependencies for multivariate stochastic processes with mixing conditions.\nAim: combine and generalize previous works,\n\nLeonardi et al. (2021): method assumes decomposition into subvectors with immediate neighbor dependencies,\nLeonardi et al. (2023): estimator of neighborhood of each vertex for iid data.\n\n\n\n\nProposed solution: penalized pseudo-likelihood criterion for entire graph estimation for multivariate processes with mixing conditions.\nKey advantages:\n\nHandles non-iid data (mixing condition),\nProvides a global estimation approach."
   },
   {
     "objectID": "index.html#mixing-condition",
@@ -74,7 +74,7 @@
     "href": "index.html#regularized-graph-estimator",
     "title": "Estimation and model selection for graphical models under mixing conditions",
     "section": "Regularized Graph Estimator",
-    "text": "Regularized Graph Estimator\n Theorem 10: Assume the process \\(\\{X^{(i)}: i \\in \\mathbb{Z}\\}\\) satisfies the mixing condition presented before with \\(\\psi(\\ell) = O(1/\\ell^{1+\\epsilon})\\) for some \\(\\epsilon&gt;0.\\) Then, by taking \\(\\lambda_n = O(\\log n),\\) we have that \\[\\begin{equation*}\n  \\widehat G = \\underset{G}{\\arg\\max}\\Big\\{\\log \\widehat L(G) - \\lambda_n \\sum_{v \\in V} |A|^{|G(v)|}\\Big\\}\n\\end{equation*}\\] satisfies \\(\\widehat G=G^*\\) eventually almost surely as \\(n\\to \\infty.\\)"
+    "text": "Regularized Graph Estimator\n Theorem 10: Assume the process \\(\\{X^{(i)}: i \\in \\mathbb{Z}\\}\\) satisfies the mixing condition presented before with \\(\\psi(\\ell) = O(1/\\ell^{1+\\epsilon})\\) for some \\(\\epsilon&gt;0.\\) Then, by taking \\(\\lambda_n = c \\log n,\\) we have that \\[\\begin{equation*}\n  \\widehat G = \\underset{G}{\\arg\\max}\\Big\\{\\log \\widehat L(G) - \\lambda_n \\sum_{v \\in V} |A|^{|G(v)|}\\Big\\}\n\\end{equation*}\\] satisfies \\(\\widehat G=G^*\\) eventually almost surely as \\(n\\to \\infty.\\)"
   },
   {
     "objectID": "index.html#intuitive-overview-of-theorem-proof",
@@ -98,11 +98,11 @@
     "text": "Exact Algorithm\n\n\\(H(G) = \\log \\widehat L(G) - \\lambda_n \\sum_{v \\in V} |A|^{|G(v)|}.\\)\nDefine \\[\\mathcal{G} = \\Big\\{ G = (V, E): E \\subseteq \\{V\\times V\\} \\setminus \\{(v,v):v \\in V\\}\\Big\\}.\\]\n\n\n\nSet \\[\\widehat G = \\arg\\max_{G \\:\\in\\: \\mathcal{G}} H(G).\\]\nDrawback: computational complexity\n\\(\\qquad |\\mathcal{G}| = 2^{{d(d-1)}/{2}},\\)\n\\(\\qquad |V|=d.\\)"
   },
   {
-    "objectID": "index.html#simulated-annealing-algorithm",
-    "href": "index.html#simulated-annealing-algorithm",
+    "objectID": "index.html#forward-stepwise-algorithm",
+    "href": "index.html#forward-stepwise-algorithm",
     "title": "Estimation and model selection for graphical models under mixing conditions",
-    "section": "Simulated Annealing Algorithm",
-    "text": "Simulated Annealing Algorithm\n\n\\(H(G) = \\log \\widehat L(G) - \\lambda_n \\sum_{v \\in V} |A|^{|G(v)|}.\\)\n\\(H^* = \\max_{G \\in \\mathcal{G}} \\{H(G)\\}.\\)\n\\(\\mathcal{H} = \\{G \\in \\mathcal{G} : H(G) = H^*\\}.\\)\nDefinition of a neighbor of a graph.\n\n\n\n\n\n\n\n\\(\\qquad\\qquad\\qquad\\qquad G_1\\)\n\n\n\n\n\n\n\n\\(\\qquad\\qquad\\qquad\\qquad G_2\\)\n\n\n\n\n\n\n\n\\(\\qquad\\qquad\\qquad\\qquad G_3\\)"
+    "section": "Forward Stepwise Algorithm",
+    "text": "Forward Stepwise Algorithm\n\nStarts with an empty graph.\nAdds edges one at a time, selecting the edge that maximizes improvement in fit.\nStops when no further enhancement in fit is achieved."
   },
   {
     "objectID": "index.html#backward-stepwise-algorithm",
@@ -112,11 +112,11 @@
     "text": "Backward Stepwise Algorithm\n\nBegins with a complete graph.\nRemoves edges one at a time, selecting the edge that maximizes improvement in fit.\nStops when no further enhancement in fit is achieved."
   },
   {
-    "objectID": "index.html#forward-stepwise-algorithm",
-    "href": "index.html#forward-stepwise-algorithm",
+    "objectID": "index.html#simulated-annealing-algorithm",
+    "href": "index.html#simulated-annealing-algorithm",
     "title": "Estimation and model selection for graphical models under mixing conditions",
-    "section": "Forward Stepwise Algorithm",
-    "text": "Forward Stepwise Algorithm\n\nStarts with an empty graph.\nAdds edges one at a time, selecting the edge that maximizes improvement in fit.\nStops when no further enhancement in fit is achieved."
+    "section": "Simulated Annealing Algorithm",
+    "text": "Simulated Annealing Algorithm\n\n\\(H(G) = \\log \\widehat L(G) - \\lambda_n \\sum_{v \\in V} |A|^{|G(v)|}.\\)\n\\(H^* = \\max_{G \\in \\mathcal{G}} \\{H(G)\\}.\\)\n\\(\\mathcal{H} = \\{G \\in \\mathcal{G} : H(G) = H^*\\}.\\)\nDefinition of a neighbor of a graph.\n\n\n\n\n\n\n\n\\(\\qquad\\qquad\\qquad\\qquad G_1\\)\n\n\n\n\n\n\n\n\\(\\qquad\\qquad\\qquad\\qquad G_2\\)\n\n\n\n\n\n\n\n\\(\\qquad\\qquad\\qquad\\qquad G_3\\)"
   },
   {
     "objectID": "index.html#the-mixinggraph-r-package",
@@ -151,28 +151,28 @@
     "href": "index.html#example-11---exact-algorithm",
     "title": "Estimation and model selection for graphical models under mixing conditions",
     "section": "Example 11 - Exact Algorithm",
-    "text": "Example 11 - Exact Algorithm\nEffects of sample size and penalizing constant value."
-  },
-  {
-    "objectID": "index.html#example-11---simulated-annealing",
-    "href": "index.html#example-11---simulated-annealing",
-    "title": "Estimation and model selection for graphical models under mixing conditions",
-    "section": "Example 11 - Simulated Annealing",
-    "text": "Example 11 - Simulated Annealing\nEffects of sample size and penalizing constant value."
-  },
-  {
-    "objectID": "index.html#example-11---backward-stepwise",
-    "href": "index.html#example-11---backward-stepwise",
-    "title": "Estimation and model selection for graphical models under mixing conditions",
-    "section": "Example 11 - Backward Stepwise",
-    "text": "Example 11 - Backward Stepwise\nEffects of sample size and penalizing constant value."
+    "text": "Example 11 - Exact Algorithm\nEffects of sample size and penalizing constant value. Here, \\(\\lambda_N = c\\log N.\\)"
   },
   {
     "objectID": "index.html#example-11---forward-stepwise",
     "href": "index.html#example-11---forward-stepwise",
     "title": "Estimation and model selection for graphical models under mixing conditions",
     "section": "Example 11 - Forward Stepwise",
-    "text": "Example 11 - Forward Stepwise\nEffects of sample size and penalizing constant value."
+    "text": "Example 11 - Forward Stepwise\nEffects of sample size and penalizing constant value. Here, \\(\\lambda_N = c\\log N.\\)"
+  },
+  {
+    "objectID": "index.html#example-11---backward-stepwise",
+    "href": "index.html#example-11---backward-stepwise",
+    "title": "Estimation and model selection for graphical models under mixing conditions",
+    "section": "Example 11 - Backward Stepwise",
+    "text": "Example 11 - Backward Stepwise\nEffects of sample size and penalizing constant value. Here, \\(\\lambda_N = c\\log N.\\)"
+  },
+  {
+    "objectID": "index.html#example-11---simulated-annealing",
+    "href": "index.html#example-11---simulated-annealing",
+    "title": "Estimation and model selection for graphical models under mixing conditions",
+    "section": "Example 11 - Simulated Annealing",
+    "text": "Example 11 - Simulated Annealing\nEffects of sample size and penalizing constant value. Here, \\(\\lambda_N = c\\log N.\\)"
   },
   {
     "objectID": "index.html#example-11---several-replications",
@@ -193,7 +193,7 @@
     "href": "index.html#the-choice-of-penalizing-constant-c",
     "title": "Estimation and model selection for graphical models under mixing conditions",
     "section": "The Choice of Penalizing Constant \\(c\\)",
-    "text": "The Choice of Penalizing Constant \\(c\\)\nUtilize \\(k\\)-fold cross-validation to assess model performance and select optimal penalizing constant values.\n\n\n\n\n\n\n\n\n\n\nCompute pseudo-log-likelihood over validation sets for different constant values. \\[\\begin{equation}\n  \\mathrm{CV}_k^{(i)}(c) = \\sum_{v \\in V} \\:\\sum_{(a_v\\in A)} \\:\\sum_{a_{\\hat G(v)}\\in A^{|\\hat G(v)|}}\n          N_i(a_v,a_{\\widehat G(v)})\\log \\widehat\\pi(a_v|a_{\\widehat G(v)})\\,,\n\\end{equation}\\]"
+    "text": "The Choice of Penalizing Constant \\(c\\)\nUtilize \\(k\\)-fold cross-validation to assess model performance and select optimal penalizing constant values.\n\n\n\n\n\n\n\n\n\n\nCompute pseudo-log-likelihood over validation sets for different constant values. \\[\\begin{equation}\n  \\mathrm{CV}_k^{(i)}(c) = \\sum_{v \\in V} \\:\\sum_{(a_v\\in A)} \\:\\sum_{a_{\\hat G(v)}\\in A^{|\\hat G(v)|}}\n          N_i(a_v,a_{\\widehat G(v)})\\log \\widehat\\pi(a_v|a_{\\widehat G(v)})\\,.\n\\end{equation}\\]"
   },
   {
     "objectID": "index.html#the-choice-of-penalizing-constant-c-1",
@@ -203,11 +203,11 @@
     "text": "The Choice of Penalizing Constant \\(c\\)\n\n\\(5\\)-fold cross-validation error for Example 11, considering a sample of size \\(5{,}000\\) and set of values for penalizing constant."
   },
   {
-    "objectID": "index.html#example-11---scenario-2",
-    "href": "index.html#example-11---scenario-2",
+    "objectID": "index.html#example-12---scenario-2",
+    "href": "index.html#example-12---scenario-2",
     "title": "Estimation and model selection for graphical models under mixing conditions",
-    "section": "Example 11 - Scenario 2",
-    "text": "Example 11 - Scenario 2\n\nObjective: Assess algorithms across diverse random scenarios to understand their performance.\nMethodology:\n\nGerante random graphs with fixed number of nodes and different number of edges.\nGenerate samples of size \\(N=5{,}000\\).\nEvaluate Exact, Simulated Annealing, Forward Stepwise, and Backward Stepwise algorithms.\nVary penalizing constant values \\(c = \\{0.1, 0.5,\\) \\(1.0, 1.5, 2.0, 2.5, 3.0\\}.\\)"
+    "section": "Example 12 - Scenario 2",
+    "text": "Example 12 - Scenario 2\n\nObjective: Assess algorithms across diverse random scenarios to understand their performance.\nMethodology:\n\nGerante random graphs with fixed number of nodes and different number of edges.\nGenerate samples of size \\(N=5{,}000\\).\nEvaluate Exact, Simulated Annealing, Forward Stepwise, and Backward Stepwise algorithms.\nVary penalizing constant values \\(c = \\{0.1, 0.5,\\) \\(1.0, 1.5, 2.0, 2.5, 3.0\\}.\\)"
   },
   {
     "objectID": "index.html#example-12-random-graphs",
@@ -256,7 +256,7 @@
     "href": "index.html#são-francisco-river-data-3",
     "title": "Estimation and model selection for graphical models under mixing conditions",
     "section": "São Francisco River Data",
-    "text": "São Francisco River Data\nForward stepwise algorithm and a \\(5\\)-fold cross-validation approach (\\(\\gamma=0.0001\\)).\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nResults similar to Leonardi et al (2021)."
+    "text": "São Francisco River Data\nForward stepwise algorithm and a \\(5\\)-fold cross-validation approach.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nResults similar to Leonardi et al (2021)."
   },
   {
     "objectID": "index.html#stock-exchange-data",
@@ -270,7 +270,7 @@
     "href": "index.html#stock-exchange-data-1",
     "title": "Estimation and model selection for graphical models under mixing conditions",
     "section": "Stock Exchange Data",
-    "text": "Stock Exchange Data\n\nObjective: analyse the Relation between stock exchanges’ performance.\nDiscretization: daily indicator of an increase in the index rate.\nData from May 18th, 2010 to September 20th, 2023.\nAdjustments made to address missing data and holiday schedules.\nFinal dataset comprises \\(2{,}654\\) rows for analysis.\nUtilized proposed graph estimator with a \\(5\\)-fold cross-validation approach to select the penalizing term."
+    "text": "Stock Exchange Data\n\nObjective: analyse the Relation between stock exchanges’ performance.\nDiscretization: daily indicator of an increase in the index rate.\nData from May 18th, 2010 to September 20th, 2023.\nAdjustments made to address missing data and holiday schedules.\nFinal dataset comprises \\(2{,}654\\) rows for analysis.\nForward stepwise algorithm and a \\(5\\)-fold cross-validation approach."
   },
   {
     "objectID": "index.html#stock-exchange-data-2",
@@ -284,7 +284,7 @@
     "href": "index.html#conclusion-and-future-work",
     "title": "Estimation and model selection for graphical models under mixing conditions",
     "section": "Conclusion and Future Work",
-    "text": "Conclusion and Future Work\n\nMotivated by Leonardi et al. (2023) and Leonardi (2021).\nIntroduced a penalized pseudo-likelihood criterion to perform graph estimation for process under mixing conditions.\nDeveloped method for estimating entire graph \\(G\\).\nProved consistency and convergence rate of the estimator.\nExplored implementation approaches: exact, simulated annealing, stepwise.\nConducted simulation study to evaluate effectiveness.\nShowed analysis and application to real-world data.\nFuture Work:\n\nGeneralize approach for continuous multivariate stochastic processes.\nExtend methodology to infinite vertex sets and unbounded estimators.\nAdapt model to estimate direction of edges for directed graphs."
+    "text": "Conclusion and Future Work\n\nMotivated by Leonardi et al. (2021) and Leonardi et al. (2023).\nIntroduced a penalized pseudo-likelihood criterion to perform graph estimation for process under mixing conditions.\nDeveloped method for estimating entire graph \\(G\\).\nProved consistency and convergence rate of the estimator.\nExplored implementation approaches: exact, simulated annealing, stepwise.\nConducted simulation study to evaluate effectiveness.\nShowed analysis and application to real-world data.\nFuture Work:\n\nGeneralize approach for continuous multivariate stochastic processes.\nExtend methodology to infinite vertex sets and unbounded estimators.\nAdapt model to estimate direction of edges for directed graphs."
   },
   {
     "objectID": "index.html#references",
